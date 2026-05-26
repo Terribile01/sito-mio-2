@@ -1,0 +1,273 @@
+{
+  "theme": {
+    "palette": {
+      "rules": "60-30-10",
+      "background_60": "#E2DDD3",
+      "text_and_structure_30": "#2D2B28",
+      "accents_10": {
+        "khaki_beige": "#9C9478",
+        "khaki_beige_2": "#A69978",
+        "olive_wood": "#756D52",
+        "charcoal_brown": "#454340"
+      }
+    },
+    "navbar": {
+      "background": "bg-[#E2DDD3]/70",
+      "blur": "backdrop-blur-md",
+      "border": "border-[#9C9478]/15"
+    },
+    "cta": {
+      "primary": {
+        "bg": "bg-[#756D52]",
+        "text": "text-[#E2DDD3]",
+        "hover": "hover:bg-[#454340]",
+        "shadow": "shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)]"
+      },
+      "secondary": {
+        "border": "border-[#756D52]",
+        "text": "text-[#756D52]",
+        "hover_bg": "hover:bg-[#756D52]/10"
+      }
+    }
+  },
+  "sitemap": [
+    {
+      "id": "home",
+      "name": "Home",
+      "path": "/",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "FacilissimoWeb | Sviluppo Web Strategico per Microimprenditori",
+        "description": "Abbatto le barriere tecnologiche creando siti web performanti su misura e sistemi automatici di lead generation per far crescere il tuo business.",
+        "ogTitle": "FacilissimoWeb | Sviluppo Web e Lead Generation Strategica",
+        "ogDescription": "Siti web in codice puro o WordPress con automazioni integrate."
+      }
+    },
+    {
+      "id": "chi-sono",
+      "name": "Chi Sono",
+      "path": "/chi-sono",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "Chi Sono | FacilissimoWeb | Grafica e Comunicazione Visiva",
+        "description": "Diplomata in grafica pubblicitaria e laureata in Comunicazione Visiva. Unisco il rigore accademico alle ultime tecnologie per darti soluzioni funzionali.",
+        "ogTitle": "Chi Sono | FacilissimoWeb",
+        "ogDescription": "Il mio percorso unisce il design tradizionale alla passione per l'informatica."
+      }
+    },
+    {
+      "id": "servizi",
+      "name": "Servizi Web",
+      "path": "/servizi",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "Servizi Web Strategici | FacilissimoWeb",
+        "description": "Siti web e sistemi digitali integrati. Scegli tra la flessibilità di WordPress e le prestazioni estreme del Codice Puro.",
+        "ogTitle": "Sviluppo Web: WordPress & Codice Puro | FacilissimoWeb",
+        "ogDescription": "Progetti su misura per le tue esigenze e scalabilità futura."
+      }
+    },
+    {
+      "id": "social-lead-generation",
+      "name": "Social & Lead Gen",
+      "path": "/social-lead-generation",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "Social & Lead Generation Automatica | FacilissimoWeb",
+        "description": "Insieme trasformiamo i tuoi canali social in macchine di acquisizione attiva automatizzate. Oltre le campagne a vuoto, dialoghi intelligenti.",
+        "ogTitle": "Sistemi Automatici di Acquisizione Clienti | FacilissimoWeb",
+        "ogDescription": "Il sistema che vende per te mentre tu sei occupato nel tuo lavoro."
+      }
+    },
+    {
+      "id": "contatti",
+      "name": "Contatti",
+      "path": "/contatti",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "Contatti | Inizia il Dialogo | FacilissimoWeb",
+        "description": "Vuoi abbattere la barriera tecnologica? Contattami oggi. Compila il modulo intelligente per profilare la tua richiesta.",
+        "ogTitle": "Contatta FacilissimoWeb",
+        "ogDescription": "Compila il form intelligente per richiedere informazioni e consulenza."
+      }
+    },
+    {
+      "id": "privacy-policy",
+      "name": "Privacy Policy",
+      "path": "/privacy",
+      "excludeFromNavbar": true,
+      "seo": {
+        "title": "Privacy Policy | FacilissimoWeb",
+        "description": "Informative legali e di tutela dei tuoi dati personali, in piena compliance con le direttive correnti.",
+        "ogTitle": "Privacy Policy",
+        "ogDescription": "Informativa sulla privacy di FacilissimoWeb"
+      }
+    },
+    {
+      "id": "cookie-policy",
+      "name": "Cookie Policy",
+      "path": "/cookie",
+      "excludeFromNavbar": true,
+      "seo": {
+        "title": "Cookie Policy | FacilissimoWeb",
+        "description": "Trasparenza sui cookie e strumenti di tracciamento utilizzati su questo sito web.",
+        "ogTitle": "Cookie Policy",
+        "ogDescription": "Informativa sui cookie di FacilissimoWeb"
+      }
+    },
+    {
+      "id": "not-found",
+      "name": "Pagina 404",
+      "path": "/404",
+      "excludeFromNavbar": true,
+      "seo": {
+        "title": "Pagina Non Trovata | FacilissimoWeb",
+        "description": "Sembra che tu ti sia perso nel labirinto digitale. Non preoccuparti, torniamo al sicuro.",
+        "ogTitle": "Errore 404 - Pagina Non Trovata",
+        "ogDescription": "Ritorna in sicurezza alla homepage di FacilissimoWeb."
+      }
+    }
+  ],
+  "assets_manifest": {
+    "logo": {
+      "path": "/assets/images/logo_placeholder.svg",
+      "alt": "Logo FacilissimoWeb - Comunicazione Visiva e Web Strategico"
+    },
+    "profile_photo": {
+      "path": "/assets/images/profile_placeholder.jpg",
+      "alt": "Foto profilo di Maria Teresa, Designer e Web Developer"
+    },
+    "web_wordpress_illustration": {
+      "path": "/assets/images/wordpress_placeholder.svg",
+      "alt": "Illustrazione sviluppo WordPress flessibile ed integrato con automazioni"
+    },
+    "web_custom_illustration": {
+      "path": "/assets/images/custom_code_placeholder.svg",
+      "alt": "Illustrazione sviluppo frontend in codice puro ad alte prestazioni"
+    },
+    "social_lead_illustration": {
+      "path": "/assets/images/lead_gen_placeholder.svg",
+      "alt": "Illustrazione flusso automatico di acquisizione lead qualificati"
+    }
+  },
+  "components": {
+    "navbar": {
+      "brand_name": "FacilissimoWeb",
+      "logo_text": "FacilissimoWeb.it",
+      "tagline": "Umanesimo Digitale per la Microimprenditoria"
+    },
+    "hero": {
+      "home_hero": {
+        "title": "Abbatto la barriera tecnologica per far fiorire il tuo business",
+        "subtitle": "Umanesimo Digitale & Sistemi Integrati",
+        "description": "Rendo semplice, elegante e concreto ciò che fino a ieri sembrava complesso o costoso. Unisco il rigore del design tradizionale a motori web automatizzati ad alte prestazioni.",
+        "cta_primary": {
+          "label": "Inizia il Dialogo",
+          "action_path": "/contatti"
+        },
+        "cta_secondary": {
+          "label": "Scopri i Servizi",
+          "action_path": "/servizi"
+        }
+      },
+      "chi_sono_hero": {
+        "title": "Chi compie le scelte estetiche, guida la strategia digitale",
+        "subtitle": "Il Rigore Accademico della Comunicazione Visiva",
+        "description": "Sono diplomata in grafica pubblicitaria e laureata in Comunicazione Visiva Multimediale. Il mio percorso unisce il design tradizionale con la passione tecnologica per darti strumenti concreti, eleganti e funzionali.",
+        "cta_primary": {
+          "label": "Inizia il Dialogo",
+          "action_path": "/contatti"
+        }
+      },
+      "servizi_hero": {
+        "title": "Sistemi Integrati per la tua Crescita",
+        "subtitle": "Sviluppo Web Strategico",
+        "description": "Ogni progetto è unico. Offro soluzioni su misura divise su due grandi pilastri per garantirti massima flessibilità o prestazioni pure senza compromessi.",
+        "cta_primary": {
+          "label": "Scegli la tua soluzione",
+          "action_path": "#scelte-web"
+        }
+      },
+      "social_hero": {
+        "title": "I social non sono una vetrina statica, sono un'estensione attiva del tuo ufficio.",
+        "subtitle": "Social & Lead Generation Automatica",
+        "description": "Insieme trasformiamo i tuoi canali in macchine di acquisizione attiva. Niente campagne a vuoto, solo contatti profilati ed automazioni intelligenti.",
+        "cta_primary": {
+          "label": "Inizia il Dialogo",
+          "action_path": "#strategie"
+        },
+        "cta_secondary": {
+          "label": "Profila la tua richiesta",
+          "action_path": "/contatti"
+        }
+      },
+      "contatti_hero": {
+        "title": "Pronto a fare il prossimo passo digitale?",
+        "subtitle": "Inizia il Dialogo con Me",
+        "description": "Raccontami il tuo progetto. Niente moduli freddi o risposte automatiche standard, ma un flusso intelligente per profilare il tuo bisogno ed offrirti la soluzione perfetta.",
+        "cta_primary": {
+          "label": "Vai al Modulo",
+          "action_path": "#modulo-contatti"
+        }
+      }
+    },
+    "sezione_strategie_social": {
+      "title": "Il Sistema che Vende",
+      "subtitle": "La Strategia di Lead Generation Automatica",
+      "description": "Basta campagne improvvisate che non portano risultati. Creiamo un ponte tecnologico tra la curiosità del cliente e il tuo lavoro quotidiano.",
+      "pillars": [
+        {
+          "index": "01",
+          "title": "Oltre le 'Campagne a Vuoto'",
+          "description": "La maggior parte del mercato spinge verso promozioni inconcludenti. Per me, la campagna è solo l'anello finale di una comunicazione strategica già attiva, funzionale e interamente misurabile."
+        },
+        {
+          "index": "02",
+          "title": "Dialogo Intelligente",
+          "description": "Se il tuo profilo Instagram o Facebook non converte, non è colpa dell'algoritmo ma della mancanza di un 'ponte'. Sviluppo automazioni con l'ausilio di IA per dialogare istantaneamente con i follower."
+        },
+        {
+          "index": "03",
+          "title": "Lead Profilati & Vendite Finalizzate",
+          "description": "Il sistema guida l'utente dalla semplice curiosità alla formulazione della richiesta specifica. Non riceverai semplici 'like', ma contatti caldi e pronti all'acquisto, filtrati mentre ti occupi del tuo business."
+        }
+      ],
+      "footer_claim": "Questo è l'Umanesimo Digitale: la tecnologia lavora in background, restituendoti il valore più prezioso: il tuo Tempo.",
+      "cta": {
+        "label": "Profila la tua richiesta",
+        "action_path": "/contatti"
+      }
+    },
+    "sezione_servizi_dettaglio": {
+      "option_wordpress": {
+        "tag": "Semplice & Flessibile",
+        "title": "WordPress (Open Source)",
+        "subtitle": "Soluzioni solide, scalabili ed integrate",
+        "description": "Perfetto per chi desidera una gestione autonoma del proprio sito, arricchita da automazioni native e un design accattivante. Una base solida che cresce insieme al tuo business.",
+        "features": [
+          "Integrazione facile ad automazioni aziendali",
+          "Pannello di controllo intuitivo per modifiche ai testi",
+          "Performance e ottimizzazione SEO ai massimi livelli",
+          "Assistenza integrata e scalabilità dei plugin"
+        ]
+      },
+      "option_custom_code": {
+        "tag": "Estremo & Unico",
+        "title": "Siti Generativi su Misura",
+        "subtitle": "Codice Professionale per performance estreme",
+        "description": "Siti web scritti interamente a mano in codice puro (React/Tailwind/Vite). Eliminazione totale del superfluo, caricamento istantaneo, sicurezza massima ed unicità assoluta per chi desidera distinguersi.",
+        "features": [
+          "Velocità di caricamento record (punteggi PageSpeed vicini a 100)",
+          "Architettura di sicurezza impenetrabile",
+          "Zero costi di licenze o abbonamenti plugin terzi",
+          "Esperienza utente fluida con micro-animazioni avanzate"
+        ]
+      }
+    },
+    "comune_footer": {
+      "tagline": "Umanesimo Digitale. Persone al centro, tecnologia come alleata.",
+      "copyright": "© 2026 FacilissimoWeb. Tutti i diritti riservati.",
+      "legal_links_title": "Compliance & Policy"
+    }
+  }
+}

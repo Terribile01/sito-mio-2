@@ -1,0 +1,6 @@
+{
+  "name": "FacilissimoWeb",
+  "description": "Sito web strategico, sistemi integrati e lead generation automatica per la microimprenditoria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
