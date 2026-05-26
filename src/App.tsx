@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { SiteConfig, SitemapItem } from "./types";
 import siteConfigData from "./site-config.json";
 
-// Background Image
-import backgroundImage from "./assets/images/abstract_background_1779802425994.png";
-
 // Components
 import SEO from "./components/SEO";
 import Navbar from "./components/Navbar";
@@ -97,20 +94,8 @@ export default function App() {
   return (
     <div
       id="root-app-layout"
-      className="relative min-h-screen bg-[#E2DDD3] text-[#2D2B28] flex flex-col selection:bg-[#756D52] selection:text-[#E2DDD3]"
+      className="min-h-screen bg-[#E2DDD3] text-[#2D2B28] flex flex-col selection:bg-[#756D52] selection:text-[#E2DDD3]"
     >
-      {/* Background layer - subtle base texture flow */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0 opacity-[0.065] bg-cover bg-center bg-no-repeat select-none"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      />
-
-      {/* Top paper watermark - tactile blend unifying text and graphics */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-50 opacity-[0.035] bg-cover bg-center bg-no-repeat select-none mix-blend-multiply"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      />
-
       {/* SEO Element updating titles dynamically based on active route */}
       <SEO metadata={activeSitemap.seo} />
 
@@ -118,7 +103,7 @@ export default function App() {
       <Navbar config={config} currentPath={currentPath} onNavigate={navigate} />
 
       {/* Main Page Canvas with smooth enter/fade transition */}
-      <main id="main-content" className="relative z-10 flex-grow pt-8">
+      <main id="main-content" className="flex-grow pt-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPath}
