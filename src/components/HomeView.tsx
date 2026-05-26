@@ -1,5 +1,5 @@
 import { SiteConfig } from "../types";
-import { ArrowRight, Workflow, ShieldAlert, Cpu, Laptop, Users2, CodeXml, HeartHandshake } from "lucide-react";
+import { ArrowRight, Workflow, ShieldAlert, Cpu, Laptop, Users2, CodeXml, HeartHandshake, Smartphone, Zap } from "lucide-react";
 import { motion } from "motion/react";
 
 interface HomeViewProps {
@@ -89,43 +89,67 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Card 1: Abbandonare il complicato */}
-          <div className="bg-[#E2DDD3] border border-[#454340]/10 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-sm">
+          <motion.div 
+            id="manifesto-card-1"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
+            className="bg-[#E2DDD3] border border-[#454340]/15 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-[0_12px_24px_-8px_rgba(69,67,64,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(117,109,82,0.18)] transition-all duration-400"
+          >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center transition-colors hover:bg-[#756D52]/20">
                 <ShieldAlert size={24} />
               </div>
-              <h3 className="font-sans text-xl font-bold text-[#454340]">Abbattere la Barriera Tecnica</h3>
-              <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
-                Mi rivolgo alla microimprenditoria locale e online, spesso digiuna d'informatica. Il mio obiettivo principale è semplificare e rendere democratico ciò che fino ad ora sembrava ostile, inaccessibile o costoso.
+              <h3 className="font-sans text-xl font-bold text-[#454340] tracking-tight">Abbatte la Barriera Tecnica</h3>
+              <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
+                Mi rivolgo con massima trasparenza alla microimprenditoria locale e online. Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile o fumoso dai soliti tecnicismi speculativi, portando stabilità al tuo fatturato.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Umanesimo Digitale */}
-          <div className="bg-[#E2DDD3] border border-[#454340]/10 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-sm">
+          <motion.div 
+            id="manifesto-card-2"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
+            className="bg-[#E2DDD3] border border-[#454340]/15 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-[0_12px_24px_-8px_rgba(69,67,64,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(117,109,82,0.18)] transition-all duration-400"
+          >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center transition-colors hover:bg-[#756D52]/20">
                 <HeartHandshake size={24} />
               </div>
-              <h3 className="font-sans text-xl font-bold text-[#454340]">L'Umanesimo Digitale</h3>
-              <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
-                Le persone devono essere al centro del progresso tecnologico. La tecnologia e l'IA non devono schiacciare il tuo business, ma liberare il tuo tempo affinché tu possa dedicarti unicamente a ciò che ami del tuo lavoro.
+              <h3 className="font-sans text-xl font-bold text-[#454340] tracking-tight">Umanesimo Digitale Reale</h3>
+              <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
+                Le persone e le relazioni concrete guidano il progresso, non gli automatismi senz'anima. Costruisco infrastrutture per liberare il tuo tempo prezioso, permettendoti di focalizzarti sulla vera essenza del tuo mestiere.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: Rigore e Strategia */}
-          <div className="bg-[#E2DDD3] border border-[#454340]/10 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-sm md:col-span-2 lg:col-span-1">
+          <motion.div 
+            id="manifesto-card-3"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
+            className="bg-[#E2DDD3] border border-[#454340]/15 p-8 rounded-lg flex flex-col justify-between space-y-8 shadow-[0_12px_24px_-8px_rgba(69,67,64,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(117,109,82,0.18)] transition-all duration-400 md:col-span-2 lg:col-span-1"
+          >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center transition-colors hover:bg-[#756D52]/20">
                 <Workflow size={24} />
               </div>
-              <h3 className="font-sans text-xl font-bold text-[#454340]">Il Rigore Visivo</h3>
-              <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
-                Laureata in Comunicazione Visiva, unisco il rigore estetico del design tradizionale alle performance dei sistemi digitali moderni. Ogni pixel e logica risponde a una solida strategia di business.
+              <h3 className="font-sans text-xl font-bold text-[#454340] tracking-tight">Rigore Strutturale Visivo</h3>
+              <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
+                Grazie alla mia formazione specialistica in Comunicazione Visiva e Strategia Digitale, applico una rigorosa eleganza estetica. Ogni scelta cromatica, tipografica e di flusso segue un preciso scopo di conversione.
               </p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -159,22 +183,133 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {socialData.pillars.map((pillar) => (
-                <div key={pillar.index} className="bg-[#E2DDD3] border border-[#454340]/20 p-6 rounded-md space-y-4">
-                  <span className="font-mono text-2xl font-bold text-[#9C9478]/50 block">
+              {socialData.pillars.map((pillar, idx) => (
+                <motion.div
+                  key={pillar.index}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, borderColor: "rgba(117,109,82,0.4)" }}
+                  className="bg-[#E2DDD3] border border-[#454340]/20 p-6 rounded-md space-y-4 shadow-[0_8px_16px_-4px_rgba(69,67,64,0.06)] hover:shadow-[0_16px_32px_-8px_rgba(117,109,82,0.15)] transition-all duration-350 cursor-default"
+                >
+                  <span className="font-mono text-2xl font-bold text-[#9C9478]/60 block">
                     {pillar.index}
                   </span>
                   <h4 className="font-sans font-bold text-[#454340] text-base">
                     {pillar.title}
                   </h4>
-                  <p className="font-sans text-xs text-[#2D2B28]/85 leading-relaxed">
+                  <p className="font-sans text-xs text-[#2D2B28]/90 leading-relaxed">
                     {pillar.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Dynamic AI Process Optimization section - Alternating to deep Charcoal theme to create an epic structural rhythm */}
+      <section id="ai-case-studies" className="bg-[#2D2B28] text-[#E2DDD3] py-20 border-y border-[#454340]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="font-mono text-xs font-bold text-[#A69978] tracking-widest uppercase block">
+              IA Semplificata e Applicata
+            </span>
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-[#E2DDD3] tracking-tight">
+              Esempi Reali: Come l'IA Velocizza e Libera il Tuo Tempo
+            </h2>
+            <p className="font-sans text-sm text-[#E2DDD3]/70 leading-relaxed">
+              L'Intelligenza Artificiale non sostituisce l'artigianalità del tuo lavoro, ma la protegge eliminando compiti ripetitivi e risposte manuali lente.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Card 1: Assistente Instagram/WA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] hover:border-[#A69978]/40 p-8 rounded-lg space-y-4 transition-all duration-300 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
+                <Smartphone size={20} />
+              </div>
+              <h3 className="font-sans font-bold text-lg text-[#E2DDD3]">Lead qualificati in automatico</h3>
+              <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
+                Quando un utente commenta un tuo post Instagram, il sistema invia istantaneamente un DM privato con un quiz informativo. Chi risponde viene qualificato come lead pronto a comprare.
+              </p>
+              <div className="pt-2">
+                <span className="font-mono text-[10px] text-[#A69978] bg-[#A69978]/10 px-2.5 py-1 rounded">
+                  Tempo risparmiato: 2.5 ore al giorno
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Scrittura Programmatica */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] hover:border-[#A69978]/40 p-8 rounded-lg space-y-4 transition-all duration-300 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
+                <Zap size={20} />
+              </div>
+              <h3 className="font-sans font-bold text-lg text-[#E2DDD3]">Piano Editoriale in 15 minuti</h3>
+              <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
+                Addestriamo un assistente GPT personalizzato sul tuo specifico modo di parlare e scrivere. Genera idee di post mensili pronti da revisionare, azzerando il blocco creativo.
+              </p>
+              <div className="pt-2">
+                <span className="font-mono text-[10px] text-[#A69978] bg-[#A69978]/10 px-2.5 py-1 rounded">
+                  Produttività: +900%
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Assistente Prenotazioni */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] hover:border-[#A69978]/40 p-8 rounded-lg space-y-4 transition-all duration-300 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
+                <Users2 size={20} />
+              </div>
+              <h3 className="font-sans font-bold text-lg text-[#E2DDD3]">Pre-profilazione e Appuntamenti</h3>
+              <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
+                I clienti compilano un questionario d'ingresso interattivo integrato sul tuo sito. Il sistema consiglia lo slot perfetto sul calendario senza scambiare 10 email avanti e indietro.
+              </p>
+              <div className="pt-2">
+                <span className="font-mono text-[10px] text-[#A69978] bg-[#A69978]/10 px-2.5 py-1 rounded">
+                  Zero telefonate a vuoto
+                </span>
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* Interactive button inside dark block to show beautiful contrasting color action */}
+          <div className="mt-12 flex justify-center">
+            <button
+              id="cta-ai-cases-learn"
+              onClick={() => onNavigate("/contatti")}
+              className="font-sans font-bold text-xs uppercase tracking-wider bg-[#E2DDD3] text-[#2D2B28] hover:bg-[#A69978] hover:text-[#2D2B28] px-6 py-3.5 rounded transition-all duration-300 cursor-pointer shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+            >
+              Richiedi la tua integrazione personalizzata
+            </button>
+          </div>
+
         </div>
       </section>
 
@@ -195,7 +330,15 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Option 1: WordPress */}
-          <div className="bg-[#E2DDD3] border border-[#454340]/10 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:border-[#756D52]/30 transition-all duration-300">
+          <motion.div 
+            id="home-service-wordpress"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
+            className="bg-[#E2DDD3] border border-[#454340]/15 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-[0_15px_30px_-5px_rgba(69,67,64,0.08)] hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)] transition-all duration-400 relative overflow-hidden group"
+          >
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[10px] tracking-wider uppercase bg-[#756D52]/10 text-[#756D52] px-2.5 py-1 rounded">
@@ -209,7 +352,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <p className="font-sans text-sm font-semibold text-[#756D52]">
                 {serviziData.option_wordpress.subtitle}
               </p>
-              <p className="font-sans text-sm text-[#2D2B28]/90 leading-relaxed">
+              <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
                 {serviziData.option_wordpress.description}
               </p>
               <ul className="space-y-2 pt-2">
@@ -226,16 +369,24 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <button
                 id="home-wordpress-details"
                 onClick={() => onNavigate("/servizi")}
-                className="font-sans font-bold text-xs text-[#756D52] hover:text-[#454340] uppercase tracking-wider flex items-center gap-2.5 cursor-pointer"
+                className="font-sans font-bold text-xs text-[#756D52] hover:text-[#454340] uppercase tracking-wider flex items-center gap-2.5 cursor-pointer group-hover:translate-x-1 transition-transform"
               >
                 Scopri lo sviluppo WordPress
                 <ArrowRight size={14} />
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Option 2: Custom Code */}
-          <div className="bg-[#E2DDD3] border border-[#454340]/10 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:border-[#756D52]/30 transition-all duration-300">
+          <motion.div 
+            id="home-service-custom"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
+            className="bg-[#E2DDD3] border border-[#454340]/15 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-[0_15px_30px_-5px_rgba(69,67,64,0.08)] hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)] transition-all duration-400 relative overflow-hidden group"
+          >
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[10px] tracking-wider uppercase bg-[#9C9478]/10 text-[#756D52] px-2.5 py-1 rounded">
@@ -249,7 +400,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <p className="font-sans text-sm font-semibold text-[#756D52]">
                 {serviziData.option_custom_code.subtitle}
               </p>
-              <p className="font-sans text-sm text-[#2D2B28]/90 leading-relaxed">
+              <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
                 {serviziData.option_custom_code.description}
               </p>
               <ul className="space-y-2 pt-2">
@@ -266,13 +417,13 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <button
                 id="home-customcode-details"
                 onClick={() => onNavigate("/servizi")}
-                className="font-sans font-bold text-xs text-[#756D52] hover:text-[#454340] uppercase tracking-wider flex items-center gap-2.5 cursor-pointer"
+                className="font-sans font-bold text-xs text-[#756D52] hover:text-[#454340] uppercase tracking-wider flex items-center gap-2.5 cursor-pointer group-hover:translate-x-1 transition-transform"
               >
                 Scopri lo sviluppo in Codice Puro
                 <ArrowRight size={14} />
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>

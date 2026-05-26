@@ -71,31 +71,54 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
 
           {/* Core Values pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-            <div className="bg-[#E2DDD3]/50 border border-[#454340]/10 p-5 rounded-md space-y-2">
+            <motion.div 
+              id="chisono-pillar-compositivo"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              whileHover={{ y: -6, borderColor: "rgba(117,109,82,0.3)" }}
+              className="bg-[#E2DDD3]/50 border border-[#454340]/15 p-5 rounded-md space-y-2 shadow-[0_8px_16px_-4px_rgba(69,67,64,0.05)] hover:shadow-[0_16px_32px_-8px_rgba(117,109,82,0.12)] transition-all duration-300"
+            >
               <h4 className="font-sans font-bold text-[#454340] flex items-center gap-2">
                 <Compass className="text-[#756D52]" size={18} />
                 Il Rigore Compositivo
               </h4>
-              <p className="font-sans text-xs text-[#2D2B28]/85">
-                Il design non è decorazione fine a se stessa. È usabilità, psicologia percettiva e architettura delle informazioni applicata.
+              <p className="font-sans text-xs text-[#2D2B28]/95 leading-relaxed">
+                Il design non è decorazione fine a se stessa. È usabilità, psicologia percettiva applicata e architettura millimetrica delle informazioni.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-[#E2DDD3]/50 border border-[#454340]/10 p-5 rounded-md space-y-2">
+            <motion.div 
+              id="chisono-pillar-semplificazione"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              whileHover={{ y: -6, borderColor: "rgba(117,109,82,0.3)" }}
+              className="bg-[#E2DDD3]/50 border border-[#454340]/15 p-5 rounded-md space-y-2 shadow-[0_8px_16px_-4px_rgba(69,67,64,0.05)] hover:shadow-[0_16px_32px_-8px_rgba(117,109,82,0.12)] transition-all duration-300"
+            >
               <h4 className="font-sans font-bold text-[#454340] flex items-center gap-2">
                 <Lightbulb className="text-[#756D52]" size={18} />
-                Semplificazione Reale
+                Semplificazione Operativa
               </h4>
-              <p className="font-sans text-xs text-[#2D2B28]/85">
-                Rendo comprensibile, limpido e gestibile ciò che fino a ieri ti è sembrato volutamente difficile o incredibilmente costoso.
+              <p className="font-sans text-xs text-[#2D2B28]/95 leading-relaxed">
+                Rendo immediato, cristallino e perfettamente controllabile ciò che fino a ieri ti è sembrato ostile o inutilmente costoso da gestire.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Philosophy Block & Accented Card */}
-        <div className="lg:col-span-5 flex flex-col justify-center">
-          <div className="bg-[#E2DDD3] border border-[#756D52]/30 p-8 rounded-lg shadow-sm space-y-6 relative overflow-hidden">
+        <motion.div 
+          id="chisono-philosophy-column"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-5 flex flex-col justify-center"
+        >
+          <div className="bg-[#E2DDD3] border border-[#756D52]/40 p-8 rounded-lg shadow-[0_15px_35px_-5px_rgba(117,109,82,0.12)] space-y-6 relative overflow-hidden transition-all duration-300 hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)]">
             <div className="absolute top-0 right-0 w-24 h-24 bg-[#756D52]/10 rounded-full blur-2xl pointer-events-none" />
             
             <div className="flex items-center gap-3">
@@ -105,23 +128,23 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
               </h3>
             </div>
             
-            <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
-              La tecnologia e l'Intelligenza Artificiale non sono nate per sopprimere la tua impresa o costringerti a infiniti corsi di formazione. Devono invece elevarti, offrendoti sistemi intelligenti per gestire il caos ordinario quotidiano.
+            <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
+              La tecnologia e l'Intelligenza Artificiale non devono intimidire le nostre attività commerciali locali. Devono invece sostenerci, offrendo schemi ordinati per vincere la complessità ordinaria quotidiana.
             </p>
             
-            <p className="font-sans text-xs text-[#756D52]/90 leading-relaxed italic border-l-2 border-[#756D52] pl-3">
-              "Umanesimo digitale significa rimettere le persone al centro del progresso. La tecnologia deve servire a migliorare la vita reale, non essere fine a se stessa."
+            <p className="font-sans text-xs text-[#756D52] font-semibold leading-relaxed italic border-l-2 border-[#756D52] pl-3">
+              "Umanesimo digitale significa rimettere le persone concrete al centro dei flussi di lavoro. La tecnologia è un servitore formidabile, non uno spauracchio."
             </p>
 
             <button
               id="chisono-conversational-cta"
               onClick={() => onNavigate("/contatti")}
-              className="w-full mt-4 font-sans font-semibold text-xs tracking-wider uppercase bg-[#756D52] text-[#E2DDD3] py-3 rounded-md hover:bg-[#454340] text-center transition-colors shadow-sm cursor-pointer block"
+              className="w-full mt-4 font-sans font-semibold text-xs tracking-wider uppercase bg-[#756D52] text-[#E2DDD3] py-3.5 rounded-md hover:bg-[#454340] text-center transition-all shadow-[0_10px_20px_-10px_rgba(117,109,82,0.4)] hover:shadow-none cursor-pointer block"
             >
               Inizia il Dialogo con Maria Teresa
             </button>
           </div>
-        </div>
+        </motion.div>
 
       </section>
 
