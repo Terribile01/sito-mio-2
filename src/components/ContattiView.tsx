@@ -273,10 +273,10 @@ export default function ContattiView({ config }: ContattiProps) {
   const activeSocialObject = socialOptions.find(o => o.id === selectedSocialOption) || socialOptions[0];
 
   return (
-    <div id="contatti-page-view" className="space-y-16 pb-24">
+    <div id="contatti-page-view" className="space-y-0 pb-0">
       
       {/* Dynamic Header Section with high contrast layout */}
-      <section id="contatti-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-gradient-to-b from-[#D2C9B9]/40 to-[#E2DDD3]">
+      <section id="contatti-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-gradient-to-b from-[#D2C9B9]/40 to-[#E2DDD3] w-full">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#756D52]/10 rounded-full blur-[130px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -298,13 +298,20 @@ export default function ContattiView({ config }: ContattiProps) {
       </section>
 
       {/* Main Container - Interactive Section with alternate dark slate & warm wood tones */}
-      <section id="modulo-contatti" className="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section id="contatti-form-container" className="w-full bg-[#E2DDD3] py-16 border-t border-[#454340]/10">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left column: Alternating Dark Slate Informative Box & IA Processes explanation */}
         <div className="lg:col-span-4 space-y-8">
           
           {/* Box 1: Alternate dark color background (Rich Charcoal) */}
-          <div className="bg-[#2D2B28] text-[#E2DDD3] p-8 rounded-lg shadow-[0_15px_30px_-5px_rgba(45,43,40,0.3)] space-y-6 border border-[#454340]">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6 }}
+            className="bg-[#2D2B28] text-[#E2DDD3] p-8 rounded-lg shadow-[0_15px_30px_-5px_rgba(45,43,40,0.3)] space-y-6 border border-[#454340]"
+          >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#E2DDD3]/10 flex items-center justify-center text-[#A69978]">
                 <Clock size={20} />
@@ -315,7 +322,7 @@ export default function ContattiView({ config }: ContattiProps) {
               </div>
             </div>
             
-            <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
+            <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed font-normal">
               Il sistema intelligente adatta automaticamente le domande in base al settore di competenza proposto. Riceverai un report completo pronto all'invio.
             </p>
 
@@ -333,10 +340,16 @@ export default function ContattiView({ config }: ContattiProps) {
                 <span>Scegli se inviarlo su WhatsApp o tramite Email classica</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* AI Proceses Info Pill: "Come l'IA Velocizza la tua Impresa" */}
-          <div className="bg-[#D2C9B9] border border-[#756D52]/20 p-8 rounded-lg shadow-[0_10px_20px_-8px_rgba(117,109,82,0.15)] space-y-5">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-[#D2C9B9] border border-[#756D52]/20 p-8 rounded-lg shadow-[0_10px_20px_-8px_rgba(117,109,82,0.15)] space-y-5"
+          >
             <span className="font-mono text-[9px] font-bold tracking-widest uppercase bg-[#756D52]/15 text-[#756D52] px-2 py-0.5 rounded-sm">
               Integrazione IA Attiva
             </span>
@@ -358,7 +371,7 @@ export default function ContattiView({ config }: ContattiProps) {
                 L'IA suggerisce testi, angoli di vendita e newsletter programmate pronte da rifinire ed inviare.
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
@@ -786,7 +799,8 @@ export default function ContattiView({ config }: ContattiProps) {
           </div>
 
         </div>
-      </section>
+      </div>
+    </section>
 
     </div>
   );

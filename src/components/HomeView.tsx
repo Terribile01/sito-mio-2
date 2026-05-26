@@ -14,10 +14,10 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
   const serviziData = components.sezione_servizi_dettaglio;
 
   return (
-    <div id="home-view" className="space-y-24 pb-16">
+    <div id="home-view" className="space-y-0 pb-0">
       
       {/* Dynamic Hero Section */}
-      <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden w-full bg-[#E2DDD3]">
         {/* Subtle radial backdrop accent */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#9C9478]/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -85,8 +85,9 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
       </section>
 
       {/* Manifesto Intro Cards (Bento style) */}
-      <section id="manifesto-intro" className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section id="manifesto-intro" className="w-full bg-[#E2DDD3] py-16 border-t border-[#454340]/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Card 1: Abbandonare il complicato */}
           <motion.div 
@@ -152,14 +153,21 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
           </motion.div>
 
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Sezione Strategie Social & Lead Gen Preview */}
       <section id="social-preview-section" className="bg-[#E2DDD3] border-y border-[#454340]/10 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-5 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="lg:col-span-5 space-y-6"
+            >
               <span className="font-mono text-xs font-semibold text-[#756D52] tracking-widest uppercase">
                 {socialData.subtitle}
               </span>
@@ -180,7 +188,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                   <ArrowRight size={16} />
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {socialData.pillars.map((pillar, idx) => (
@@ -214,7 +222,13 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
       <section id="ai-case-studies" className="bg-[#2D2B28] text-[#E2DDD3] py-20 border-y border-[#454340]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+          >
             <span className="font-mono text-xs font-bold text-[#A69978] tracking-widest uppercase block">
               IA Semplificata e Applicata
             </span>
@@ -224,7 +238,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             <p className="font-sans text-sm text-[#E2DDD3]/70 leading-relaxed">
               L'Intelligenza Artificiale non sostituisce l'artigianalità del tuo lavoro, ma la protegge eliminando compiti ripetitivi e risposte manuali lente.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
@@ -314,20 +328,27 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
       </section>
 
       {/* Services Breakdown Preview */}
-      <section id="services-preview" className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="font-mono text-xs font-semibold text-[#756D52] tracking-widest uppercase mb-1 block">
-            I Miei Pilastri Tecnologici
-          </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-bold text-[#454340]">
-            Sviluppo Web Strategico Integrato
-          </h2>
-          <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
-            Ogni microimpresa ha bisogni differenti. Offro soluzioni su misura divise su due grandi pilastri per garantirti massima autonomia o prestazioni purissime.
-          </p>
-        </div>
+      <section id="services-preview" className="w-full bg-[#E2DDD3] py-20 border-t border-[#454340]/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-2xl mx-auto mb-16 space-y-4"
+          >
+            <span className="font-mono text-xs font-semibold text-[#756D52] tracking-widest uppercase mb-1 block">
+              I Miei Pilastri Tecnologici
+            </span>
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-[#454340]">
+              Sviluppo Web Strategico Integrato
+            </h2>
+            <p className="font-sans text-sm text-[#2D2B28] leading-relaxed">
+              Ogni microimpresa ha bisogni differenti. Offro soluzioni su misura divise su due grandi pilastri per garantirti massima autonomia o prestazioni purissime.
+            </p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Option 1: WordPress */}
           <motion.div 
@@ -425,28 +446,31 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             </div>
           </motion.div>
 
+          </div>
         </div>
       </section>
 
       {/* Dynamic CTA Banner */}
-      <section id="banner-cta" className="max-w-7xl mx-auto px-6 lg:px-12 pt-8">
-        <div className="bg-[#756D52] text-[#E2DDD3] rounded-lg p-8 md:p-12 text-center space-y-6 shadow-[0_10px_30px_rgba(117,109,82,0.15)] relative overflow-hidden">
-          <div className="absolute inset-0 bg-radial from-transparent to-[#454340]/20 pointer-events-none" />
-          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-            <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight">
-              Basta subire la tecnologia. Usala a tuo favore.
-            </h3>
-            <p className="font-sans text-sm sm:text-base text-[#E2DDD3]/90 leading-relaxed">
-              Il mio obiettivo è abbattere le distanze tecniche e darti piena autonomia d'impresa lavorativa. Rendi semplice ciò che finora sembrava faticoso ed elevato.
-            </p>
-            <div className="pt-4 flex justify-center">
-              <button
-                id="banner-cta-btn"
-                onClick={() => onNavigate("/contatti")}
-                className="font-sans font-semibold text-sm uppercase tracking-wider bg-[#E2DDD3] text-[#756D52] hover:bg-[#E2DDD3]/90 px-8 py-4 rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                Inizia il Dialogo con Maria Teresa
-              </button>
+      <section id="banner-cta" className="w-full bg-[#E2DDD3] py-16 border-t border-[#454340]/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="bg-[#756D52] text-[#E2DDD3] rounded-lg p-8 md:p-12 text-center space-y-6 shadow-[0_10px_30px_rgba(117,109,82,0.15)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-radial from-transparent to-[#454340]/20 pointer-events-none" />
+            <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+              <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight">
+                Basta subire la tecnologia. Usala a tuo favore.
+              </h3>
+              <p className="font-sans text-sm sm:text-base text-[#E2DDD3]/90 leading-relaxed">
+                Il mio obiettivo è abbattere le distanze tecniche e darti piena autonomia d'impresa lavorativa. Rendi semplice ciò che finora sembrava faticoso ed elevato.
+              </p>
+              <div className="pt-4 flex justify-center">
+                <button
+                  id="banner-cta-btn"
+                  onClick={() => onNavigate("/contatti")}
+                  className="font-sans font-semibold text-sm uppercase tracking-wider bg-[#E2DDD3] text-[#756D52] hover:bg-[#E2DDD3]/90 px-8 py-4 rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  Inizia il Dialogo con Maria Teresa
+                </button>
+              </div>
             </div>
           </div>
         </div>

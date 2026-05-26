@@ -214,7 +214,13 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
       <section id="scelte-web" className="bg-[#D2C9B9] py-16 border-t border-[#454340]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-2xl mx-auto mb-12"
+          >
             <span className="font-mono text-xs font-bold text-[#756D52] tracking-wider uppercase block">
               I Tre Sistemi d'Intervento
             </span>
@@ -224,7 +230,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <p className="font-sans text-xs text-[#2D2B28]/90 mt-2">
               Seleziona la tecnologia o l'automazione per approfondire i nostri percorsi d'ingegnerizzazione digitale.
             </p>
-          </div>
+          </motion.div>
 
           {/* Elegant system tab buttons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto mb-12">
@@ -445,7 +451,13 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
       <section className="bg-[#2D2B28] text-[#E2DDD3] py-20 border-y border-[#454340]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+          >
             <span className="font-mono text-xs font-bold text-[#A69978] tracking-widest uppercase block">
               Ingegnerizzazione del Lavoro
             </span>
@@ -455,12 +467,19 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <p className="font-sans text-sm text-[#E2DDD3]/70 leading-relaxed">
               Grazie agli strumenti di IA ottimizziamo tempi di sviluppo, scrittura di copy strategici e interconnessioni di dati, garantendoti risultati professionali in metà tempo.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1: Copywriting accelerato */}
-            <div className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300"
+            >
               <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
                 <BookOpen size={18} />
               </div>
@@ -468,10 +487,17 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
                 Niente paura di spendere settimane ad aspettare i testi. Tramite modelli linguistici avanzati guidati dal mio stampo di Comunicazione Visiva, generiamo testi impeccabili orientati alla conversione del tuo potenziale cliente.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 2: Layout & Asset Mockups */}
-            <div className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300"
+            >
               <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
                 <Layout size={18} />
               </div>
@@ -479,10 +505,17 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
                 Niente fotografie stock finte o spersonalizzate. Utilizziamo potenti generatori di immagini stabili per progettare icone vettoriali, sfondi custom coordinati e copertine professionali che rispecchiano i tuoi reali valori di brand locale.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 3: SEO Semantica Automatica */}
-            <div className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -6 }}
+              className="bg-[#2D2B28] border border-[#454340] p-8 rounded-lg space-y-4 shadow-sm hover:border-[#A69978]/40 transition-all duration-300"
+            >
               <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
                 <Database size={18} />
               </div>
@@ -490,7 +523,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
                 Tutte le pagine web vengono indicizzate scansionando le intenzioni di ricerca reali dei tuoi clienti su Google. Gli algoritmi di IA strutturano tag ordinati, titoli ad alta pertinenza d'acquisto e schemi di dati semantici perfetti.
               </p>
-            </div>
+            </motion.div>
 
           </div>
 
@@ -511,15 +544,27 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
       <section className="bg-[#E2DDD3] py-20 border-b border-[#454340]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-xl mx-auto mb-16"
+          >
             <h3 className="font-sans text-2xl sm:text-3xl font-bold text-[#454340] tracking-tight">
               La Garanzia del Mio Approccio
             </h3>
             <p className="font-sans text-sm text-[#2D2B28]/90 mt-2">Zero sorprese, massima trasparenza.</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="text-center space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center space-y-3"
+            >
               <div className="w-12 h-12 rounded-full bg-[#756D52]/10 text-[#756D52] flex items-center justify-center mx-auto">
                 <ShieldCheck size={24} />
               </div>
@@ -527,9 +572,15 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#2D2B28]/85 leading-relaxed max-w-xs mx-auto">
                 Tutti i siti web includono policy legali native (Privacy e Cookie) graficamente allineate, senza widget esterni invasivi che rompono il design.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="text-center space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center space-y-3"
+            >
               <div className="w-12 h-12 rounded-full bg-[#756D52]/10 text-[#756D52] flex items-center justify-center mx-auto">
                 <Zap size={24} />
               </div>
@@ -537,9 +588,15 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#2D2B28]/85 leading-relaxed max-w-xs mx-auto">
                 Design super-leggero. I punteggi di caricamento velocizzano il posizionamento SEO sui motori di ricerca.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center space-y-3"
+            >
               <div className="w-12 h-12 rounded-full bg-[#756D52]/10 text-[#756D52] flex items-center justify-center mx-auto">
                 <RotateCcw size={24} />
               </div>
@@ -547,7 +604,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <p className="font-sans text-xs text-[#2D2B28]/85 leading-relaxed max-w-xs mx-auto">
                 Database dei testi organizzato. Se vuoi modificare un testo principale, lo facciamo in un solo punto, aggiornato all'istante ovunque.
               </p>
-            </div>
+            </motion.div>
           </div>
 
         </div>

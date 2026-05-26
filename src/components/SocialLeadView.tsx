@@ -26,10 +26,10 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
   const socialSection = components.sezione_strategie_social;
 
   return (
-    <div id="social-lead-view" className="space-y-0 pb-0">
+    <div id="social-lead-view" className="space-y-0 pb-0 w-full">
       
       {/* Social Hero Header - Standard Bone Warm Accent */}
-      <section id="social-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#E2DDD3]">
+      <section id="social-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#E2DDD3] w-full">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#756D52]/8 rounded-full blur-[130px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -92,10 +92,16 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
       </section>
 
       {/* Focus & Pillars Section - ALTERNATED BACKGROUND to deep clay mud tone so it looks layered and beautiful */}
-      <section id="strategie" className="bg-[#D2C9B9] py-20 border-t border-[#454340]/10 scroll-mt-24">
+      <section id="strategie" className="bg-[#D2C9B9] py-20 border-t border-[#454340]/10 scroll-mt-24 w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-2xl mx-auto mb-16 space-y-4"
+          >
             <span className="font-mono text-xs font-semibold text-[#756D52] tracking-widest uppercase block">
               {socialSection.subtitle}
             </span>
@@ -105,7 +111,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             <p className="font-sans text-sm sm:text-base text-[#2D2B28]/95 max-w-lg mx-auto leading-relaxed">
               {socialSection.description}
             </p>
-          </div>
+          </motion.div>
 
           {/* 3 Pillars styled beautifully con ombre e movimento */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -158,12 +164,18 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
       </section>
 
       {/* AI IN THE LOOP SECTION - ALTERNATED TO DEEP DARK CHARCOAL for powerful layout depth and real examples */}
-      <section id="social-ai-accelerators" className="bg-[#2D2B28] text-[#E2DDD3] py-20 border-y border-[#454340]">
+      <section id="social-ai-accelerators" className="bg-[#2D2B28] text-[#E2DDD3] py-20 border-y border-[#454340] w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-5 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="lg:col-span-5 space-y-6"
+            >
               <span className="font-mono text-xs font-bold text-[#A69978] tracking-widest uppercase bg-[#A69978]/10 px-2.5 py-1 rounded inline-block">
                 Interazioni Inteligenti Automate (IA Real-time)
               </span>
@@ -183,12 +195,18 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                   Configura il tuo Generatore Automatico
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               {/* Card A: DM Auto qualifier */}
-              <div className="bg-[#2D2B28] border border-[#454340] p-6 rounded-md space-y-4 shadow-md hover:border-[#A69978]/30 transition-all">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-[#2D2B28] border border-[#454340] p-6 rounded-md space-y-4 shadow-md hover:border-[#A69978]/30 transition-all"
+              >
                 <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
                   <Sparkles size={18} />
                 </div>
@@ -196,10 +214,16 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
                   Quando un potenziale cliente scrive nei commenti "VOGLIO ACCEDERE", l'IA apre immediatamente la chat privata, offre del valore reale e acquisisce il contatto qualificato guidando la conversazione.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Card B: WA FAQ Routing */}
-              <div className="bg-[#2D2B28] border border-[#454340] p-6 rounded-md space-y-4 shadow-md hover:border-[#A69978]/30 transition-all">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-[#2D2B28] border border-[#454340] p-6 rounded-md space-y-4 shadow-md hover:border-[#A69978]/30 transition-all"
+              >
                 <div className="w-10 h-10 rounded-full bg-[#A69978]/10 text-[#A69978] flex items-center justify-center">
                   <Smartphone size={18} />
                 </div>
@@ -207,7 +231,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 <p className="font-sans text-xs text-[#E2DDD3]/80 leading-relaxed">
                   L'IA intercetta le domande frequenti sul tuo WhatsApp aziendale di notte o nel fine settimana. Il cliente riceve informazioni all'istante e fissa l'appuntamento da solo senza farti lavorare fuori orario.
                 </p>
-              </div>
+              </motion.div>
 
             </div>
 
@@ -217,10 +241,16 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
       </section>
 
       {/* Detail breakdown: Why this solves the issue - Standard Bone Accent */}
-      <section className="bg-[#E2DDD3] py-20 border-b border-[#454340]/10">
+      <section className="bg-[#E2DDD3] py-20 border-b border-[#454340]/10 w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6"
+          >
             <h3 className="font-sans text-2xl sm:text-3xl font-bold text-[#454340] tracking-tight">
               La Maggior Parte delle Campagne è "A Vuoto"
             </h3>
@@ -230,7 +260,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             <p className="font-sans text-sm sm:text-base text-[#2D2B28]/95 leading-relaxed">
               <strong>Il mio approccio è opposto:</strong> la campagna promozionale a pagamento deve essere concepito solo come la fase finale di consolidamento. Prima creiamo la macchina stabile che accoglie e dialoga autonomamente, poi premiamo l'acceleratore dei social.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-[#E2DDD3]/50 border border-[#454340]/15 p-6 rounded-md space-y-3 shadow-sm">
