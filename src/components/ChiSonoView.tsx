@@ -116,22 +116,8 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
-          className="lg:col-span-5 flex flex-col justify-start space-y-6"
+          className="lg:col-span-5 flex flex-col justify-center"
         >
-          {/* Real Generated Profile Portrait of Maria Teresa */}
-          <div className="relative overflow-hidden rounded-lg border border-[#454340]/15 bg-[#E2DDD3] shadow-[0_12px_24px_-8px_rgba(69,67,64,0.1)] group">
-            <img
-              src="/src/assets/images/profile_photo_1779810532565.png"
-              alt="Maria Teresa - Strategic Web Developer & Visual Designer"
-              referrerPolicy="no-referrer"
-              className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500 max-h-[380px]"
-            />
-            <div className="p-4 bg-[#D2C9B9]/60 border-t border-[#454340]/10 flex flex-col">
-              <span className="font-sans font-bold text-sm text-[#454340]">Maria Teresa Rogani</span>
-              <span className="font-mono text-[10px] text-[#756D52] uppercase tracking-wider">Sviluppo Web & Graphic Design d'Impresa</span>
-            </div>
-          </div>
-
           <div className="bg-[#E2DDD3] border border-[#756D52]/40 p-8 rounded-lg shadow-[0_15px_35px_-5px_rgba(117,109,82,0.12)] space-y-6 relative overflow-hidden transition-all duration-300 hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)]">
             <div className="absolute top-0 right-0 w-24 h-24 bg-[#756D52]/10 rounded-full blur-2xl pointer-events-none" />
             

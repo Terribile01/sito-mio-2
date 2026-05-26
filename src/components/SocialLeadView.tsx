@@ -33,85 +33,60 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#756D52]/8 rounded-full blur-[130px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left text column */}
-            <div className="lg:col-span-7 space-y-6">
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="font-mono text-xs md:text-sm font-semibold text-[#756D52] tracking-widest uppercase flex items-center gap-2"
-              >
-                <MessageSquareCode size={16} className="text-[#9C9478]" />
-                {heroData.subtitle}
-              </motion.p>
-              
-              <motion.h1
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#454340] leading-tight"
-              >
-                Costruisci un Canale <span className="italic font-serif text-[#756D52]">Senza Fine</span> di Nuovi Clienti
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-base md:text-lg text-[#2D2B28] leading-relaxed max-w-2xl"
-              >
-                {heroData.description}
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4"
-              >
-                <button
-                  id="social-primary-cta"
-                  onClick={() => {
-                    const el = document.getElementById("strategie");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-[#756D52] text-[#E2DDD3] px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-[#454340] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
-                >
-                  Vedi le Strategie Attive
-                </button>
-                
-                <button
-                  id="social-secondary-cta"
-                  onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider border border-[#756D52] text-[#756D52] px-8 py-4.5 rounded-md hover:bg-[#756D52]/10 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
-                >
-                  Contattami Ora
-                </button>
-              </motion.div>
-            </div>
-
-            {/* Right strategic mockup column */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="lg:col-span-5"
+          <div className="max-w-3xl space-y-6">
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-mono text-xs md:text-sm font-semibold text-[#756D52] tracking-widest uppercase flex items-center gap-2"
             >
-              <div id="social-hero-image-wrap" className="relative p-2 bg-[#E2DDD3] border border-[#454340]/15 rounded-xl shadow-[0_20px_40px_-10px_rgba(69,67,64,0.12)] max-w-xs mx-auto lg:max-w-none group overflow-hidden">
-                <img
-                  src="/src/assets/images/social_lead_service_1779810591671.png"
-                  alt="Automazione Funnel di Conversione DM e WhatsApp"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-500 shadow-sm"
-                />
-                <div className="absolute bottom-4 left-4 bg-[#2D2B28]/95 text-[#E2DDD3] px-3 py-1.5 rounded text-[10px] font-mono uppercase tracking-widest border border-[#9C9478]/30 shadow backdrop-blur-sm">
-                  Lead Gen Smartphone Engine
-                </div>
-              </div>
-            </motion.div>
+              <MessageSquareCode size={16} className="text-[#9C9478]" />
+              {heroData.subtitle}
+            </motion.p>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#454340] leading-tight"
+            >
+              Costruisci un Canale <span className="italic font-serif text-[#756D52]">Senza Fine</span> di Nuovi Clienti
+            </motion.h1>
 
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-sans text-base md:text-lg text-[#2D2B28] leading-relaxed max-w-2xl"
+            >
+              {heroData.description}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <button
+                id="social-primary-cta"
+                onClick={() => {
+                  const el = document.getElementById("strategie");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-[#756D52] text-[#E2DDD3] px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-[#454340] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              >
+                Vedi le Strategie Attive
+              </button>
+              
+              <button
+                id="social-secondary-cta"
+                onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
+                className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider border border-[#756D52] text-[#756D52] px-8 py-4.5 rounded-md hover:bg-[#756D52]/10 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              >
+                Contattami Ora
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>

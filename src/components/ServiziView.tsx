@@ -307,41 +307,22 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left Strategic Illustration */}
-                    <div className="lg:col-span-4">
-                      <div className="relative overflow-hidden rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/35 p-2 shadow-sm">
-                        <img
-                          src="/src/assets/images/wordpress_service_1779810552051.png"
-                          alt="Sviluppo ed Ingegnerizzazione WordPress"
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover rounded shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
-                        />
-                        <div className="p-3">
-                          <span className="font-mono text-[9px] font-bold text-[#756D52] uppercase tracking-wider">Ingegnerizzazione WordPress</span>
-                          <p className="font-sans text-[11px] text-[#2D2B28] mt-1 leading-relaxed">Trasformazione del sito in una macchina di acquisizione automatica, performante e autogestibile.</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {wordpressOptions.map((opt) => (
+                      <div 
+                        key={opt.id} 
+                        className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-3 hover:bg-[#D2C9B9] transition-all"
+                      >
+                        <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2">
+                          <CheckCircle size={15} className="text-[#756D52] shrink-0" />
+                          {opt.name}
+                        </h4>
+                        <div className="space-y-1 text-xs text-[#2D2B28]/95 leading-relaxed">
+                          <p>⚠️ <strong>Focus:</strong> {opt.focus}</p>
+                          <p>🎯 <strong>Obiettivo:</strong> {opt.objective}</p>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Right Scenarios Grid */}
-                    <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {wordpressOptions.map((opt) => (
-                        <div 
-                          key={opt.id} 
-                          className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-3 hover:bg-[#D2C9B9] transition-all"
-                        >
-                          <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2">
-                            <CheckCircle size={15} className="text-[#756D52] shrink-0" />
-                            {opt.name}
-                          </h4>
-                          <div className="space-y-1 text-xs text-[#2D2B28]/95 leading-relaxed">
-                            <p>⚠️ <strong>Focus:</strong> {opt.focus}</p>
-                            <p>🎯 <strong>Obiettivo:</strong> {opt.objective}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
 
                   <div className="pt-6 border-t border-[#454340]/10 text-center">
@@ -374,40 +355,21 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left Strategic Illustration */}
-                    <div className="lg:col-span-4">
-                      <div className="relative overflow-hidden rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/35 p-2 shadow-sm">
-                        <img
-                          src="/src/assets/images/custom_code_service_1779810574002.png"
-                          alt="Prestazioni di Sviluppo Codice Puro"
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover rounded shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
-                        />
-                        <div className="p-3">
-                          <span className="font-mono text-[9px] font-bold text-[#756D52] uppercase tracking-wider">Codice Puro Custom</span>
-                          <p className="font-sans text-[11px] text-[#2D2B28] mt-1 leading-relaxed">Pagine ultraleggere caricate ad istanti, massima sicurezza e posizionamento SEO elevato senza restrizioni.</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {customCodeOptions.map((opt) => (
+                      <div 
+                        key={opt.id} 
+                        className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-2 hover:bg-[#D2C9B9] transition-all flex flex-col justify-between"
+                      >
+                        <div>
+                          <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2 mb-1">
+                            <Zap size={15} className="text-[#756D52] shrink-0" />
+                            {opt.title}
+                          </h4>
+                          <p className="text-xs text-[#2D2B28]/95 leading-relaxed">{opt.detail}</p>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Right Features Grid */}
-                    <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {customCodeOptions.map((opt) => (
-                        <div 
-                          key={opt.id} 
-                          className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-2 hover:bg-[#D2C9B9] transition-all flex flex-col justify-between"
-                        >
-                          <div>
-                            <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2 mb-1">
-                              <Zap size={15} className="text-[#756D52] shrink-0" />
-                              {opt.title}
-                            </h4>
-                            <p className="text-xs text-[#2D2B28]/95 leading-relaxed">{opt.detail}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
 
                   <div className="pt-4 px-4 bg-[#D2C9B9]/30 rounded p-4 text-xs text-[#2D2B28]/90 text-center max-w-2xl mx-auto italic">
@@ -444,40 +406,21 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left Strategic Illustration */}
-                    <div className="lg:col-span-4">
-                      <div className="relative overflow-hidden rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/35 p-2 shadow-sm">
-                        <img
-                          src="/src/assets/images/social_lead_service_1779810591671.png"
-                          alt="Automazione Conversione Lead Gen"
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover rounded shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
-                        />
-                        <div className="p-3">
-                          <span className="font-mono text-[9px] font-bold text-[#756D52] uppercase tracking-wider">Automazione Funnel</span>
-                          <p className="font-sans text-[11px] text-[#2D2B28] mt-1 leading-relaxed">Collega instagram, facebook o tik tok direttamente a WhatsApp con filtri per scartare i perditempo.</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {socialOptions.map((opt) => (
+                      <div 
+                        key={opt.id} 
+                        className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-2 hover:bg-[#D2C9B9] transition-all flex flex-col justify-between"
+                      >
+                        <div>
+                          <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2 mb-1">
+                            <CheckCircle size={15} className="text-[#756D52] shrink-0" />
+                            {opt.title}
+                          </h4>
+                          <p className="text-xs text-[#2D2B28]/95 leading-relaxed">{opt.detail}</p>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Right Features Grid */}
-                    <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {socialOptions.map((opt) => (
-                        <div 
-                          key={opt.id} 
-                          className="p-5 rounded-lg border border-[#454340]/15 bg-[#D2C9B9]/50 space-y-2 hover:bg-[#D2C9B9] transition-all flex flex-col justify-between"
-                        >
-                          <div>
-                            <h4 className="font-sans font-bold text-sm text-[#454340] flex items-center gap-2 mb-1">
-                              <CheckCircle size={15} className="text-[#756D52] shrink-0" />
-                              {opt.title}
-                            </h4>
-                            <p className="text-xs text-[#2D2B28]/95 leading-relaxed">{opt.detail}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
 
                   <div className="pt-6 border-t border-[#454340]/10 text-center">
