@@ -22,64 +22,89 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#9C9478]/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl">
-            {/* Tagline / Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-mono text-xs md:text-sm font-semibold text-[#756D52] tracking-widest uppercase mb-4 flex items-center gap-2"
-            >
-              <Cpu size={16} className="text-[#9C9478]" />
-              {heroData.subtitle}
-            </motion.p>
-
-            {/* Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#454340] leading-[1.1] mb-6"
-            >
-              {heroData.title}
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-lg text-[#2D2B28] leading-relaxed mb-10 max-w-2xl"
-            >
-              {heroData.description}
-            </motion.p>
-
-            {/* CTA list */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 items-start"
-            >
-              <button
-                id="hero-primary-cta"
-                onClick={() => onNavigate(heroData.cta_primary.action_path)}
-                className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider bg-[#756D52] text-[#E2DDD3] px-8 py-4 rounded-md shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)] hover:bg-[#454340] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left text column */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Tagline / Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-mono text-xs md:text-sm font-semibold text-[#756D52] tracking-widest uppercase mb-2 flex items-center gap-2"
               >
-                {heroData.cta_primary.label}
-                <ArrowRight size={16} />
-              </button>
-              
-              {heroData.cta_secondary && (
+                <Cpu size={16} className="text-[#9C9478]" />
+                {heroData.subtitle}
+              </motion.p>
+
+              {/* Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#454340] leading-[1.1] mb-4"
+              >
+                {heroData.title}
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-sans text-lg text-[#2D2B28] leading-relaxed mb-6 max-w-2xl"
+              >
+                {heroData.description}
+              </motion.p>
+
+              {/* CTA list */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 items-start pt-2"
+              >
                 <button
-                  id="hero-secondary-cta"
-                  onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                  className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider border border-[#756D52] text-[#756D52] px-8 py-4 rounded-md hover:bg-[#756D52]/10 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  id="hero-primary-cta"
+                  onClick={() => onNavigate(heroData.cta_primary.action_path)}
+                  className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider bg-[#756D52] text-[#E2DDD3] px-8 py-4 rounded-md shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)] hover:bg-[#454340] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
                 >
-                  {heroData.cta_secondary.label}
+                  {heroData.cta_primary.label}
+                  <ArrowRight size={16} />
                 </button>
-              )}
+                
+                {heroData.cta_secondary && (
+                  <button
+                    id="hero-secondary-cta"
+                    onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
+                    className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider border border-[#756D52] text-[#756D52] px-8 py-4 rounded-md hover:bg-[#756D52]/10 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {heroData.cta_secondary.label}
+                  </button>
+                )}
+              </motion.div>
+            </div>
+
+            {/* Right strategic image column */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-5"
+            >
+              <div id="hero-image-wrap" className="relative p-2 bg-[#E2DDD3] border border-[#454340]/15 rounded-xl shadow-[0_20px_40px_-10px_rgba(69,67,64,0.12)] max-w-md mx-auto lg:max-w-none group overflow-hidden">
+                <img
+                  src="/src/assets/images/wordpress_service_1779810552051.png"
+                  alt="Infrastrutture Web ed Interfacce Responsive"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-500 shadow-sm"
+                />
+                <div className="absolute bottom-4 left-4 bg-[#2D2B28]/90 text-[#E2DDD3] px-3 py-1.5 rounded text-[10px] font-mono uppercase tracking-widest border border-[#9C9478]/30 shadow backdrop-blur-sm">
+                  WordPress & Custom UI Dashboard
+                </div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
@@ -339,14 +364,25 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
             className="bg-[#E2DDD3] border border-[#454340]/15 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-[0_15px_30px_-5px_rgba(69,67,64,0.08)] hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)] transition-all duration-400 relative overflow-hidden group"
           >
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[10px] tracking-wider uppercase bg-[#756D52]/10 text-[#756D52] px-2.5 py-1 rounded">
                   {serviziData.option_wordpress.tag}
                 </span>
                 <Laptop className="text-[#9C9478]" size={24} />
               </div>
-              <h3 className="font-sans text-2xl font-bold text-[#454340]">
+
+              {/* Strategic service preview thumbnail */}
+              <div className="relative h-44 w-full overflow-hidden rounded-md border border-[#454340]/10 shadow-inner bg-[#D2C9B9]/30">
+                <img
+                  src="/src/assets/images/wordpress_service_1779810552051.png"
+                  alt="WordPress Flessibile & Gestibile"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <h3 className="font-sans text-2xl font-bold text-[#454340] pt-1">
                 {serviziData.option_wordpress.title}
               </h3>
               <p className="font-sans text-sm font-semibold text-[#756D52]">
@@ -387,14 +423,25 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.4)" }}
             className="bg-[#E2DDD3] border border-[#454340]/15 rounded-lg p-8 space-y-6 flex flex-col justify-between shadow-[0_15px_30px_-5px_rgba(69,67,64,0.08)] hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.18)] transition-all duration-400 relative overflow-hidden group"
           >
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[10px] tracking-wider uppercase bg-[#9C9478]/10 text-[#756D52] px-2.5 py-1 rounded">
                   {serviziData.option_custom_code.tag}
                 </span>
                 <CodeXml className="text-[#9C9478]" size={24} />
               </div>
-              <h3 className="font-sans text-2xl font-bold text-[#454340]">
+
+              {/* Strategic Custom Code speed visualization */}
+              <div className="relative h-44 w-full overflow-hidden rounded-md border border-[#454340]/10 shadow-inner bg-[#D2C9B9]/30">
+                <img
+                  src="/src/assets/images/custom_code_service_1779810574002.png"
+                  alt="Sviluppo in Codice Puro ad alte prestazioni"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <h3 className="font-sans text-2xl font-bold text-[#454340] pt-1">
                 {serviziData.option_custom_code.title}
               </h3>
               <p className="font-sans text-sm font-semibold text-[#756D52]">
