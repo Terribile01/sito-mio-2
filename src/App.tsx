@@ -15,6 +15,8 @@ import ChiSonoView from "./components/ChiSonoView";
 import ServiziView from "./components/ServiziView";
 import SocialLeadView from "./components/SocialLeadView";
 import ContattiView from "./components/ContattiView";
+import BlogListView from "./components/BlogListView";
+import BlogPostView from "./components/BlogPostView";
 import PrivacyView from "./components/PrivacyView";
 import CookieView from "./components/CookieView";
 import NotFoundView from "./components/NotFoundView";
@@ -69,7 +71,12 @@ export default function App() {
 
   // Extract SEO parameters corresponding to active page
   const activeSitemap = config.sitemap.find(
-    (item: SitemapItem) => item.path === currentPath
+    (item: SitemapItem) => {
+      if (item.path === "/blog" && currentPath.startsWith("/blog/")) {
+        return false; // Let blog post view handle its own SEO
+      }
+      return item.path === currentPath;
+    }
   ) || {
     id: "not-found",
     name: "Pagina Non Trovata",
@@ -96,11 +103,17 @@ export default function App() {
         return <SocialLeadView config={config} onNavigate={navigate} />;
       case "/contatti":
         return <ContattiView config={config} />;
+      case "/blog":
+        return <BlogListView onNavigate={navigate} />;
       case "/privacy":
         return <PrivacyView />;
       case "/cookie":
         return <CookieView />;
       default:
+        if (currentPath.startsWith("/blog/")) {
+          const slug = currentPath.replace("/blog/", "");
+          return <BlogPostView slug={slug} onNavigate={navigate} />;
+        }
         return <NotFoundView onNavigate={navigate} />;
     }
   };
@@ -111,7 +124,7 @@ export default function App() {
       className="min-h-screen bg-app-bg-60 text-app-text-30 flex flex-col selection:bg-app-accent-olive selection:text-app-bg-60"
     >
       {/* SEO Element updating titles dynamically based on active route */}
-      <SEO metadata={activeSitemap.seo} />
+      {!currentPath.startsWith("/blog/") && <SEO metadata={activeSitemap.seo} />}
 
       {/* Shared Navbar */}
       <Navbar config={config} currentPath={currentPath} onNavigate={navigate} />
