@@ -7,6 +7,7 @@ import SEO from "./components/SEO";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
+import AIAssistant from "./components/AIAssistant";
 
 // Views
 import HomeView from "./components/HomeView";
@@ -24,6 +25,19 @@ import { motion, AnimatePresence } from "motion/react";
 const config = siteConfigData as unknown as SiteConfig;
 
 export default function App() {
+  // Inject theme variables
+  useEffect(() => {
+    const root = document.documentElement;
+    const { palette } = config.theme;
+
+    root.style.setProperty("--bg-60", palette.background_60);
+    root.style.setProperty("--text-30", palette.text_and_structure_30);
+    root.style.setProperty("--accent-khaki", palette.accents_10.khaki_beige);
+    root.style.setProperty("--accent-khaki-2", palette.accents_10.khaki_beige_2);
+    root.style.setProperty("--accent-olive", palette.accents_10.olive_wood);
+    root.style.setProperty("--accent-charcoal", palette.accents_10.charcoal_brown);
+  }, []);
+
   // Hash Routing Setup for maximum reliability in iFrames & previews
   const [currentPath, setCurrentPath] = useState<string>(() => {
     const hash = window.location.hash;
@@ -94,7 +108,7 @@ export default function App() {
   return (
     <div
       id="root-app-layout"
-      className="min-h-screen bg-[#E2DDD3] text-[#2D2B28] flex flex-col selection:bg-[#756D52] selection:text-[#E2DDD3]"
+      className="min-h-screen bg-app-bg-60 text-app-text-30 flex flex-col selection:bg-app-accent-olive selection:text-app-bg-60"
     >
       {/* SEO Element updating titles dynamically based on active route */}
       <SEO metadata={activeSitemap.seo} />
@@ -123,6 +137,9 @@ export default function App() {
 
       {/* Ethical Cookie Consent Banner */}
       <CookieBanner onNavigate={navigate} />
+
+      {/* AI Assistant Chatbot */}
+      <AIAssistant />
     </div>
   );
 }
