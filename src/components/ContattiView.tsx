@@ -38,6 +38,15 @@ export default function ContattiView({ config }: ContattiProps) {
   const [barriera, setBarriera] = useState("");
   const [messaggio, setMessaggio] = useState("");
 
+  // Fast Form States
+  const [fastNome, setFastNome] = useState("");
+  const [fastEmail, setFastEmail] = useState("");
+  const [fastTel, setFastTel] = useState("");
+  const [fastMessaggio, setFastMessaggio] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [isSendingFast, setIsSendingFast] = useState(false);
+  const [fastSendSuccess, setFastSendSuccess] = useState<boolean | null>(null);
+
   const [formSent, setFormSent] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [sendSuccess, setSendSuccess] = useState<boolean | null>(null);
@@ -146,7 +155,50 @@ export default function ContattiView({ config }: ContattiProps) {
     }
   };
 
+  const handleFastSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!privacyAccepted) {
+      alert("Per favore, accetta la Privacy e Cookie Policy.");
+      return;
+    }
+
+    setIsSendingFast(true);
+    setFastSendSuccess(null);
+
+    const templateParams = {
+      name: fastNome,
+      email: fastEmail,
+      message: `Tipo di richiesta: Messaggio da Form Veloce\n\nTelefono: ${fastTel || "Non fornito"}\n\nMessaggio:\n${fastMessaggio}`,
+      time: new Date().toLocaleString(),
+    };
+
+    try {
+      await emailjs.send(
+        "service_e6y0dfs",
+        "template_yjw349w",
+        templateParams,
+        "gVH02EFjxhWU26obx"
+      );
+      setFastSendSuccess(true);
+      // Reset form
+      setFastNome("");
+      setFastEmail("");
+      setFastTel("");
+      setFastMessaggio("");
+      setPrivacyAccepted(false);
+    } catch (error) {
+      console.error("EmailJS Fast Form Error:", error);
+      setFastSendSuccess(false);
+    } finally {
+      setIsSendingFast(false);
+    }
+  };
+
   const activeWpObject = service_options.wordpress.find(o => o.id === selectedWpOption) || service_options.wordpress[0];
+
+  const onNavigate = (path: string) => {
+    window.location.hash = path;
+  };
 
   return (
     <div id="contatti-page-view" className="space-y-0 pb-0">
@@ -173,8 +225,116 @@ export default function ContattiView({ config }: ContattiProps) {
         </div>
       </section>
 
+      {/* Fast Contact Section */}
+      <section id="contatto-veloce" className="w-full bg-app-bg-60 pt-16 pb-8 border-t border-app-accent-charcoal/10">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="bg-app-accent-khaki/10 border border-app-accent-olive/20 rounded-2xl p-8 md:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <span className="font-mono text-[10px] uppercase font-bold text-app-accent-olive tracking-widest bg-app-accent-olive/10 px-3 py-1 rounded">
+                  Risposta in 24h
+                </span>
+                <h2 className="font-sans text-3xl md:text-4xl font-bold text-app-accent-charcoal leading-tight">
+                  Contatto <span className="text-app-accent-olive italic font-serif">Veloce</span>
+                </h2>
+                <p className="font-sans text-app-text-30/90 leading-relaxed">
+                  Hai una domanda rapida o vuoi solo salutarmi? Compila questo form semplificato e ti risponderò al più presto.
+                </p>
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <a
+                    href="tel:+393791038253"
+                    className="flex items-center gap-2 bg-app-accent-charcoal text-app-bg-60 px-6 py-3 rounded-lg font-sans font-bold text-sm hover:bg-app-accent-olive transition-all"
+                  >
+                    <Smartphone size={18} />
+                    Chiama ora: 379 1038253
+                  </a>
+                </div>
+              </div>
+
+              <form onSubmit={handleFastSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Nome *"
+                    required
+                    value={fastNome}
+                    onChange={(e) => setFastNome(e.target.value)}
+                    className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email *"
+                    required
+                    value={fastEmail}
+                    onChange={(e) => setFastEmail(e.target.value)}
+                    className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                  />
+                </div>
+                <input
+                  type="tel"
+                  placeholder="Numero di Telefono (Facoltativo)"
+                  value={fastTel}
+                  onChange={(e) => setFastTel(e.target.value)}
+                  className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                />
+                <textarea
+                  placeholder="Il tuo messaggio *"
+                  required
+                  rows={4}
+                  value={fastMessaggio}
+                  onChange={(e) => setFastMessaggio(e.target.value)}
+                  className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all resize-none"
+                />
+
+                <div className="flex items-start gap-3">
+                  <input
+                    id="privacy-fast"
+                    type="checkbox"
+                    required
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    className="mt-1 accent-app-accent-olive h-4 w-4"
+                  />
+                  <label htmlFor="privacy-fast" className="text-[11px] text-app-text-30/80 leading-snug">
+                    Ho letto e accetto la gestione dei cookie e la <button type="button" onClick={() => onNavigate("/privacy")} className="text-app-accent-olive hover:underline">privacy policy</button> di questo sito.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSendingFast}
+                  className="w-full bg-app-accent-olive text-app-bg-60 py-4 rounded-lg font-sans font-bold uppercase tracking-widest text-xs hover:bg-app-accent-charcoal transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                >
+                  {isSendingFast ? (
+                    <div className="w-4 h-4 border-2 border-app-bg-60 border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      Invia messaggio
+                      <Send size={14} />
+                    </>
+                  )}
+                </button>
+
+                <AnimatePresence>
+                  {fastSendSuccess === true && (
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-emerald-600 text-xs font-bold text-center mt-2">
+                      Messaggio inviato con successo! Ti risponderò presto.
+                    </motion.p>
+                  )}
+                  {fastSendSuccess === false && (
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-xs font-bold text-center mt-2">
+                      Errore nell'invio. Riprova più tardi.
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Container - Interactive Section with alternate dark slate & warm wood tones */}
-      <section id="contatti-form-container" className="w-full bg-app-bg-60 py-16 border-t border-app-accent-charcoal/10">
+      <section id="contatti-form-container" className="w-full bg-app-bg-60 pb-16 pt-8">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left column: Alternating Dark Slate Informative Box & IA Processes explanation */}
@@ -663,7 +823,7 @@ export default function ContattiView({ config }: ContattiProps) {
                       ) : (
                         <Mail size={18} />
                       )}
-                      {sendSuccess === true ? "Inviato con Successo!" : isSending ? "Invio in corso..." : "Invia a mariateresarogani@gmail.com"}
+                    {sendSuccess === true ? "Inviato con Successo!" : isSending ? "Invio in corso..." : "Invia messaggio"}
                     </button>
 
                   </div>

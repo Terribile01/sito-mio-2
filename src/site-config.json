@@ -68,6 +68,18 @@
       }
     },
     {
+      "id": "blog",
+      "name": "Blog",
+      "path": "/blog",
+      "excludeFromNavbar": false,
+      "seo": {
+        "title": "Blog | Umanesimo Digitale e Strategia Web | FacilissimoWeb",
+        "description": "Articoli, riflessioni e guide su come abbattere le barriere tecnologiche e far crescere il tuo business con umanità.",
+        "ogTitle": "Blog FacilissimoWeb | Strategia e Umanesimo Digitale",
+        "ogDescription": "Scopri i nostri ultimi articoli e guide strategiche."
+      }
+    },
+    {
       "id": "social-lead-generation",
       "name": "Social & Lead Gen",
       "path": "/social-lead-generation",
