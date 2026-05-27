@@ -103,7 +103,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <div className="w-12 h-12 rounded-md bg-[#756D52]/10 text-[#756D52] flex items-center justify-center transition-colors hover:bg-[#756D52]/20">
                 <ShieldAlert size={24} />
               </div>
-              <h3 className="font-sans text-xl font-bold text-[#454340] tracking-tight">Abbatte la Barriera Tecnica</h3>
+              <h3 className="font-sans text-xl font-bold text-[#454340] tracking-tight">Abbatto la Barriera Tecnica</h3>
               <p className="font-sans text-sm text-[#2D2B28]/95 leading-relaxed">
                 Mi rivolgo con massima trasparenza alla microimprenditoria locale e online. Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile o fumoso dai soliti tecnicismi speculativi, portando stabilità al tuo fatturato.
               </p>
