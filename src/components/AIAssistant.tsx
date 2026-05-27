@@ -1,27 +1,87 @@
-import { useState } from "react";
-import { Sparkles, Send, X, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Sparkles, Send, X, MessageCircle, Mail, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { askGemini } from "../lib/gemini";
+import emailjs from "@emailjs/browser";
+
+interface Message {
+  role: "user" | "ai" | "system";
+  text: string;
+}
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([
-    { role: "ai", text: "Ciao! Sono l'assistente IA di FacilissimoWeb. Come posso aiutarti oggi con il tuo progetto digitale?" }
-  ]);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = sessionStorage.getItem("chat_messages");
+    return saved ? JSON.parse(saved) : [
+      { role: "ai", text: "Ciao! Sono l'assistente IA di FacilissimoWeb. Come posso aiutarti oggi con il tuo progetto digitale?" }
+    ];
+  });
   const [isLoading, setIsLoading] = useState(false);
+  const [isOffline, setIsOffline] = useState(false);
+  const [lastUserMessage, setLastUserMessage] = useState("");
+
+  // Persist messages to session storage
+  useEffect(() => {
+    sessionStorage.setItem("chat_messages", JSON.stringify(messages));
+  }, [messages]);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
     const userMessage = input.trim();
     setInput("");
+    setLastUserMessage(userMessage);
     setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
     setIsLoading(true);
+    setIsOffline(false);
 
-    const aiResponse = await askGemini(userMessage);
-    setMessages((prev) => [...prev, { role: "ai", text: aiResponse }]);
-    setIsLoading(false);
+    try {
+      const aiResponse = await askGemini(userMessage);
+
+      // Basic check for error message from our lib
+      if (aiResponse.includes("errore nella comunicazione") || aiResponse.includes("riprova più tardi")) {
+        throw new Error("Gemini API Failure");
+      }
+
+      setMessages((prev) => [...prev, { role: "ai", text: aiResponse }]);
+    } catch (error) {
+      console.error("Chat Failure:", error);
+      setIsOffline(true);
+      setMessages((prev) => [...prev, {
+        role: "system",
+        text: "L'assistente IA è momentaneamente offline per limiti di traffico. Posso inviare il tuo messaggio direttamente alla mail di Maria Teresa se desideri!"
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const sendOfflineEmail = async () => {
+    setIsLoading(true);
+    const templateParams = {
+      name: "Utente Chat (Offline)",
+      email: "chat-fallback@facilissimoweb.it",
+      message: `MESSAGGIO DA CHAT OFFLINE:\n\n${lastUserMessage}`,
+      time: new Date().toLocaleString(),
+    };
+
+    try {
+      await emailjs.send(
+        "service_e6y0dfs",
+        "template_yjw349w",
+        templateParams,
+        "gVH02EFjxhWU26obx"
+      );
+      setMessages((prev) => [...prev, { role: "ai", text: "Ottimo! Ho inviato il tuo messaggio via email a Maria Teresa. Ti risponderà il prima possibile." }]);
+      setIsOffline(false);
+    } catch (err) {
+      console.error("Fallback Email Error:", err);
+      setMessages((prev) => [...prev, { role: "system", text: "Purtroppo anche l'invio email ha fallito. Per favore scrivi a mariateresarogani@gmail.com" }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -53,10 +113,25 @@ export default function AIAssistant() {
                     className={`max-w-[85%] p-3 rounded-lg text-xs leading-relaxed ${
                       msg.role === "user"
                         ? "bg-app-accent-olive text-app-bg-60 rounded-br-none"
+                        : msg.role === "system"
+                        ? "bg-amber-50 text-amber-800 border border-amber-200"
                         : "bg-app-accent-khaki/20 text-app-text-30 rounded-bl-none border border-app-accent-khaki/10"
                     }`}
                   >
-                    {msg.text}
+                    <div className="flex items-start gap-2">
+                      {msg.role === "system" && <AlertCircle size={14} className="shrink-0 mt-0.5" />}
+                      <span>{msg.text}</span>
+                    </div>
+
+                    {msg.role === "system" && isOffline && (
+                      <button
+                        onClick={sendOfflineEmail}
+                        className="mt-3 w-full bg-amber-600 text-white py-2 rounded font-bold flex items-center justify-center gap-2 hover:bg-amber-700 transition-colors"
+                      >
+                        <Mail size={14} />
+                        Invia via Email
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -82,7 +157,8 @@ export default function AIAssistant() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Chiedimi della strategia web..."
-                  className="flex-grow bg-app-bg-60 border border-app-accent-charcoal/20 rounded px-3 py-2 text-xs text-app-text-30 outline-none focus:border-app-accent-olive transition-colors"
+                  disabled={isLoading}
+                  className="flex-grow bg-app-bg-60 border border-app-accent-charcoal/20 rounded px-3 py-2 text-xs text-app-text-30 outline-none focus:border-app-accent-olive transition-colors disabled:opacity-50"
                 />
                 <button
                   onClick={handleSend}
