@@ -70,6 +70,15 @@ export interface AssetsManifest {
   social_lead_illustration: AssetInfo;
 }
 
+export interface ServiceOption {
+  id: string;
+  name?: string;
+  title?: string;
+  focus?: string;
+  objective?: string;
+  detail?: string;
+}
+
 export interface HeroSectionDetail {
   title: string;
   subtitle: string;
@@ -125,6 +134,7 @@ export interface ComponentsConfig {
   navbar: {
     brand_name: string;
     logo_text: string;
+    logo_domain: string;
     tagline: string;
   };
   hero: {
@@ -136,12 +146,24 @@ export interface ComponentsConfig {
   };
   sezione_strategie_social: SezioneStrategieSocial;
   sezione_servizi_dettaglio: SezioneServiziDettaglio;
+  service_options: {
+    wordpress: ServiceOption[];
+    custom: ServiceOption[];
+    social: ServiceOption[];
+  };
   comune_footer: ComuneFooter;
 }
+
+export type ServiceType = "wordpress" | "custom" | "social";
 
 export interface SiteConfig {
   theme: ThemeConfig;
   sitemap: SitemapItem[];
   assets_manifest: AssetsManifest;
   components: ComponentsConfig;
+  service_options: {
+    wordpress: ServiceOption[];
+    custom: ServiceOption[];
+    social: ServiceOption[];
+  };
 }

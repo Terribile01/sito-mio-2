@@ -153,7 +153,8 @@
   "components": {
     "navbar": {
       "brand_name": "FacilissimoWeb",
-      "logo_text": "FacilissimoWeb.it",
+      "logo_text": "FacilissimoWeb",
+      "logo_domain": ".it",
       "tagline": "Umanesimo Digitale per la Microimprenditoria"
     },
     "hero": {
@@ -269,5 +270,125 @@
       "copyright": "© 2026 FacilissimoWeb. Tutti i diritti riservati.",
       "legal_links_title": "Compliance & Policy"
     }
+  },
+  "service_options": {
+    "wordpress": [
+      {
+        "id": "ostaggio",
+        "name": "\"Il mio sito è in ostaggio\" (Supporto Recupero/Migrazione)",
+        "focus": "Ho un programmatore/agenzia che non risponde o non mi dà accesso.",
+        "objective": "Recupero dominio/hosting e liberazione dai vincoli tecnologici."
+      },
+      {
+        "id": "peso",
+        "name": "\"Ho già un sito WordPress, ma è un peso\" (Ottimizzazione/Gestione)",
+        "focus": "Sito lento, plugin che si rompono, paura di aggiornare.",
+        "objective": "Rendere WordPress un \"motore di lavoro autonomo\" e non un debito tecnico."
+      },
+      {
+        "id": "migrazione",
+        "name": "\"Il mio sito è su Wix/Squarespace e non cresco\" (Migrazione Strategica)",
+        "focus": "Mi sento limitata dai template, i costi crescono, il sito non vende.",
+        "objective": "Passaggio a un ecosistema professionale dove il sito diventa \"macchina di acquisizione\"."
+      },
+      {
+        "id": "landing",
+        "name": "\"Voglio una Landing Page che converta davvero\" (Landing Strategica)",
+        "focus": "Ho bisogno di un ponte tra il traffico social e la vendita.",
+        "objective": "Creare un'automazione che filtri i contatti e generi richieste profilate."
+      },
+      {
+        "id": "zero",
+        "name": "\"Zero sito, da dove inizio?\" (Nuovo Progetto)",
+        "focus": "Ho paura di costi nascosti o di non saper gestire la tecnologia.",
+        "objective": "Un progetto partendo da zero, con la tua guida \"da partner strategico\"."
+      },
+      {
+        "id": "buco_acqua",
+        "name": "\"Social & Lead Generation: le mie campagne sono un buco nell'acqua\" (Acquisizione Attiva)",
+        "focus": "Ricevo solo \"like\", ma non contatti pronti alla vendita.",
+        "objective": "Trasformare i canali social in estensioni del mio ufficio."
+      },
+      {
+        "id": "prestazioni_estreme",
+        "name": "\"Voglio prestazioni estreme e un design unico\" (Custom Code/Siti Generativi)",
+        "focus": "Voglio distinguermi dalla massa con performance senza compromessi.",
+        "objective": "Sviluppo in codice puro su misura per chi cerca scalabilità."
+      }
+    ],
+    "custom": [
+      {
+        "id": "speed_first",
+        "title": "Sito \"Speed-First\"",
+        "detail": "Massima velocità per il posizionamento SEO, essenziale per chi ha molta concorrenza."
+      },
+      {
+        "id": "webapp_interna",
+        "title": "Web App Interna",
+        "detail": "Strumento specifico per gestire flussi di lavoro o calcoli personalizzati."
+      },
+      {
+        "id": "tailor_made",
+        "title": "Design \"Tailor-Made\"",
+        "detail": "Interfaccia unica, distante dai template standard, per chi punta sul brand."
+      },
+      {
+        "id": "pagina_lancio",
+        "title": "Pagina di Lancio Prodotto",
+        "detail": "Perfetta per eventi o lanci temporanei che richiedono impatto immediato."
+      },
+      {
+        "id": "multilingua",
+        "title": "Sito Multi-Lingua Performante",
+        "detail": "Architettura pulita per gestire più lingue senza rallentamenti."
+      },
+      {
+        "id": "dashboard_dati",
+        "title": "Dashboard Dati",
+        "detail": "Visualizzazione in tempo reale di statistiche o grafici per i clienti."
+      },
+      {
+        "id": "zero_manutenzione",
+        "title": "Sito \"Zero-Manutenzione\"",
+        "detail": "Struttura statica che non necessita di aggiornamenti di sicurezza o plugin."
+      }
+    ],
+    "social": [
+      {
+        "id": "funnel",
+        "title": "Funnel di Acquisizione",
+        "detail": "Sistema che trasforma follower in contatti email/WhatsApp pronti alla vendita."
+      },
+      {
+        "id": "chatbot",
+        "title": "Chatbot Qualificatore",
+        "detail": "Risposte automatiche che filtrano le richieste e fissano appuntamenti."
+      },
+      {
+        "id": "newsletter",
+        "title": "Newsletter Automatica",
+        "detail": "Sequenza di email che nutre il cliente fino all'acquisto."
+      },
+      {
+        "id": "recensioni",
+        "title": "Sistema Recensioni",
+        "detail": "Automazione per raccogliere e pubblicare recensioni positive post-servizio."
+      },
+      {
+        "id": "social_to_service",
+        "title": "Campagna \"Social-to-Service\"",
+        "detail": "Integrazione diretta tra un post Instagram e la prenotazione di un servizio."
+      },
+      {
+        "id": "lead_magnet",
+        "title": "Lead Magnet Delivery",
+        "detail": "Distribuzione automatizzata di guide o materiali gratuiti in cambio del contatto."
+      },
+      {
+        "id": "monitoraggio",
+        "title": "Monitoraggio Conversioni",
+        "detail": "Sistema per capire esattamente quale post o campagna porta soldi reali in cassa."
+      }
+    ]
   }
 }
