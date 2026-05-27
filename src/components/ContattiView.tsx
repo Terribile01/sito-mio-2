@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { SiteConfig, ServiceType } from "../types";
 import { 
   Send, 
@@ -38,6 +39,8 @@ export default function ContattiView({ config }: ContattiProps) {
   const [messaggio, setMessaggio] = useState("");
 
   const [formSent, setFormSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendSuccess, setSendSuccess] = useState<boolean | null>(null);
   const [generatedReport, setGeneratedReport] = useState("");
 
   const getServiceName = (id: ServiceType) => {
@@ -115,12 +118,32 @@ export default function ContattiView({ config }: ContattiProps) {
     window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedText}`, "_blank");
   };
 
-  // Email sender to mariateresarogani@gmail.com
-  const sendEmail = () => {
-    const email = "mariateresarogani@gmail.com";
-    const subject = encodeURIComponent(`Nuova Profilazione da ${nome} - ${attivita || "FacilissimoWeb"}`);
-    const body = encodeURIComponent(generatedReport);
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`, "_blank");
+  // EmailJS integration
+  const sendEmail = async () => {
+    setIsSending(true);
+    setSendSuccess(null);
+
+    const templateParams = {
+      name: nome || contatto,
+      email: contatto, // Assumendo che 'contatto' contenga l'email
+      message: generatedReport,
+      time: new Date().toLocaleString(),
+    };
+
+    try {
+      await emailjs.send(
+        "service_e6y0dfs",
+        "template_yjw349w",
+        templateParams,
+        "gVH02EFjxhWU26obx"
+      );
+      setSendSuccess(true);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSendSuccess(false);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const activeWpObject = service_options.wordpress.find(o => o.id === selectedWpOption) || service_options.wordpress[0];
@@ -626,13 +649,46 @@ export default function ContattiView({ config }: ContattiProps) {
                     <button
                       id="deliver-email-btn"
                       onClick={sendEmail}
-                      className="flex items-center justify-center gap-3 bg-app-accent-olive hover:bg-app-accent-charcoal text-app-bg-60 py-4.5 px-6 rounded-md font-sans font-semibold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5 cursor-pointer"
+                      disabled={isSending || sendSuccess === true}
+                      className={`flex items-center justify-center gap-3 py-4.5 px-6 rounded-md font-sans font-semibold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5 cursor-pointer ${
+                        sendSuccess === true
+                          ? "bg-emerald-600 text-white cursor-default"
+                          : "bg-app-accent-olive hover:bg-app-accent-charcoal text-app-bg-60"
+                      } ${isSending ? "opacity-70" : ""}`}
                     >
-                      <Mail size={18} />
-                      Invia a mariateresarogani@gmail.com
+                      {isSending ? (
+                        <div className="w-4 h-4 border-2 border-app-bg-60 border-t-transparent rounded-full animate-spin" />
+                      ) : sendSuccess === true ? (
+                        <CheckCircle2 size={18} />
+                      ) : (
+                        <Mail size={18} />
+                      )}
+                      {sendSuccess === true ? "Inviato con Successo!" : isSending ? "Invio in corso..." : "Invia a mariateresarogani@gmail.com"}
                     </button>
 
                   </div>
+
+                  {/* Feedback Messages */}
+                  <AnimatePresence>
+                    {sendSuccess === true && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-emerald-100 border border-emerald-200 text-emerald-800 p-4 rounded-md text-center text-sm font-sans font-semibold"
+                      >
+                        Grazie, il report è stato inviato! Riceverai un riscontro il prima possibile.
+                      </motion.div>
+                    )}
+                    {sendSuccess === false && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-red-100 border border-red-200 text-red-800 p-4 rounded-md text-center text-sm font-sans"
+                      >
+                        Si è verificato un problema nell'invio, ma non preoccuparti: copia il report qui sotto e inviamelo manualmente via mail.
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
                   {/* Action row to revert / compile other data */}
                   <div className="pt-4 flex justify-center border-t border-app-accent-charcoal/10">
