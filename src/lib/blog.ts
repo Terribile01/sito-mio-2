@@ -15,20 +15,28 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const modules = import.meta.glob('../../content/blog/*.md', { query: '?raw', import: 'default', eager: true });
 
   const posts = Object.entries(modules).map(([filepath, content]) => {
-    const slug = filepath.split('/').pop()?.replace('.md', '') || '';
-    const { data, content: body } = matter(content as string);
+    try {
+      // Remove possible query parameters and extension to get the slug correctly
+      const fileName = filepath.split('/').pop() || '';
+      const slug = fileName.split('?')[0].replace('.md', '');
 
-    return {
-      slug,
-      title: data.title,
-      date: data.date,
-      excerpt: data.excerpt,
-      image: data.image,
-      category: data.category,
-      tags: data.tags || [],
-      content: body,
-    };
-  });
+      const { data, content: body } = matter(content as string);
+
+      return {
+        slug,
+        title: data.title || 'Senza Titolo',
+        date: data.date || new Date().toISOString(),
+        excerpt: data.excerpt || '',
+        image: data.image || '',
+        category: data.category || 'Generale',
+        tags: data.tags || [],
+        content: body,
+      };
+    } catch (error) {
+      console.error(`Errore nel parsing del post ${filepath}:`, error);
+      return null;
+    }
+  }).filter((post): post is BlogPost => post !== null);
 
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

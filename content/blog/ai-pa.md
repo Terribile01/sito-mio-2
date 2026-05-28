@@ -2,7 +2,7 @@
 title: "AI e Pubblica Amministrazione: Semplificare o Complicare?"
 date: "2026-05-27"
 excerpt: "La tecnologia nelle PA fa spesso paura. Analizziamo come l'Intelligenza Artificiale può trasformarsi da burocrazia invisibile ad alleata del microimprenditore."
-image: "/assets/images/blog/ai-pa.webp"
+image: ""
 category: "Strategia"
 tags: ["AI", "PA", "Innovazione", "FacilissimoWeb"]
 ---
