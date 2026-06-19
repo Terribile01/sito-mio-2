@@ -36,7 +36,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
 
       {/* Services Hero Header */}
       <section id="servizi-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image on the left for other pages (Desktop) */}
             <motion.div
@@ -52,11 +52,12 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                   className="w-full h-auto object-cover img-neon-tint group-hover:filter-none transition-all duration-700"
                 />
                 {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-app-accent-primary/10 to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-app-accent-secondary/10 to-transparent mix-blend-overlay" />
               </div>
             </motion.div>
 
-            <div className="max-w-3xl space-y-6 order-1 lg:order-2">
+            <div className="max-w-2xl space-y-6 order-1 lg:order-2">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,7 +72,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase break-words"
               >
                 {renderSplitTitle("Infrastrutture Web Automatiche")}
               </motion.h1>
@@ -80,7 +81,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-lg md:text-xl text-app-text-primary font-bold leading-tight max-w-2xl"
+                className="font-sans text-lg md:text-xl text-app-text-primary font-bold leading-relaxed max-w-2xl smart-text"
               >
                 {heroData.description}
               </motion.p>
@@ -321,10 +322,10 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             className="max-w-3xl mb-20 space-y-4"
           >
             <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
-              IA Sinergia
+              AI Sinergia
             </span>
             <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
-              {renderSplitTitle("IA Potenzia ogni Progetto", "#FFFFFF", "#AAFF00")}
+              {renderSplitTitle("AI Potenzia ogni Progetto", "#FFFFFF", "#AAFF00")}
             </h2>
             <p className="font-sans text-xl text-white/80 leading-tight">
               Ottimizziamo tempi di sviluppo, copy strategici e interconnessioni, garantendoti risultati professionali in metà tempo.
@@ -379,7 +380,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               </div>
               <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter">SEO Semantica</h3>
               <p className="font-sans text-sm text-white/60 leading-tight">
-                Gli algoritmi di IA strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.
+                Gli algoritmi di AI strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.
               </p>
             </motion.div>
 

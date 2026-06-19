@@ -24,9 +24,9 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
 
       {/* Hero Section */}
       <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden w-full z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-3xl">
+            <div className="max-w-2xl">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase break-words"
               >
                 {renderSplitTitle(heroData.title, "#FFFFFF", "#9B5CFF")}
               </motion.h1>
@@ -50,7 +50,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-lg md:text-xl text-white/80 leading-tight mb-10 max-w-2xl"
+                className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl smart-text"
               >
                 {heroData.description}
               </motion.p>
@@ -94,7 +94,8 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                   alt={config.assets_manifest.home_hero_image.alt}
                   className="w-full h-auto object-cover img-neon-tint group-hover:filter-none transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-app-accent-primary/10 to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-app-accent-secondary/10 to-transparent mix-blend-overlay" />
               </div>
               {/* Overlapping Circles */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-app-accent-secondary rounded-full blur-2xl opacity-50 animate-pulse" />
@@ -289,10 +290,10 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             
             <div className="relative z-10 max-w-3xl mb-16 space-y-4">
               <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
-                IA Applicata
+                AI Applicata
               </span>
               <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
-                {renderSplitTitle("L'IA libera il tuo tempo", "#FFFFFF", "#AAFF00")}
+                {renderSplitTitle("L'AI libera il tuo tempo", "#FFFFFF", "#AAFF00")}
               </h2>
             </div>
 

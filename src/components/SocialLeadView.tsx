@@ -30,7 +30,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
 
       {/* Social Hero Header */}
       <section id="social-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image on the left for other pages (Desktop) */}
             <motion.div
@@ -46,11 +46,12 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                   className="w-full h-auto object-cover img-neon-tint group-hover:filter-none transition-all duration-700"
                 />
                 {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-app-accent-primary/10 to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-app-accent-secondary/10 to-transparent mix-blend-overlay" />
               </div>
             </motion.div>
 
-            <div className="max-w-3xl space-y-6 order-1 lg:order-2">
+            <div className="max-w-2xl space-y-6 order-1 lg:order-2">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -65,7 +66,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase break-words"
               >
                 {renderSplitTitle("Canale Senza Fine Clienti")}
               </motion.h1>
@@ -74,7 +75,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-base md:text-xl text-white/70 leading-tight mb-10 max-w-2xl"
+                className="font-sans text-base md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl smart-text"
               >
                 {heroData.description}
               </motion.p>
@@ -192,13 +193,13 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
               className="lg:col-span-5 space-y-6"
             >
               <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
-                IA Real-time
+                AI Real-time
               </span>
               <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter leading-[0.9] uppercase">
-                {renderSplitTitle("IA Automazione Lead Gen", "#FFFFFF", "#AAFF00")}
+                {renderSplitTitle("AI Automazione Lead Gen", "#FFFFFF", "#AAFF00")}
               </h2>
               <p className="font-sans text-lg text-white/70 leading-tight">
-                Niente chatbot stupidi. Configuro automazioni strategiche che uniscono la velocità dell'IA alla cura del lessico tipica dell'Umanesimo Digitale.
+                Niente chatbot stupidi. Configuro automazioni strategiche che uniscono la velocità dell'AI alla cura del lessico tipica dell'Umanesimo Digitale.
               </p>
               
               <div className="pt-2">
@@ -226,7 +227,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 </div>
                 <h4 className="font-sans font-black text-white text-xl uppercase tracking-tighter">DM Auto-Qualifier</h4>
                 <p className="font-sans text-sm text-white/60 leading-tight">
-                  Quando un potenziale cliente scrive "VOGLIO ACCEDERE", l'IA apre la chat, offre valore e acquisisce il contatto qualificato.
+                  Quando un potenziale cliente scrive "VOGLIO ACCEDERE", l'AI apre la chat, offre valore e acquisisce il contatto qualificato.
                 </p>
               </motion.div>
 
@@ -243,7 +244,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 </div>
                 <h4 className="font-sans font-black text-white text-xl uppercase tracking-tighter">WA Answer Router</h4>
                 <p className="font-sans text-sm text-white/60 leading-tight">
-                  L'IA intercetta le domande frequenti su WhatsApp 24/7. Il cliente riceve info all'istante e fissa l'appuntamento da solo.
+                  L'AI intercetta le domande frequenti su WhatsApp 24/7. Il cliente riceve info all'istante e fissa l'appuntamento da solo.
                 </p>
               </motion.div>
 

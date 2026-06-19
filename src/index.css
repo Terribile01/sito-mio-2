@@ -52,6 +52,11 @@
   .btn-neon {
     @apply transition-all duration-300 transform active:scale-95;
   }
+
+  .smart-text {
+    @apply break-words leading-relaxed max-w-prose;
+    hyphens: auto;
+  }
 }
 
 @layer utilities {
