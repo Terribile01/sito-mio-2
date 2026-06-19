@@ -160,6 +160,22 @@
     "social_lead_illustration": {
       "path": "/assets/images/lead_gen_placeholder.svg",
       "alt": "Illustrazione flusso automatico di acquisizione lead qualificati"
+    },
+    "home_hero_image": {
+      "path": "/assets/images/fac1.jpg",
+      "alt": "Umanesimo Digitale - Sintesi tra natura, magia e tecnologia"
+    },
+    "chi_sono_hero_image": {
+      "path": "/assets/images/fac1.jpg",
+      "alt": "Il rigore accademico incontra l'innovazione - Placeholder"
+    },
+    "servizi_hero_image": {
+      "path": "/assets/images/fac1.jpg",
+      "alt": "Infrastrutture digitali e design strategico - Placeholder"
+    },
+    "social_hero_image": {
+      "path": "/assets/images/fac1.jpg",
+      "alt": "Sistemi di acquisizione e lead generation automatica - Placeholder"
     }
   },
   "components": {

@@ -33,60 +33,85 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-app-accent-olive/8 rounded-full blur-[130px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl space-y-6">
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
-            >
-              <MessageSquareCode size={16} className="text-app-accent-khaki" />
-              {heroData.subtitle}
-            </motion.p>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
-            >
-              Costruisci un Canale <span className="italic font-serif text-app-accent-olive">Senza Fine</span> di Nuovi Clienti
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-base md:text-lg text-app-text-30 leading-relaxed max-w-2xl"
-            >
-              {heroData.description}
-            </motion.p>
-
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image on the left for other pages (Desktop) */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group order-2 lg:order-1"
             >
-              <button
-                id="social-primary-cta"
-                onClick={() => {
-                  const el = document.getElementById("strategie");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
-              >
-                Vedi le Strategie Attive
-              </button>
-              
-              <button
-                id="social-secondary-cta"
-                onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider border border-app-accent-olive text-app-accent-olive px-8 py-4.5 rounded-md hover:bg-app-accent-olive/10 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
-              >
-                Contattami Ora
-              </button>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/10">
+                <img
+                  src={config.assets_manifest.social_hero_image.path}
+                  alt={config.assets_manifest.social_hero_image.alt}
+                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                />
+                {/* Gradient Fading Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-60/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-60/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Decorative technical accent elements */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-l-2 border-b-2 border-app-accent-olive/30 rounded-bl-3xl pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-app-accent-khaki/30 rounded-tr-xl pointer-events-none" />
             </motion.div>
+
+            <div className="max-w-3xl space-y-6 order-1 lg:order-2">
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
+              >
+                <MessageSquareCode size={16} className="text-app-accent-khaki" />
+                {heroData.subtitle}
+              </motion.p>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
+              >
+                Costruisci un Canale <span className="italic font-serif text-app-accent-olive">Senza Fine</span> di Nuovi Clienti
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-sans text-base md:text-lg text-app-text-30 leading-relaxed max-w-2xl"
+              >
+                {heroData.description}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+              >
+                <button
+                  id="social-primary-cta"
+                  onClick={() => {
+                    const el = document.getElementById("strategie");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                >
+                  Vedi le Strategie Attive
+                </button>
+
+                <button
+                  id="social-secondary-cta"
+                  onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
+                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider border border-app-accent-olive text-app-accent-olive px-8 py-4.5 rounded-md hover:bg-app-accent-olive/10 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                >
+                  Contattami Ora
+                </button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
