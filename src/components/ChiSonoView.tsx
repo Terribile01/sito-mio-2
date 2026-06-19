@@ -1,6 +1,7 @@
 import { SiteConfig } from "../types";
-import { GraduationCap, Sparkles, Compass, Lightbulb, HelpCircle, Heart } from "lucide-react";
+import { GraduationCap, Compass, Lightbulb, Heart } from "lucide-react";
 import { motion } from "motion/react";
+import { GlowCircle, renderSplitTitle } from "./ThemeElements";
 
 interface ChiSonoProps {
   config: SiteConfig;
@@ -12,10 +13,14 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
   const heroData = components.hero.chi_sono_hero;
 
   return (
-    <div id="chisono-view" className="space-y-0 pb-0">
+    <div id="chisono-view" className="relative space-y-0 pb-0 bg-app-bg-main overflow-hidden">
       
+      {/* Background Glows */}
+      <GlowCircle color="#9B5CFF" size="400px" top="-100px" left="-100px" delay={0} />
+      <GlowCircle color="#00F5FF" size="300px" top="20%" left="80%" delay={1} />
+
       {/* Hero Header */}
-      <section id="chisono-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden w-full bg-app-bg-main border-b-4 border-app-text-primary">
+      <section id="chisono-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden w-full z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image on the left for other pages (Desktop) */}
@@ -25,15 +30,14 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative group order-2 lg:order-1"
             >
-              <div className="relative rounded-none overflow-hidden shadow-none border-4 border-app-text-primary">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
                 <img
                   src={config.assets_manifest.chi_sono_hero_image.path}
                   alt={config.assets_manifest.chi_sono_hero_image.alt}
-                  className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-auto object-cover img-neon-tint group-hover:filter-none transition-all duration-700"
                 />
                 {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-80" />
-                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-main/40 via-transparent to-transparent opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-60" />
               </div>
             </motion.div>
 
@@ -42,9 +46,9 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase flex items-center gap-2"
+                className="font-mono text-xs md:text-sm font-bold text-app-accent-secondary tracking-widest uppercase flex items-center gap-2"
               >
-                <GraduationCap size={16} className="text-app-accent-purple" />
+                <GraduationCap size={16} />
                 {heroData.subtitle}
               </motion.p>
 
@@ -52,9 +56,9 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase"
+                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase"
               >
-                {heroData.title}
+                {renderSplitTitle(heroData.title)}
               </motion.h1>
 
               <motion.p
@@ -71,7 +75,7 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
       </section>
 
       {/* Main Narrative & Story */}
-      <section id="chisono-story" className="w-full bg-app-bg-main py-24 border-b-4 border-app-text-primary">
+      <section id="chisono-story" className="w-full py-24 z-10 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16">
           
           {/* Story details */}
@@ -80,12 +84,12 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-8 text-app-text-primary"
+            className="lg:col-span-7 space-y-8 text-white/80"
           >
-            <h2 className="font-sans text-4xl sm:text-5xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
-              Storia Accademica <br/> Passione Informatica
+            <h2 className="font-sans text-4xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+              {renderSplitTitle("Storia Accademica Passione Informatica")}
             </h2>
-            <div className="space-y-6 font-bold text-lg leading-tight">
+            <div className="space-y-6 text-lg leading-tight">
               <p>
                 Sono diplomata in <strong>grafica pubblicitaria</strong> e laureata in <strong>Comunicazione Visiva Multimediale</strong>. Il mio percorso nasce sotto il segno della precisione tipografica e del rigore compositivo.
               </p>
@@ -98,35 +102,36 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             </div>
 
             {/* Core Values pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-4 border-app-text-primary bg-app-text-primary mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
               <motion.div 
                 id="chisono-pillar-compositivo"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-app-accent-orange p-8 space-y-4 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0"
+                className="glass-morphism p-8 space-y-4 rounded-3xl"
               >
-                <h4 className="font-sans font-black text-app-text-primary text-xl uppercase tracking-tighter flex items-center gap-3">
-                  <Compass className="text-app-text-primary" size={24} strokeWidth={3} />
+                <h4 className="font-sans font-black text-white text-xl uppercase tracking-tighter flex items-center gap-3">
+                  <Compass className="text-app-accent-secondary" size={24} />
                   Rigore Compositivo
                 </h4>
-                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                <p className="font-sans text-sm text-white/60 leading-tight">
                   Il design non è decorazione. È usabilità, psicologia percettiva applicata e architettura millimetrica delle informazioni.
                 </p>
               </motion.div>
               
               <motion.div 
                 id="chisono-pillar-semplificazione"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-app-accent-green p-8 space-y-4"
+                transition={{ delay: 0.1 }}
+                className="glass-morphism p-8 space-y-4 rounded-3xl"
               >
-                <h4 className="font-sans font-black text-app-text-primary text-xl uppercase tracking-tighter flex items-center gap-3">
-                  <Lightbulb className="text-app-text-primary" size={24} strokeWidth={3} />
+                <h4 className="font-sans font-black text-white text-xl uppercase tracking-tighter flex items-center gap-3">
+                  <Lightbulb className="text-app-tertiary" size={24} />
                   Semplificazione
                 </h4>
-                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                <p className="font-sans text-sm text-white/60 leading-tight">
                   Rendo immediato, cristallino e perfettamente controllabile ciò che fino a ieri ti è sembrato ostile o inutilmente costoso.
                 </p>
               </motion.div>
@@ -142,26 +147,28 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 flex flex-col justify-center"
           >
-            <div className="bg-app-accent-purple text-white border-4 border-app-text-primary p-10 rounded-none space-y-8 relative overflow-hidden">
-              <div className="flex items-center gap-4">
-                <Heart className="text-app-accent-lime fill-app-accent-lime" size={32} />
+            <div className="glass-morphism p-10 rounded-[40px] space-y-8 relative overflow-hidden border-app-accent-primary/20">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-app-accent-primary/20 rounded-full blur-3xl" />
+
+              <div className="flex items-center gap-4 relative z-10">
+                <Heart className="text-app-accent-primary fill-app-accent-primary" size={32} />
                 <h3 className="font-sans text-3xl font-black text-white tracking-tighter uppercase leading-none">
                   Umanesimo Digitale
                 </h3>
               </div>
               
-              <p className="font-sans text-lg text-white font-bold leading-tight">
+              <p className="font-sans text-lg text-white/80 leading-tight relative z-10">
                 La tecnologia e l'IA non devono intimidire. Devono invece sostenerci, offrendo schemi ordinati per vincere la complessità quotidiana.
               </p>
               
-              <p className="font-sans text-base text-app-accent-lime font-black leading-tight italic border-l-4 border-app-accent-lime pl-4">
+              <p className="font-sans text-base text-app-tertiary font-black leading-tight italic border-l-4 border-app-tertiary pl-4 relative z-10">
                 "Umanesimo digitale significa rimettere le persone al centro. La tecnologia è un servitore formidabile."
               </p>
 
               <button
                 id="chisono-conversational-cta"
                 onClick={() => onNavigate("/contatti")}
-                className="w-full mt-6 font-sans font-black text-sm tracking-tighter uppercase bg-app-accent-lime text-app-text-primary py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer block text-center"
+                className="w-full mt-6 relative z-10 font-sans font-black text-sm tracking-tighter uppercase bg-app-accent-primary text-app-bg-main py-5 rounded-2xl transition-all hover:shadow-[0_0_30px_rgba(155,92,255,0.4)] cursor-pointer block text-center"
               >
                 Inizia il Dialogo
               </button>
@@ -172,7 +179,7 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
       </section>
 
       {/* Target Audience Section */}
-      <section id="chisono-target" className="w-full bg-app-bg-main border-b-4 border-app-text-primary py-24">
+      <section id="chisono-target" className="w-full py-24 z-10 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
@@ -181,27 +188,27 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-4xl space-y-8"
           >
-            <span className="font-mono text-xs font-bold text-app-text-primary tracking-widest uppercase bg-app-accent-orange px-3 py-1 border-2 border-app-text-primary">
+            <span className="font-mono text-xs font-bold text-app-tertiary tracking-widest uppercase block mb-2">
               Target
             </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
-              Microimprenditoria <br/> Locale e Online
+            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+              {renderSplitTitle("Microimprenditoria Locale e Online")}
             </h2>
-            <p className="font-sans text-lg md:text-xl text-app-text-primary font-bold leading-tight max-w-3xl">
+            <p className="font-sans text-lg md:text-xl text-white/70 leading-tight max-w-3xl">
               Lavoro al fianco di artigiani e professionisti intimoriti dall'informatica. Abbatto i muri del gergo specialistico per darti soluzioni trasparenti, concrete e ad alto rendimento.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary mt-12">
-              <div className="bg-app-bg-main p-8 space-y-3 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0">
-                <span className="font-sans font-black text-app-accent-purple text-3xl uppercase tracking-tighter">Artigianato</span>
-                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">Siti vetrina e automazioni di cataloghi semplici.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
+              <div className="glass-morphism p-8 space-y-3 rounded-3xl">
+                <span className="font-sans font-black text-app-accent-primary text-3xl uppercase tracking-tighter">Artigianato</span>
+                <p className="font-sans text-sm text-white/60 leading-tight">Siti vetrina e automazioni di cataloghi semplici.</p>
               </div>
-              <div className="bg-app-bg-main p-8 space-y-3 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0">
-                <span className="font-sans font-black text-app-accent-green text-3xl uppercase tracking-tighter">Consulenza</span>
-                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">Sistemi automatici per profilare i clienti e prenotare.</p>
+              <div className="glass-morphism p-8 space-y-3 rounded-3xl">
+                <span className="font-sans font-black text-app-tertiary text-3xl uppercase tracking-tighter">Consulenza</span>
+                <p className="font-sans text-sm text-white/60 leading-tight">Sistemi automatici per profilare i clienti e prenotare.</p>
               </div>
-              <div className="bg-app-bg-main p-8 space-y-3">
-                <span className="font-sans font-black text-app-accent-orange text-3xl uppercase tracking-tighter">Pillola Cloud</span>
-                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">Soluzioni in cloud native ed asincrone di facilissima gestione.</p>
+              <div className="glass-morphism p-8 space-y-3 rounded-3xl">
+                <span className="font-sans font-black text-app-accent-secondary text-3xl uppercase tracking-tighter">Pillola Cloud</span>
+                <p className="font-sans text-sm text-white/60 leading-tight">Soluzioni in cloud native ed asincrone di facilissima gestione.</p>
               </div>
             </div>
           </motion.div>

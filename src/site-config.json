@@ -1,40 +1,40 @@
 {
   "theme": {
     "palette": {
-      "text_primary": "#10100B",
-      "text_secondary": "#692BA4",
-      "text_tertiary": "#B1BCB7",
-      "bg_main": "#B1BCB7",
-      "bg_dark": "#10100B",
-      "btn_primary_bg": "#2CD44D",
-      "btn_primary_text": "#10100B",
-      "btn_secondary_bg": "#A5FE02",
-      "btn_secondary_text": "#10100B",
-      "btn_tertiary_bg": "#FF6238",
-      "btn_tertiary_text": "#10100B",
-      "accent_primary": "#2CD44D",
-      "accent_secondary": "#A5FE02",
-      "hover_primary": "#692BA4",
-      "hover_secondary": "#FF6238",
-      "border_main": "#B1BCB7",
-      "border_accent": "#692BA4"
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#9B5CFF",
+      "text_tertiary": "#00F5FF",
+      "bg_main": "#080808",
+      "bg_dark": "#141414",
+      "btn_primary_bg": "#9B5CFF",
+      "btn_primary_text": "#080808",
+      "btn_secondary_bg": "#00F5FF",
+      "btn_secondary_text": "#080808",
+      "btn_tertiary_bg": "#AAFF00",
+      "btn_tertiary_text": "#080808",
+      "accent_primary": "#9B5CFF",
+      "accent_secondary": "#00F5FF",
+      "hover_primary": "#00F5FF",
+      "hover_secondary": "#AAFF00",
+      "border_main": "#141414",
+      "border_accent": "#9B5CFF"
     },
     "navbar": {
-      "background": "bg-app-bg-main/80",
+      "background": "bg-app-bg-main/70",
       "blur": "backdrop-blur-xl",
-      "border": "border-app-border-accent/20"
+      "border": "border-white/10"
     },
     "cta": {
       "primary": {
         "bg": "bg-app-btn-primary-bg",
         "text": "text-app-btn-primary-text",
-        "hover": "hover:bg-app-hover-primary hover:text-white",
+        "hover": "hover:shadow-[0_0_20px_rgba(155,92,255,0.6)] transition-all",
         "shadow": "shadow-none"
       },
       "secondary": {
-        "border": "border-app-btn-secondary-bg",
-        "text": "text-app-btn-secondary-text",
-        "hover_bg": "hover:bg-app-hover-secondary"
+        "border": "border-app-accent-secondary",
+        "text": "text-app-accent-secondary",
+        "hover_bg": "hover:bg-app-accent-secondary/10"
       }
     }
   },
@@ -184,6 +184,14 @@
     "social_hero_image": {
       "path": "/assets/images/fac1.jpg",
       "alt": "Sistemi di acquisizione e lead generation automatica - Placeholder"
+    },
+    "pnrr_badge": {
+      "path": "/assets/images/pnrr_logo.png",
+      "alt": "Logo PNRR - Italia Domani"
+    },
+    "pnrr_hero": {
+      "path": "/assets/images/pnrr_laptop.jpg",
+      "alt": "Innovazione Digitale PNRR"
     }
   },
   "components": {
@@ -299,6 +307,16 @@
           "Zero costi di licenze o abbonamenti plugin terzi",
           "Esperienza utente fluida con micro-animazioni avanzate"
         ]
+      }
+    },
+    "bloccopnn1": {
+      "title": "Finanziato dall'Unione Europea",
+      "subtitle": "NextGenerationEU | PNRR",
+      "description": "Utilizziamo le opportunità del Piano Nazionale di Ripresa e Resilienza per abbattere le barriere digitali. Soluzioni ad alto impatto tecnologico per la tua microimpresa.",
+      "claim": "Transizione Digitale 4.0",
+      "cta": {
+        "label": "Verifica Idoneità",
+        "action_path": "/contatti"
       }
     },
     "comune_footer": {

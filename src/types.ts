@@ -78,6 +78,8 @@ export interface AssetsManifest {
   chi_sono_hero_image: AssetInfo;
   servizi_hero_image: AssetInfo;
   social_hero_image: AssetInfo;
+  pnrr_badge: AssetInfo;
+  pnrr_hero: AssetInfo;
 }
 
 export interface ServiceOption {
@@ -134,6 +136,17 @@ export interface SezioneServiziDettaglio {
   option_custom_code: DetailOption;
 }
 
+export interface BloccoPNN1 {
+  title: string;
+  subtitle: string;
+  description: string;
+  claim: string;
+  cta: {
+    label: string;
+    action_path: string;
+  };
+}
+
 export interface ComuneFooter {
   tagline: string;
   copyright: string;
@@ -156,6 +169,7 @@ export interface ComponentsConfig {
   };
   sezione_strategie_social: SezioneStrategieSocial;
   sezione_servizi_dettaglio: SezioneServiziDettaglio;
+  bloccopnn1: BloccoPNN1;
   service_options: {
     wordpress: ServiceOption[];
     custom: ServiceOption[];
