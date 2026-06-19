@@ -1,6 +1,7 @@
 import { SiteConfig } from "../types";
 import { ArrowRight, Workflow, ShieldAlert, Cpu, Laptop, Users2, CodeXml, HeartHandshake, Smartphone, Zap } from "lucide-react";
 import { motion } from "motion/react";
+import { GlowCircle, renderSplitTitle } from "./ThemeElements";
 
 interface HomeViewProps {
   config: SiteConfig;
@@ -14,65 +15,66 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
   const serviziData = components.sezione_servizi_dettaglio;
 
   return (
-    <div id="home-view" className="space-y-0 pb-0">
+    <div id="home-view" className="relative space-y-0 pb-0 bg-app-bg-main overflow-hidden">
       
-      {/* Dynamic Hero Section */}
-      <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden w-full bg-app-bg-main border-b-4 border-app-text-primary">
+      {/* Background Glows */}
+      <GlowCircle color="#9B5CFF" size="400px" top="-100px" left="-100px" delay={0} />
+      <GlowCircle color="#00F5FF" size="300px" top="20%" left="80%" delay={1} />
+      <GlowCircle color="#AAFF00" size="250px" top="60%" left="-50px" delay={2} />
+
+      {/* Hero Section */}
+      <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden w-full z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-3xl">
-              {/* Tagline / Subtitle */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase mb-4 flex items-center gap-2"
+                className="font-mono text-xs md:text-sm font-bold text-app-accent-secondary tracking-widest uppercase mb-4 flex items-center gap-2"
               >
-                <Cpu size={16} className="text-app-accent-purple" />
+                <Cpu size={16} />
                 {heroData.subtitle}
               </motion.p>
 
-              {/* Title */}
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] mb-6 uppercase"
+                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase"
               >
-                {heroData.title}
+                {renderSplitTitle(heroData.title, "#FFFFFF", "#9B5CFF")}
               </motion.h1>
 
-              {/* Description */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-lg md:text-xl text-app-text-primary leading-tight mb-10 max-w-2xl font-bold"
+                className="font-sans text-lg md:text-xl text-white/80 leading-tight mb-10 max-w-2xl"
               >
                 {heroData.description}
               </motion.p>
 
-              {/* CTA list */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4 items-start"
+                className="flex flex-col sm:flex-row gap-6 items-start"
               >
                 <button
                   id="hero-primary-cta"
                   onClick={() => onNavigate(heroData.cta_primary.action_path)}
-                  className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-green text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-app-accent-lime transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-primary text-app-bg-main px-10 py-5 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(155,92,255,0.6)] cursor-pointer flex items-center justify-center gap-2"
                 >
                   {heroData.cta_primary.label}
-                  <ArrowRight size={18} strokeWidth={3} />
+                  <ArrowRight size={18} />
                 </button>
 
                 {heroData.cta_secondary && (
                   <button
                     id="hero-secondary-cta"
                     onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                    className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter border-4 border-app-text-primary bg-transparent text-app-text-primary px-10 py-5 rounded-none hover:bg-app-accent-orange transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter border-2 border-white/20 text-white px-10 py-5 rounded-xl hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {heroData.cta_secondary.label}
                   </button>
@@ -80,144 +82,194 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               </motion.div>
             </div>
 
-            {/* Hero Image with fading effect */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative group"
             >
-              <div className="relative rounded-none overflow-hidden shadow-none border-4 border-app-text-primary">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
                 <img
                   src={config.assets_manifest.home_hero_image.path}
                   alt={config.assets_manifest.home_hero_image.alt}
-                  className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-auto object-cover img-neon-tint group-hover:filter-none transition-all duration-700"
                 />
-                {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-80" />
-                <div className="absolute inset-0 bg-gradient-to-r from-app-bg-main/40 via-transparent to-transparent opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-60" />
               </div>
+              {/* Overlapping Circles */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-app-accent-secondary rounded-full blur-2xl opacity-50 animate-pulse" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-app-accent-primary rounded-full blur-3xl opacity-40 animate-pulse" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Manifesto Intro Cards */}
-      <section id="manifesto-intro" className="w-full bg-app-bg-main py-20 border-b-4 border-app-text-primary">
+      <section id="manifesto-intro" className="w-full py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Card 1: Abbandonare il complicato */}
           <motion.div 
-            id="manifesto-card-1"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-app-bg-main p-8 flex flex-col justify-between space-y-8 border-app-text-primary lg:border-r-4 border-b-4 lg:border-b-0"
+            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-accent-primary/40 transition-colors"
           >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-none bg-app-accent-purple text-white border-2 border-app-text-primary flex items-center justify-center">
-                <ShieldAlert size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans text-2xl font-black text-app-text-primary tracking-tighter uppercase">Abbatto Barriere</h3>
-              <p className="font-sans text-base text-app-text-primary font-bold leading-tight">
-                Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile dai soliti tecnicismi speculativi, portando stabilità al tuo fatturato.
-              </p>
+            <div className="w-14 h-14 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center shadow-[0_0_15px_rgba(155,92,255,0.3)]">
+              <ShieldAlert size={28} />
             </div>
+            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Abbatto Barriere</h3>
+            <p className="font-sans text-base text-white/70 leading-relaxed">
+              Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile dai soliti tecnicismi.
+            </p>
           </motion.div>
 
-          {/* Card 2: Umanesimo Digitale */}
           <motion.div 
-            id="manifesto-card-2"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-app-bg-main p-8 flex flex-col justify-between space-y-8 border-app-text-primary md:border-r-4 border-b-4 md:border-b-0"
+            transition={{ delay: 0.1 }}
+            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-accent-secondary/40 transition-colors"
           >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-none bg-app-accent-green text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
-                <HeartHandshake size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans text-2xl font-black text-app-text-primary tracking-tighter uppercase">Umanesimo Reale</h3>
-              <p className="font-sans text-base text-app-text-primary font-bold leading-tight">
-                Le persone guidano il progresso, non gli automatismi. Costruisco infrastrutture per liberare il tuo tempo prezioso.
-              </p>
+            <div className="w-14 h-14 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center shadow-[0_0_15px_rgba(0,245,255,0.3)]">
+              <HeartHandshake size={28} />
             </div>
+            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Umanesimo Reale</h3>
+            <p className="font-sans text-base text-white/70 leading-relaxed">
+              Le persone guidano il progresso. Costruisco infrastrutture per liberare il tuo tempo prezioso.
+            </p>
           </motion.div>
 
-          {/* Card 3: Rigore e Strategia */}
           <motion.div 
-            id="manifesto-card-3"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-app-bg-main p-8 flex flex-col justify-between space-y-8 md:col-span-2 lg:col-span-1"
+            transition={{ delay: 0.2 }}
+            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-tertiary/40 transition-colors md:col-span-2 lg:col-span-1"
           >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
-                <Workflow size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans text-2xl font-black text-app-text-primary tracking-tighter uppercase">Rigore Visivo</h3>
-              <p className="font-sans text-base text-app-text-primary font-bold leading-tight">
-                Applico una rigorosa eleganza estetica. Ogni scelta segue un preciso scopo di conversione e professionalità.
-              </p>
+            <div className="w-14 h-14 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center shadow-[0_0_15px_rgba(170,255,0,0.3)]">
+              <Workflow size={28} />
             </div>
+            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Rigore Visivo</h3>
+            <p className="font-sans text-base text-white/70 leading-relaxed">
+              Applico una rigorosa eleganza estetica. Ogni scelta segue un preciso scopo di conversione.
+            </p>
           </motion.div>
 
         </div>
       </div>
     </section>
 
-      {/* Sezione Strategie Social & Lead Gen Preview */}
-      <section id="social-preview-section" className="bg-app-bg-main border-b-4 border-app-text-primary py-24">
+      {/* PNRR Section (bloccopnn1) */}
+      <section id="pnrr-section" className="relative py-24 z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-morphism rounded-[40px] overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-stretch border-app-accent-secondary/20 neon-border-cyan"
+          >
+            <div className="p-10 md:p-16 space-y-8 flex flex-col justify-center">
+              <div className="flex items-center gap-6 mb-2">
+                <img
+                  src={config.assets_manifest.pnrr_badge.path}
+                  alt={config.assets_manifest.pnrr_badge.alt}
+                  className="h-12 w-auto object-contain logo-pnrr-filter"
+                />
+                <div className="h-10 w-[1px] bg-white/20" />
+                <span className="font-mono text-[10px] md:text-xs font-black text-app-accent-secondary tracking-widest uppercase">
+                  {components.bloccopnn1.subtitle}
+                </span>
+              </div>
+
+              <h2 className="font-sans text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+                {renderSplitTitle(components.bloccopnn1.title, "#FFFFFF", "#00F5FF")}
+              </h2>
+
+              <p className="font-sans text-lg text-white/70 leading-tight max-w-xl">
+                {components.bloccopnn1.description}
+              </p>
+
+              <div className="flex items-center gap-4">
+                 <span className="font-mono text-xs font-black text-app-tertiary uppercase tracking-wider">
+                   {components.bloccopnn1.claim}
+                 </span>
+                 <div className="flex-grow h-[1px] bg-gradient-to-r from-app-tertiary/50 to-transparent" />
+              </div>
+
+              <button
+                onClick={() => onNavigate(components.bloccopnn1.cta.action_path)}
+                className="w-fit font-sans font-black text-sm uppercase tracking-tighter border-2 border-app-accent-secondary text-app-accent-secondary px-10 py-5 rounded-xl hover:bg-app-accent-secondary/10 transition-all cursor-pointer shadow-[0_0_20px_rgba(0,245,255,0.1)] hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
+              >
+                {components.bloccopnn1.cta.label}
+              </button>
+            </div>
+
+            <div className="relative min-h-[400px] lg:min-h-full overflow-hidden group">
+              <img
+                src={config.assets_manifest.pnrr_hero.path}
+                alt={config.assets_manifest.pnrr_hero.alt}
+                className="absolute inset-0 w-full h-full object-cover img-neon-tint-cyan group-hover:filter-none transition-all duration-1000 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-app-bg-main via-transparent to-transparent lg:block hidden opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent lg:hidden block opacity-60" />
+
+              {/* Glow Overlay */}
+              <div className="absolute inset-0 bg-app-accent-secondary/5 mix-blend-overlay group-hover:bg-transparent transition-colors" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Social Preview Section */}
+      <section id="social-preview-section" className="relative py-24 z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <motion.div 
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="lg:col-span-5 space-y-6"
             >
-              <span className="font-mono text-xs font-bold text-app-text-primary tracking-widest uppercase">
+              <span className="font-mono text-xs font-bold text-app-accent-secondary tracking-widest uppercase">
                 {socialData.subtitle}
               </span>
-              <h2 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
-                {socialData.title}
+              <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+                {renderSplitTitle(socialData.title, "#FFFFFF", "#00F5FF")}
               </h2>
-              <p className="font-sans text-lg text-app-text-primary font-bold leading-tight">
+              <p className="font-sans text-lg text-white/70 leading-relaxed">
                 {socialData.description}
               </p>
               
               <div className="pt-4">
                 <button
-                  id="home-social-cta"
                   onClick={() => onNavigate("/social-lead-generation")}
-                  className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-purple text-white px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-app-text-primary hover:text-white transition-all flex items-center gap-2 cursor-pointer"
+                  className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-secondary text-app-bg-main px-10 py-5 rounded-xl transition-all hover:shadow-[0_0_30px_rgba(0,245,255,0.6)] flex items-center gap-2 cursor-pointer"
                 >
                   Vedi il Sistema
-                  <ArrowRight size={18} strokeWidth={3} />
+                  <ArrowRight size={18} />
                 </button>
               </div>
             </motion.div>
 
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {socialData.pillars.map((pillar, idx) => (
                 <motion.div
                   key={pillar.index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  className="bg-app-bg-main p-8 space-y-4 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0 last:border-r-0 last:border-b-0"
+                  transition={{ delay: idx * 0.1 }}
+                  className="glass-morphism p-6 rounded-2xl space-y-4"
                 >
-                  <span className="font-mono text-4xl font-black text-app-accent-purple block">
+                  <span className="font-mono text-3xl font-black text-app-accent-secondary block">
                     {pillar.index}
                   </span>
-                  <h4 className="font-sans font-black text-app-text-primary text-xl uppercase tracking-tighter">
+                  <h4 className="font-sans font-black text-white text-lg uppercase tracking-tighter">
                     {pillar.title}
                   </h4>
-                  <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                  <p className="font-sans text-sm text-white/60 leading-tight">
                     {pillar.description}
                   </p>
                 </motion.div>
@@ -228,243 +280,146 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         </div>
       </section>
 
-      {/* Dynamic AI Process Optimization section */}
-      <section id="ai-case-studies" className="bg-app-accent-purple text-white py-24 border-b-4 border-app-text-primary">
+      {/* AI Section */}
+      <section id="ai-case-studies" className="relative py-24 z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl mb-20 space-y-4"
-          >
-            <span className="font-mono text-xs font-black text-app-accent-lime tracking-widest uppercase block bg-app-text-primary px-3 py-1 w-fit">
-              IA Applicata
-            </span>
-            <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
-              L'IA libera <br/> il tuo tempo
-            </h2>
-            <p className="font-sans text-xl text-white/90 font-bold leading-tight">
-              L'IA non sostituisce il tuo lavoro, ma lo protegge eliminando compiti ripetitivi e risposte manuali lente.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+          <div className="glass-morphism p-12 md:p-16 rounded-[40px] overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-app-accent-primary/10 rounded-full blur-[100px]" />
             
-            {/* Card 1: Assistente Instagram/WA */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-app-bg-main p-8 space-y-6 border-app-text-primary md:border-r-4 border-b-4 md:border-b-0"
-            >
-              <div className="w-14 h-14 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
-                <Smartphone size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">Lead automatici</h3>
-              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
-                Un utente commenta, il sistema invia un DM con un quiz informativo. Chi risponde è qualificato e pronto all'acquisto.
-              </p>
-              <div className="pt-2">
-                <span className="font-mono text-xs font-black text-app-text-primary bg-app-accent-lime px-3 py-1 border-2 border-app-text-primary">
+            <div className="relative z-10 max-w-3xl mb-16 space-y-4">
+              <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
+                IA Applicata
+              </span>
+              <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+                {renderSplitTitle("L'IA libera il tuo tempo", "#FFFFFF", "#AAFF00")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+
+              <div className="space-y-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-app-accent-secondary shadow-[0_0_15px_rgba(0,245,255,0.2)]">
+                  <Smartphone size={28} />
+                </div>
+                <h3 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Lead automatici</h3>
+                <p className="font-sans text-sm text-white/60">
+                  Un utente commenta, il sistema invia un DM con un quiz informativo.
+                </p>
+                <span className="inline-block font-mono text-[10px] font-black text-app-accent-secondary border border-app-accent-secondary/30 px-2 py-0.5 rounded">
                   SAVE: 2.5h/DAY
                 </span>
               </div>
-            </motion.div>
 
-            {/* Card 2: Scrittura Programmatica */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-app-bg-main p-8 space-y-6 border-app-text-primary md:border-r-4 border-b-4 md:border-b-0"
-            >
-              <div className="w-14 h-14 rounded-none bg-app-accent-lime text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
-                <Zap size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">Piano Editoriale</h3>
-              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
-                Addestriamo un GPT sul tuo stile. Genera idee mensili pronte da revisionare, azzerando il blocco creativo.
-              </p>
-              <div className="pt-2">
-                <span className="font-mono text-xs font-black text-app-text-primary bg-app-accent-orange px-3 py-1 border-2 border-app-text-primary">
+              <div className="space-y-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-app-tertiary shadow-[0_0_15px_rgba(170,255,0,0.2)]">
+                  <Zap size={28} />
+                </div>
+                <h3 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Piano Editoriale</h3>
+                <p className="font-sans text-sm text-white/60">
+                  Genera idee mensili pronte da revisionare, azzerando il blocco creativo.
+                </p>
+                <span className="inline-block font-mono text-[10px] font-black text-app-tertiary border border-app-tertiary/30 px-2 py-0.5 rounded">
                   PROD: +900%
                 </span>
               </div>
-            </motion.div>
 
-            {/* Card 3: Assistente Prenotazioni */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-app-bg-main p-8 space-y-6"
-            >
-              <div className="w-14 h-14 rounded-none bg-app-accent-green text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
-                <Users2 size={28} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">Appuntamenti</h3>
-              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
-                I clienti compilano un questionario interattivo. Il sistema consiglia lo slot perfetto sul calendario.
-              </p>
-              <div className="pt-2">
-                <span className="font-mono text-xs font-black text-app-text-primary bg-app-accent-purple text-white px-3 py-1 border-2 border-app-text-primary">
+              <div className="space-y-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-app-accent-primary shadow-[0_0_15px_rgba(155,92,255,0.2)]">
+                  <Users2 size={28} />
+                </div>
+                <h3 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Appuntamenti</h3>
+                <p className="font-sans text-sm text-white/60">
+                  I clienti compilano un questionario. Il sistema consiglia lo slot perfetto.
+                </p>
+                <span className="inline-block font-mono text-[10px] font-black text-app-accent-primary border border-app-accent-primary/30 px-2 py-0.5 rounded">
                   ZERO VOID CALLS
                 </span>
               </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Breakdown */}
+      <section id="services-preview" className="relative py-24 z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div className="max-w-3xl mb-16 space-y-4">
+            <span className="font-mono text-xs font-bold text-app-accent-primary tracking-widest uppercase block">
+              I Pilastri Tecnologici
+            </span>
+            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+              {renderSplitTitle(serviziData.option_wordpress.title + " & " + "Custom Code", "#FFFFFF", "#9B5CFF")}
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <motion.div className="glass-morphism p-10 rounded-[40px] space-y-8 flex flex-col justify-between group hover:border-app-accent-primary/30 transition-all">
+              <div className="space-y-6">
+                <div className="flex justify-between items-start">
+                  <span className="font-mono text-[10px] font-black tracking-wider uppercase bg-app-accent-primary/20 text-app-accent-primary px-3 py-1 rounded-full border border-app-accent-primary/30">
+                    {serviziData.option_wordpress.tag}
+                  </span>
+                  <Laptop className="text-app-accent-primary group-hover:scale-110 transition-transform" size={32} />
+                </div>
+                <h3 className="font-sans text-3xl font-black text-white tracking-tighter uppercase">
+                  {serviziData.option_wordpress.title}
+                </h3>
+                <p className="font-sans text-base text-white/60 leading-relaxed">
+                  {serviziData.option_wordpress.description}
+                </p>
+              </div>
+              <button
+                onClick={() => onNavigate("/servizi")}
+                className="w-fit font-sans font-black text-xs text-app-accent-primary uppercase tracking-tighter flex items-center gap-2 hover:gap-4 transition-all"
+              >
+                Configura ora <ArrowRight size={16} />
+              </button>
+            </motion.div>
+
+            <motion.div className="glass-morphism p-10 rounded-[40px] space-y-8 flex flex-col justify-between group hover:border-app-tertiary/30 transition-all">
+              <div className="space-y-6">
+                <div className="flex justify-between items-start">
+                  <span className="font-mono text-[10px] font-black tracking-wider uppercase bg-app-tertiary/20 text-app-tertiary px-3 py-1 rounded-full border border-app-tertiary/30">
+                    {serviziData.option_custom_code.tag}
+                  </span>
+                  <CodeXml className="text-app-tertiary group-hover:scale-110 transition-transform" size={32} />
+                </div>
+                <h3 className="font-sans text-3xl font-black text-white tracking-tighter uppercase">
+                  {serviziData.option_custom_code.title}
+                </h3>
+                <p className="font-sans text-base text-white/60 leading-relaxed">
+                  {serviziData.option_custom_code.description}
+                </p>
+              </div>
+              <button
+                onClick={() => onNavigate("/servizi")}
+                className="w-fit font-sans font-black text-xs text-app-tertiary uppercase tracking-tighter flex items-center gap-2 hover:gap-4 transition-all"
+              >
+                Esplora il codice <ArrowRight size={16} />
+              </button>
             </motion.div>
 
           </div>
-
-          <div className="mt-16 flex justify-center">
-            <button
-              id="cta-ai-cases-learn"
-              onClick={() => onNavigate("/contatti")}
-              className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-lime text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer"
-            >
-              Richiedi la tua integrazione personalizzata
-            </button>
-          </div>
-
         </div>
       </section>
 
-      {/* Services Breakdown Preview */}
-      <section id="services-preview" className="w-full bg-app-bg-main py-24 border-b-4 border-app-text-primary">
+      {/* CTA Section */}
+      <section id="banner-cta" className="relative py-24 z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl mb-20 space-y-4"
-          >
-            <span className="font-mono text-xs font-bold text-app-text-primary tracking-widest uppercase mb-1 block">
-              I Pilastri Tecnologici
-            </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
-              Sviluppo Web <br/> Strategico
-            </h2>
-            <p className="font-sans text-lg text-app-text-primary font-bold leading-tight">
-              Offro soluzioni su misura per garantirti massima autonomia o prestazioni purissime.
-            </p>
-          </motion.div>
+          <div className="bg-gradient-to-br from-app-accent-primary to-app-accent-secondary rounded-[50px] p-12 md:p-20 text-center relative overflow-hidden shadow-[0_0_50px_rgba(155,92,255,0.3)]">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:20px_20px]" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border-4 border-app-text-primary bg-app-text-primary">
-          
-          {/* Option 1: WordPress */}
-          <motion.div 
-            id="home-service-wordpress"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="bg-app-bg-main p-10 space-y-8 flex flex-col justify-between border-app-text-primary lg:border-r-4 border-b-4 lg:border-b-0"
-          >
-            <div className="space-y-6">
-              <div className="flex justify-between items-start">
-                <span className="font-mono text-xs font-black tracking-wider uppercase bg-app-accent-purple text-white px-3 py-1 border-2 border-app-text-primary">
-                  {serviziData.option_wordpress.tag}
-                </span>
-                <Laptop className="text-app-accent-purple" size={32} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans text-3xl font-black text-app-text-primary tracking-tighter uppercase">
-                {serviziData.option_wordpress.title}
-              </h3>
-              <p className="font-sans text-lg font-black text-app-accent-purple uppercase tracking-tighter">
-                {serviziData.option_wordpress.subtitle}
-              </p>
-              <p className="font-sans text-base text-app-text-primary font-bold leading-tight">
-                {serviziData.option_wordpress.description}
-              </p>
-              <ul className="space-y-3 pt-2">
-                {serviziData.option_wordpress.features.slice(0, 3).map((feat, idx) => (
-                  <li key={idx} className="font-sans text-sm text-app-text-primary font-bold flex items-center gap-3">
-                    <span className="w-3 h-3 rounded-none bg-app-accent-purple border border-app-text-primary" />
-                    {feat}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6">
-              <button
-                id="home-wordpress-details"
-                onClick={() => onNavigate("/servizi")}
-                className="font-sans font-black text-sm text-app-text-primary hover:text-app-accent-purple uppercase tracking-tighter flex items-center gap-3 cursor-pointer group transition-all"
-              >
-                Vai ai dettagli
-                <ArrowRight size={20} strokeWidth={3} className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Option 2: Custom Code */}
-          <motion.div 
-            id="home-service-custom"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="bg-app-bg-main p-10 space-y-8 flex flex-col justify-between"
-          >
-            <div className="space-y-6">
-              <div className="flex justify-between items-start">
-                <span className="font-mono text-xs font-black tracking-wider uppercase bg-app-accent-orange text-app-text-primary px-3 py-1 border-2 border-app-text-primary">
-                  {serviziData.option_custom_code.tag}
-                </span>
-                <CodeXml className="text-app-accent-orange" size={32} strokeWidth={3} />
-              </div>
-              <h3 className="font-sans text-3xl font-black text-app-text-primary tracking-tighter uppercase">
-                {serviziData.option_custom_code.title}
-              </h3>
-              <p className="font-sans text-lg font-black text-app-accent-orange uppercase tracking-tighter">
-                {serviziData.option_custom_code.subtitle}
-              </p>
-              <p className="font-sans text-base text-app-text-primary font-bold leading-tight">
-                {serviziData.option_custom_code.description}
-              </p>
-              <ul className="space-y-3 pt-2">
-                {serviziData.option_custom_code.features.slice(0, 3).map((feat, idx) => (
-                  <li key={idx} className="font-sans text-sm text-app-text-primary font-bold flex items-center gap-3">
-                    <span className="w-3 h-3 rounded-none bg-app-accent-orange border border-app-text-primary" />
-                    {feat}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6">
-              <button
-                id="home-customcode-details"
-                onClick={() => onNavigate("/servizi")}
-                className="font-sans font-black text-sm text-app-text-primary hover:text-app-accent-orange uppercase tracking-tighter flex items-center gap-3 cursor-pointer group transition-all"
-              >
-                Vai ai dettagli
-                <ArrowRight size={20} strokeWidth={3} className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Dynamic CTA Banner */}
-      <section id="banner-cta" className="w-full bg-app-bg-main py-24 border-b-4 border-app-text-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="bg-app-accent-green border-4 border-app-text-primary rounded-none p-10 md:p-16 text-center space-y-8 relative overflow-hidden">
-            <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-              <h3 className="font-sans text-4xl sm:text-6xl font-black tracking-tighter text-app-text-primary uppercase leading-[0.9]">
+            <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+              <h3 className="font-sans text-4xl sm:text-6xl font-black tracking-tighter text-app-bg-main uppercase leading-[0.9]">
                 Basta subire <br/> la tecnologia. <br/> Usala.
               </h3>
-              <p className="font-sans text-lg sm:text-xl text-app-text-primary font-bold leading-tight">
-                Abbatto le distanze tecniche e ti do piena autonomia d'impresa. Rendi semplice ciò che finora sembrava faticoso.
-              </p>
               <div className="pt-6 flex justify-center">
                 <button
-                  id="banner-cta-btn"
                   onClick={() => onNavigate("/contatti")}
-                  className="font-sans font-black text-sm uppercase tracking-tighter bg-app-text-primary text-app-accent-green hover:bg-white hover:text-app-text-primary px-12 py-6 rounded-none transition-all cursor-pointer border-2 border-app-text-primary"
+                  className="font-sans font-black text-sm uppercase tracking-tighter bg-app-bg-main text-white px-12 py-6 rounded-2xl transition-all hover:scale-105 hover:shadow-2xl cursor-pointer"
                 >
                   Inizia il Dialogo
                 </button>

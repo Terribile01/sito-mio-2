@@ -32,11 +32,11 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
             }}
             className="flex flex-col items-start focus:outline-none group text-left cursor-pointer"
           >
-            <span className="font-sans text-2xl font-black tracking-tighter text-app-text-primary group-hover:text-app-accent-purple transition-colors uppercase leading-none">
+            <span className="font-sans text-2xl font-black tracking-tighter text-white group-hover:text-app-accent-primary transition-colors uppercase leading-none">
               {navbarConfig.brand_name}
-              <span className="text-app-accent-purple font-mono text-base font-bold">{navbarConfig.logo_domain}</span>
+              <span className="text-app-accent-primary font-mono text-base font-bold">{navbarConfig.logo_domain}</span>
             </span>
-            <span className="hidden sm:inline font-mono text-[10px] tracking-widest text-app-text-primary font-bold uppercase mt-1 bg-app-accent-green px-2">
+            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-white/40 font-bold uppercase mt-1">
               {navbarConfig.tagline}
             </span>
           </button>
@@ -51,14 +51,14 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
                   key={item.id}
                   onClick={() => onNavigate(item.path)}
                   className={`relative py-2 font-sans font-black text-xs uppercase tracking-tighter transition-all cursor-pointer ${
-                    isActive ? "text-app-accent-purple" : "text-app-text-primary hover:text-app-accent-purple"
+                    isActive ? "text-app-accent-primary" : "text-white/70 hover:text-white"
                   }`}
                 >
                   {item.name}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-1.5 bg-app-accent-purple"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-app-accent-primary shadow-[0_0_8px_rgba(155,92,255,0.8)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -70,14 +70,14 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
             <button
               id="navbar-cta-btn"
               onClick={() => onNavigate("/contatti")}
-              className={`font-sans font-black text-xs tracking-tighter uppercase px-5 py-2.5 rounded-none border-4 ${
+              className={`font-sans font-black text-xs tracking-tighter uppercase px-5 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
                 currentPath === "/contatti"
-                  ? "bg-app-accent-purple text-white border-app-text-primary"
-                  : "border-app-text-primary text-app-text-primary hover:bg-app-accent-lime"
-              } transition-all cursor-pointer flex items-center gap-1.5`}
+                  ? "bg-app-accent-primary text-app-bg-main shadow-[0_0_20px_rgba(155,92,255,0.4)]"
+                  : "bg-white/5 border border-white/10 text-white hover:bg-white/10"
+              }`}
             >
               Dialogo
-              <ArrowUpRight size={16} strokeWidth={3} />
+              <ArrowUpRight size={16} />
             </button>
           </div>
 
@@ -86,7 +86,7 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-app-text-30 hover:text-app-accent-olive focus:outline-none cursor-pointer"
+              className="p-2 text-white hover:text-app-accent-primary focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -104,9 +104,9 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className={`md:hidden ${theme.navbar.background} border-b ${theme.navbar.border} overflow-hidden`}
+            className={`md:hidden bg-app-bg-main/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden`}
           >
-            <div className="px-6 py-4 space-y-3 bg-app-bg-60/95 backdrop-blur-lg">
+            <div className="px-6 py-8 space-y-4">
               {navItems.map((item) => {
                 const isActive = currentPath === item.path;
                 return (
@@ -117,8 +117,8 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
                       onNavigate(item.path);
                       setIsOpen(false);
                     }}
-                    className={`block w-full text-left py-4 px-4 border-4 border-app-text-primary font-sans font-black text-xl uppercase tracking-tighter transition-all cursor-pointer ${
-                      isActive ? "bg-app-accent-purple text-white" : "bg-white text-app-text-primary hover:bg-app-accent-lime"
+                    className={`block w-full text-left py-4 px-6 rounded-2xl font-sans font-black text-xl uppercase tracking-tighter transition-all cursor-pointer ${
+                      isActive ? "bg-app-accent-primary text-app-bg-main" : "text-white/70 hover:bg-white/5"
                     }`}
                   >
                     {item.name}
@@ -133,10 +133,10 @@ export default function Navbar({ config, currentPath, onNavigate }: NavbarProps)
                     onNavigate("/contatti");
                     setIsOpen(false);
                   }}
-                  className="w-full font-sans font-black text-lg tracking-tighter uppercase text-center py-5 rounded-none bg-app-accent-green text-app-text-primary border-4 border-app-text-primary hover:bg-white transition-all flex items-center justify-center gap-3 cursor-pointer"
+                  className="w-full font-sans font-black text-lg tracking-tighter uppercase text-center py-5 rounded-2xl bg-app-accent-secondary text-app-bg-main shadow-[0_0_30px_rgba(0,245,255,0.3)] transition-all flex items-center justify-center gap-3 cursor-pointer"
                 >
                   Inizia il Dialogo
-                  <ArrowUpRight size={20} strokeWidth={3} />
+                  <ArrowUpRight size={20} />
                 </button>
               </div>
             </div>
