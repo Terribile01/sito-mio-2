@@ -28,10 +28,8 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
   return (
     <div id="social-lead-view" className="space-y-0 pb-0 w-full">
       
-      {/* Social Hero Header - Standard Bone Warm Accent */}
-      <section id="social-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-app-bg-60 w-full">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-app-accent-olive/8 rounded-full blur-[130px] pointer-events-none" />
-        
+      {/* Social Hero Header */}
+      <section id="social-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-app-bg-main w-full border-b-4 border-app-text-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image on the left for other pages (Desktop) */}
@@ -41,20 +39,16 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative group order-2 lg:order-1"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/10">
+              <div className="relative rounded-none overflow-hidden shadow-none border-4 border-app-text-primary">
                 <img
                   src={config.assets_manifest.social_hero_image.path}
                   alt={config.assets_manifest.social_hero_image.alt}
-                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-60/40 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-60/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-main/40 via-transparent to-transparent opacity-40" />
               </div>
-
-              {/* Decorative technical accent elements */}
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-l-2 border-b-2 border-app-accent-olive/30 rounded-bl-3xl pointer-events-none" />
-              <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-app-accent-khaki/30 rounded-tr-xl pointer-events-none" />
             </motion.div>
 
             <div className="max-w-3xl space-y-6 order-1 lg:order-2">
@@ -62,9 +56,9 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
+                className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase flex items-center gap-2"
               >
-                <MessageSquareCode size={16} className="text-app-accent-khaki" />
+                <MessageSquareCode size={16} className="text-app-accent-purple" />
                 {heroData.subtitle}
               </motion.p>
               
@@ -72,16 +66,16 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
+                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase"
               >
-                Costruisci un Canale <span className="italic font-serif text-app-accent-olive">Senza Fine</span> di Nuovi Clienti
+                Canale <span className="text-app-accent-purple">Senza Fine</span> <br/> Clienti
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-base md:text-lg text-app-text-30 leading-relaxed max-w-2xl"
+                className="font-sans text-base md:text-xl text-app-text-primary leading-tight font-bold max-w-2xl"
               >
                 {heroData.description}
               </motion.p>
@@ -98,17 +92,17 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                     const el = document.getElementById("strategie");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-green text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-app-accent-lime transition-all duration-200 cursor-pointer"
                 >
-                  Vedi le Strategie Attive
+                  Vedi Strategie
                 </button>
 
                 <button
                   id="social-secondary-cta"
                   onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                  className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider border border-app-accent-olive text-app-accent-olive px-8 py-4.5 rounded-md hover:bg-app-accent-olive/10 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter border-4 border-app-text-primary bg-transparent text-app-text-primary px-10 py-5 rounded-none hover:bg-app-accent-orange transition-all duration-200 cursor-pointer"
                 >
-                  Contattami Ora
+                  Contattami
                 </button>
               </motion.div>
             </div>
@@ -116,8 +110,8 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
         </div>
       </section>
 
-      {/* Focus & Pillars Section - ALTERNATED BACKGROUND to deep clay mud tone so it looks layered and beautiful */}
-      <section id="strategie" className="bg-app-accent-khaki/20 py-20 border-t border-app-accent-charcoal/10 scroll-mt-24 w-full">
+      {/* Focus & Pillars Section */}
+      <section id="strategie" className="bg-app-bg-main py-20 border-b-4 border-app-text-primary scroll-mt-24 w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <motion.div
@@ -125,39 +119,37 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-2xl mx-auto mb-16 space-y-4"
+            className="max-w-3xl mb-16 space-y-4"
           >
-            <span className="font-mono text-xs font-semibold text-app-accent-olive tracking-widest uppercase block">
+            <span className="font-mono text-xs font-bold text-app-text-primary tracking-widest uppercase block">
               {socialSection.subtitle}
             </span>
-            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-app-accent-charcoal tracking-tight">
+            <h2 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
               {socialSection.title}
             </h2>
-            <p className="font-sans text-sm sm:text-base text-app-text-30/95 max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-lg sm:text-xl text-app-text-primary font-bold leading-tight">
               {socialSection.description}
             </p>
           </motion.div>
 
-          {/* 3 Pillars styled beautifully con ombre e movimento */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-app-text-primary">
             {socialSection.pillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.index}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-45px" }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -8, borderColor: "rgba(117,109,82,0.5)" }}
-                className="bg-app-bg-60 border border-app-accent-charcoal/20 p-8 rounded-lg space-y-6 flex flex-col justify-between shadow-[0_15px_30px_-5px_rgba(45,43,40,0.08)] hover:shadow-[0_24px_48px_-8px_rgba(117,109,82,0.2)] transition-all duration-400 cursor-default"
+                className={`p-8 space-y-6 flex flex-col justify-between border-app-text-primary ${idx < 2 ? 'md:border-r-4 border-b-4 md:border-b-0' : 'border-b-4 md:border-b-0'} last:border-b-0`}
               >
                 <div className="space-y-4">
-                  <span className="font-mono text-4xl font-extrabold text-app-accent-khaki/50 block">
+                  <span className="font-mono text-5xl font-black text-app-accent-purple block">
                     {pillar.index}
                   </span>
-                  <h3 className="font-sans text-xl font-bold text-app-accent-charcoal tracking-tight">
+                  <h3 className="font-sans text-2xl font-black text-app-text-primary tracking-tighter uppercase">
                     {pillar.title}
                   </h3>
-                  <p className="font-sans text-sm text-app-text-30/90 leading-relaxed">
+                  <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
                     {pillar.description}
                   </p>
                 </div>
@@ -166,30 +158,29 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
           </div>
 
           {/* Core philosophy claim box */}
-          <div className="bg-app-bg-60 border border-app-accent-olive/40 rounded-lg p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="bg-app-accent-lime border-4 border-app-text-primary rounded-none mt-16 p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-app-accent-olive/10 text-app-accent-olive flex items-center justify-center shrink-0">
-                <Clock size={20} />
+              <div className="w-12 h-12 rounded-none border-2 border-app-text-primary bg-app-text-primary text-app-accent-lime flex items-center justify-center shrink-0">
+                <Clock size={24} strokeWidth={3} />
               </div>
-              <p className="font-sans text-sm font-semibold text-app-accent-charcoal max-w-xl">
+              <p className="font-sans text-lg font-black text-app-text-primary uppercase tracking-tighter leading-none">
                 {socialSection.footer_claim}
               </p>
             </div>
             <button
               id="social-claim-cta"
               onClick={() => onNavigate(socialSection.cta.action_path)}
-              className="w-full sm:w-auto shrink-0 font-sans font-semibold text-xs uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-6 py-4 rounded-md hover:bg-app-accent-charcoal transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full sm:w-auto shrink-0 font-sans font-black text-sm uppercase tracking-tighter bg-app-text-primary text-app-accent-lime px-8 py-5 rounded-none hover:bg-app-accent-purple hover:text-white transition-all cursor-pointer border-2 border-app-text-primary"
             >
               {socialSection.cta.label}
-              <ArrowUpRight size={14} />
             </button>
           </div>
           
         </div>
       </section>
 
-      {/* AI IN THE LOOP SECTION - ALTERNATED TO DEEP DARK CHARCOAL for powerful layout depth and real examples */}
-      <section id="social-ai-accelerators" className="bg-app-text-30 text-app-bg-60 py-20 border-y border-app-accent-charcoal w-full">
+      {/* AI IN THE LOOP SECTION */}
+      <section id="social-ai-accelerators" className="bg-app-accent-purple text-white py-24 border-b-4 border-app-text-primary w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -201,60 +192,58 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="lg:col-span-5 space-y-6"
             >
-            <span className="font-mono text-xs font-bold text-app-accent-khaki-2 tracking-widest uppercase bg-app-accent-khaki-2/10 px-2.5 py-1 rounded inline-block">
-              Interazioni Intelligenti Automate (IA Real-time)
+              <span className="font-mono text-xs font-black text-app-accent-lime tracking-widest uppercase bg-app-text-primary px-3 py-1 inline-block">
+                IA Real-time
               </span>
-              <h2 className="font-sans text-3xl sm:text-4xl font-bold text-app-bg-60 tracking-tight leading-tight">
-                Come l'IA Velocizza e Automatizza la Lead Generation
+              <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter leading-[0.9] uppercase">
+                IA <br/> Automazione <br/> Lead Gen
               </h2>
-              <p className="font-sans text-sm text-app-bg-60/70 leading-relaxed">
-                Niente chatbot stupidi o risposte robotiche fredde. Configuro automazioni strategiche che uniscono la velocità di calcolo dell'Intelligenza Artificiale alla cura del lessico tipica dell'Umanesimo Digitale.
+              <p className="font-sans text-lg text-white font-bold leading-tight">
+                Niente chatbot stupidi. Configuro automazioni strategiche che uniscono la velocità dell'IA alla cura del lessico tipica dell'Umanesimo Digitale.
               </p>
               
               <div className="pt-2">
                 <button
                   id="cta-social-accelerators"
                   onClick={() => onNavigate("/contatti")}
-                  className="font-sans font-bold text-xs uppercase tracking-wider bg-app-bg-60 text-app-text-30 hover:bg-app-accent-khaki-2 hover:text-app-text-30 px-6 py-3.5 rounded transition-all duration-300 cursor-pointer shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+                  className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-lime text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer"
                 >
-                  Configura il tuo Generatore Automatico
+                  Configura Ora
                 </button>
               </div>
             </motion.div>
 
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-0 border-4 border-app-text-primary bg-app-text-primary">
               
               {/* Card A: DM Auto qualifier */}
               <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-app-text-30 border border-app-accent-charcoal p-6 rounded-md space-y-4 shadow-md hover:border-app-accent-khaki-2/30 transition-all"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="bg-app-bg-main p-8 space-y-4 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0"
               >
-                <div className="w-10 h-10 rounded-full bg-app-accent-khaki-2/10 text-app-accent-khaki-2 flex items-center justify-center">
-                  <Sparkles size={18} />
+                <div className="w-12 h-12 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
+                  <Sparkles size={24} strokeWidth={3} />
                 </div>
-                <h4 className="font-sans font-bold text-app-bg-60 text-sm">DM Instagram Auto-Qualifier</h4>
-                <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed">
-                  Quando un potenziale cliente scrive nei commenti "VOGLIO ACCEDERE", l'IA apre immediatamente la chat privata, offre del valore reale e acquisisce il contatto qualificato guidando la conversazione.
+                <h4 className="font-sans font-black text-app-text-primary text-xl uppercase tracking-tighter">DM Auto-Qualifier</h4>
+                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                  Quando un potenziale cliente scrive "VOGLIO ACCEDERE", l'IA apre la chat, offre valore e acquisisce il contatto qualificato.
                 </p>
               </motion.div>
 
               {/* Card B: WA FAQ Routing */}
               <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-app-text-30 border border-app-accent-charcoal p-6 rounded-md space-y-4 shadow-md hover:border-app-accent-khaki-2/30 transition-all"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="bg-app-bg-main p-8 space-y-4"
               >
-                <div className="w-10 h-10 rounded-full bg-app-accent-khaki-2/10 text-app-accent-khaki-2 flex items-center justify-center">
-                  <Smartphone size={18} />
+                <div className="w-12 h-12 rounded-none bg-app-accent-green text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
+                  <Smartphone size={24} strokeWidth={3} />
                 </div>
-                <h4 className="font-sans font-bold text-app-bg-60 text-sm">WhatsApp Dynamic Answer Router</h4>
-                <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed">
-                  L'IA intercetta le domande frequenti sul tuo WhatsApp aziendale di notte o nel fine settimana. Il cliente riceve informazioni all'istante e fissa l'appuntamento da solo senza farti lavorare fuori orario.
+                <h4 className="font-sans font-black text-app-text-primary text-xl uppercase tracking-tighter">WA Answer Router</h4>
+                <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                  L'IA intercetta le domande frequenti su WhatsApp 24/7. Il cliente riceve info all'istante e fissa l'appuntamento da solo.
                 </p>
               </motion.div>
 
@@ -265,9 +254,9 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
         </div>
       </section>
 
-      {/* Detail breakdown: Why this solves the issue - Standard Bone Accent */}
-      <section className="bg-app-bg-60 py-20 border-b border-app-accent-charcoal/10 w-full">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Detail breakdown */}
+      <section className="bg-app-bg-main py-24 border-b-4 border-app-text-primary w-full">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -276,31 +265,31 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-6"
           >
-            <h3 className="font-sans text-2xl sm:text-3xl font-bold text-app-accent-charcoal tracking-tight">
-              La Maggior Parte delle Campagne è "A Vuoto"
+            <h3 className="font-sans text-4xl sm:text-5xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
+              Campagne <br/> "A Vuoto"
             </h3>
-            <p className="font-sans text-sm sm:text-base text-app-text-30/95 leading-relaxed">
-              Il mercato attuale spinge i piccoli imprenditori a investire budget pubblicitari in campagne caotiche senza una logica preesistente. Il risultato? Molti "like", svariati click, ma nessun form compilato o acquisto reale.
+            <p className="font-sans text-lg text-app-text-primary font-bold leading-tight">
+              Molti investono budget in campagne caotiche. Risultato? Molti "like", ma nessun form compilato o acquisto reale.
             </p>
-            <p className="font-sans text-sm sm:text-base text-app-text-30/95 leading-relaxed">
-              <strong>Il mio approccio è opposto:</strong> la campagna promozionale a pagamento deve essere concepito solo come la fase finale di consolidamento. Prima creiamo la macchina stabile che accoglie e dialoga autonomamente, poi premiamo l'acceleratore dei social.
+            <p className="font-sans text-lg text-app-text-primary font-bold leading-tight">
+              <strong>Il mio approccio:</strong> prima creiamo la macchina stabile che accoglie e dialoga autonomamente, poi premiamo l'acceleratore.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-app-bg-60/50 border border-app-accent-charcoal/15 p-6 rounded-md space-y-3 shadow-sm">
-              <Users className="text-app-accent-olive" size={22} />
-              <h4 className="font-sans font-bold text-sm text-app-accent-charcoal">Pubblico Filtrato</h4>
-              <p className="font-sans text-xs text-app-text-30/90 leading-relaxed">
-                Le persone curiose vengono indirizzate a un sistema guidato che seleziona solo i contatti davvero qualificati per te.
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-4 border-app-text-primary">
+            <div className="bg-app-accent-orange p-8 space-y-3 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0">
+              <Users className="text-app-text-primary" size={32} strokeWidth={3} />
+              <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter">Pubblico Filtrato</h4>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Le persone curiose vengono indirizzate a un sistema guidato che seleziona solo i contatti davvero qualificati.
               </p>
             </div>
 
-            <div className="bg-app-bg-60/50 border border-app-accent-charcoal/15 p-6 rounded-md space-y-3 shadow-sm">
-              <ShieldCheck className="text-app-accent-olive" size={22} />
-              <h4 className="font-sans font-bold text-sm text-app-accent-charcoal">Pronto per l'Ufficio</h4>
-              <p className="font-sans text-xs text-app-text-30/90 leading-relaxed">
-                Riceverai richieste definite nel dettaglio, complete di obiettivi ed esigenze reali compilate dal cliente.
+            <div className="bg-app-accent-green p-8 space-y-3">
+              <ShieldCheck className="text-app-text-primary" size={32} strokeWidth={3} />
+              <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter">Pronto per l'Ufficio</h4>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Riceverai richieste definite nel dettaglio, complete di obiettivi ed esigenze reali.
               </p>
             </div>
           </div>

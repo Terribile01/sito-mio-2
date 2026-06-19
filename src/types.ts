@@ -13,18 +13,24 @@ export interface SitemapItem {
   seo: SEOMetadata;
 }
 
-export interface PaletteAccents {
-  khaki_beige: string;
-  khaki_beige_2: string;
-  olive_wood: string;
-  charcoal_brown: string;
-}
-
 export interface ThemePalette {
-  rules: string;
-  background_60: string;
-  text_and_structure_30: string;
-  accents_10: PaletteAccents;
+  text_primary: string;
+  text_secondary: string;
+  text_tertiary: string;
+  bg_main: string;
+  bg_dark: string;
+  btn_primary_bg: string;
+  btn_primary_text: string;
+  btn_secondary_bg: string;
+  btn_secondary_text: string;
+  btn_tertiary_bg: string;
+  btn_tertiary_text: string;
+  accent_primary: string;
+  accent_secondary: string;
+  hover_primary: string;
+  hover_secondary: string;
+  border_main: string;
+  border_accent: string;
 }
 
 export interface NavbarTheme {

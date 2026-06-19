@@ -203,50 +203,48 @@ export default function ContattiView({ config }: ContattiProps) {
   return (
     <div id="contatti-page-view" className="space-y-0 pb-0">
       
-      {/* Dynamic Header Section with high contrast layout */}
-      <section id="contatti-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-gradient-to-b from-app-accent-khaki/40 to-app-bg-60 w-full">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-app-accent-olive/10 rounded-full blur-[130px] pointer-events-none" />
-        
+      {/* Header Section */}
+      <section id="contatti-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-app-bg-main w-full border-b-4 border-app-text-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl space-y-6">
-            <span className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2">
-              <MessageSquare size={16} className="text-app-accent-khaki" />
+            <span className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase flex items-center gap-2">
+              <MessageSquare size={16} className="text-app-accent-purple" />
               {heroData.subtitle}
             </span>
             
-            <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight">
-              Progetta il tuo <span className="text-app-accent-olive italic font-serif">Successo</span> senza Ansia Tecnica
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
+              Progetta il tuo <span className="text-app-accent-purple">Successo</span> <br/> senza ansia
             </h1>
 
-            <p className="font-sans text-base md:text-lg text-app-text-30/95 leading-relaxed max-w-2xl">
-              Niente risposte pre-confezionate o email spam automatiche. Usa il mio <strong className="text-app-accent-charcoal">Questionario Guidato</strong> per profilare il tuo settore. Le risposte arriveranno a <strong className="text-app-accent-olive">mariateresarogani@gmail.com</strong> o su WhatsApp al <strong className="text-app-accent-olive">379 1038253</strong>.
+            <p className="font-sans text-lg md:text-xl text-app-text-primary leading-tight max-w-2xl font-bold">
+              Niente risposte pre-confezionate. Usa il mio <strong className="text-app-accent-orange uppercase tracking-tighter">Questionario</strong> per profilare il tuo settore.
             </p>
           </div>
         </div>
       </section>
 
       {/* Fast Contact Section */}
-      <section id="contatto-veloce" className="w-full bg-app-bg-60 pt-16 pb-8 border-t border-app-accent-charcoal/10">
+      <section id="contatto-veloce" className="w-full bg-app-bg-main pt-20 pb-12 border-b-4 border-app-text-primary">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="bg-app-accent-khaki/10 border border-app-accent-olive/20 rounded-2xl p-8 md:p-12 shadow-sm">
+          <div className="bg-app-accent-green border-4 border-app-text-primary rounded-none p-8 md:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <span className="font-mono text-[10px] uppercase font-bold text-app-accent-olive tracking-widest bg-app-accent-olive/10 px-3 py-1 rounded">
-                  Risposta in 24h
+                <span className="font-mono text-xs uppercase font-black text-app-text-primary tracking-widest bg-white px-3 py-1 border-2 border-app-text-primary">
+                  Risposta 24h
                 </span>
-                <h2 className="font-sans text-3xl md:text-4xl font-bold text-app-accent-charcoal leading-tight">
-                  Contatto <span className="text-app-accent-olive italic font-serif">Veloce</span>
+                <h2 className="font-sans text-4xl md:text-5xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
+                  Contatto <br/> <span className="text-white">Veloce</span>
                 </h2>
-                <p className="font-sans text-app-text-30/90 leading-relaxed">
-                  Hai una domanda rapida o vuoi solo salutarmi? Compila questo form semplificato e ti risponderò al più presto.
+                <p className="font-sans text-lg text-app-text-primary font-bold leading-tight">
+                  Hai una domanda rapida? Compila questo form semplificato e ti risponderò al più presto.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <a
                     href="tel:+393791038253"
-                    className="flex items-center gap-2 bg-app-accent-charcoal text-app-bg-60 px-6 py-3 rounded-lg font-sans font-bold text-sm hover:bg-app-accent-olive transition-all"
+                    className="flex items-center gap-3 bg-app-text-primary text-white px-8 py-4 rounded-none font-sans font-black text-sm uppercase tracking-tighter hover:bg-white hover:text-app-text-primary transition-all border-2 border-app-text-primary"
                   >
-                    <Smartphone size={18} />
-                    Chiama ora: 379 1038253
+                    <Smartphone size={20} strokeWidth={3} />
+                    379 1038253
                   </a>
                 </div>
               </div>
@@ -255,75 +253,70 @@ export default function ContattiView({ config }: ContattiProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
-                    placeholder="Nome *"
+                    placeholder="NOME"
                     required
                     value={fastNome}
                     onChange={(e) => setFastNome(e.target.value)}
-                    className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                    className="w-full bg-white border-4 border-app-text-primary rounded-none px-4 py-4 text-sm font-bold outline-none placeholder:text-app-text-primary/50"
                   />
                   <input
                     type="email"
-                    placeholder="Email *"
+                    placeholder="EMAIL"
                     required
                     value={fastEmail}
                     onChange={(e) => setFastEmail(e.target.value)}
-                    className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                    className="w-full bg-white border-4 border-app-text-primary rounded-none px-4 py-4 text-sm font-bold outline-none placeholder:text-app-text-primary/50"
                   />
                 </div>
                 <input
                   type="tel"
-                  placeholder="Numero di Telefono (Facoltativo)"
+                  placeholder="TELEFONO (OPZIONALE)"
                   value={fastTel}
                   onChange={(e) => setFastTel(e.target.value)}
-                  className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all"
+                  className="w-full bg-white border-4 border-app-text-primary rounded-none px-4 py-4 text-sm font-bold outline-none placeholder:text-app-text-primary/50"
                 />
                 <textarea
-                  placeholder="Il tuo messaggio *"
+                  placeholder="MESSAGGIO"
                   required
                   rows={4}
                   value={fastMessaggio}
                   onChange={(e) => setFastMessaggio(e.target.value)}
-                  className="w-full bg-app-bg-60 border border-app-accent-charcoal/20 focus:border-app-accent-olive rounded-lg px-4 py-3 text-sm outline-none transition-all resize-none"
+                  className="w-full bg-white border-4 border-app-text-primary rounded-none px-4 py-4 text-sm font-bold outline-none resize-none placeholder:text-app-text-primary/50"
                 />
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 bg-white/50 p-3 border-2 border-app-text-primary">
                   <input
                     id="privacy-fast"
                     type="checkbox"
                     required
                     checked={privacyAccepted}
                     onChange={(e) => setPrivacyAccepted(e.target.checked)}
-                    className="mt-1 accent-app-accent-olive h-4 w-4"
+                    className="mt-1 accent-app-text-primary h-5 w-5 border-2 border-app-text-primary"
                   />
-                  <label htmlFor="privacy-fast" className="text-[11px] text-app-text-30/80 leading-snug">
-                    Ho letto e accetto la gestione dei cookie e la <button type="button" onClick={() => onNavigate("/privacy")} className="text-app-accent-olive hover:underline">privacy policy</button> di questo sito.
+                  <label htmlFor="privacy-fast" className="text-[11px] text-app-text-primary font-bold leading-tight uppercase">
+                    Accetto la <button type="button" onClick={() => onNavigate("/privacy")} className="underline">privacy policy</button>
                   </label>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSendingFast}
-                  className="w-full bg-app-accent-olive text-app-bg-60 py-4 rounded-lg font-sans font-bold uppercase tracking-widest text-xs hover:bg-app-accent-charcoal transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                  className="w-full bg-app-text-primary text-white py-5 rounded-none font-sans font-black uppercase tracking-tighter text-sm hover:bg-white hover:text-app-text-primary transition-all flex items-center justify-center gap-3 cursor-pointer border-2 border-app-text-primary"
                 >
                   {isSendingFast ? (
-                    <div className="w-4 h-4 border-2 border-app-bg-60 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin" />
                   ) : (
                     <>
-                      Invia messaggio
-                      <Send size={14} />
+                      INVIA ORA
+                      <Send size={18} strokeWidth={3} />
                     </>
                   )}
                 </button>
 
                 <AnimatePresence>
                   {fastSendSuccess === true && (
-                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-emerald-600 text-xs font-bold text-center mt-2">
-                      Messaggio inviato con successo! Ti risponderò presto.
-                    </motion.p>
-                  )}
-                  {fastSendSuccess === false && (
-                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-xs font-bold text-center mt-2">
-                      Errore nell'invio. Riprova più tardi.
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-app-text-primary bg-white border-2 border-app-text-primary p-2 text-xs font-black text-center mt-2 uppercase">
+                      Inviato con successo!
                     </motion.p>
                   )}
                 </AnimatePresence>
@@ -333,88 +326,84 @@ export default function ContattiView({ config }: ContattiProps) {
         </div>
       </section>
 
-      {/* Main Container - Interactive Section with alternate dark slate & warm wood tones */}
-      <section id="contatti-form-container" className="w-full bg-app-bg-60 pb-16 pt-8">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      {/* Main Container */}
+      <section id="contatti-form-container" className="w-full bg-app-bg-main pb-24 pt-12">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
-        {/* Left column: Alternating Dark Slate Informative Box & IA Processes explanation */}
         <div className="lg:col-span-4 space-y-8">
           
-          {/* Box 1: Alternate dark color background (Rich Charcoal) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6 }}
-            className="bg-app-text-30 text-app-bg-60 p-8 rounded-lg shadow-[0_15px_30px_-5px_rgba(45,43,40,0.3)] space-y-6 border border-app-accent-charcoal"
+            className="bg-app-text-primary text-white p-8 rounded-none border-4 border-app-text-primary space-y-6"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-app-bg-60/10 flex items-center justify-center text-app-accent-khaki-2">
-                <Clock size={20} />
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-none bg-app-accent-lime flex items-center justify-center text-app-text-primary border-2 border-app-text-primary">
+                <Clock size={24} strokeWidth={3} />
               </div>
               <div>
-                <h4 className="font-sans font-bold text-sm tracking-wide text-app-bg-60">Tempo di Profilazione</h4>
-                <p className="font-mono text-[10px] uppercase text-app-accent-khaki-2 tracking-widest">Meno di 3 minuti</p>
+                <h4 className="font-sans font-black text-xl tracking-tighter uppercase leading-none">Profilazione</h4>
+                <p className="font-mono text-xs uppercase text-app-accent-lime font-bold">3 MINUTI</p>
               </div>
             </div>
             
-            <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed font-normal">
-              Il sistema intelligente adatta automaticamente le domande in base al settore di competenza proposto. Riceverai un report completo pronto all'invio.
+            <p className="font-sans text-sm text-white font-bold leading-tight uppercase">
+              Il sistema adatta le domande al tuo settore. Riceverai un report completo pronto all'invio.
             </p>
 
-            <div className="pt-2 border-t border-app-accent-charcoal space-y-3">
-              <div className="flex items-start gap-2.5 text-xs text-app-bg-60/90">
-                <span className="text-app-accent-khaki-2 font-bold">1.</span>
-                <span>Dimmi chi sei e quale settore vuoi esplorare</span>
+            <div className="pt-4 border-t-2 border-white/20 space-y-4">
+              <div className="flex items-start gap-3 text-sm font-bold uppercase">
+                <span className="text-app-accent-lime">01.</span>
+                <span>Chi sei e settore</span>
               </div>
-              <div className="flex items-start gap-2.5 text-xs text-app-bg-60/90">
-                <span className="text-app-accent-khaki-2 font-bold">2.</span>
-                <span>Seleziona lo scenario o obiettivo esatto</span>
+              <div className="flex items-start gap-3 text-sm font-bold uppercase">
+                <span className="text-app-accent-lime">02.</span>
+                <span>Scenario e obiettivi</span>
               </div>
-              <div className="flex items-start gap-2.5 text-xs text-app-bg-60/90">
-                <span className="text-app-accent-khaki-2 font-bold">3.</span>
-                <span>Scegli se inviarlo su WhatsApp o tramite Email classica</span>
+              <div className="flex items-start gap-3 text-sm font-bold uppercase">
+                <span className="text-app-accent-lime">03.</span>
+                <span>Invia report</span>
               </div>
             </div>
           </motion.div>
 
-          {/* AI Proceses Info Pill: "Come l'IA Velocizza la tua Impresa" */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-app-accent-khaki/30 border border-app-accent-olive/20 p-8 rounded-lg shadow-[0_10px_20px_-8px_rgba(117,109,82,0.15)] space-y-5"
+            className="bg-app-accent-purple text-white border-4 border-app-text-primary p-8 rounded-none space-y-6"
           >
-            <span className="font-mono text-[9px] font-bold tracking-widest uppercase bg-app-accent-olive/15 text-app-accent-olive px-2 py-0.5 rounded-sm">
-              Integrazione IA Attiva
+            <span className="font-mono text-xs font-black tracking-widest uppercase bg-app-text-primary px-3 py-1">
+              IA ATTIVA
             </span>
-            <div className="flex items-center gap-2">
-              <Sparkles className="text-app-accent-olive" size={18} />
-              <h4 className="font-sans font-bold text-app-accent-charcoal text-sm">Automazione Semplificata</h4>
+            <div className="flex items-center gap-3">
+              <Sparkles className="text-app-accent-lime" size={24} strokeWidth={3} />
+              <h4 className="font-sans font-black text-xl uppercase tracking-tighter">Automazione</h4>
             </div>
-            <p className="font-sans text-xs text-app-text-30/95 leading-relaxed">
-              L'Intelligenza Artificiale accelera i flussi digitali senza sradicare l'artigianalità del brand. La integriamo per creare:
+            <p className="font-sans text-sm font-bold leading-tight">
+              L'IA accelera i flussi digitali senza sradicare l'artigianalità. La integriamo per creare:
             </p>
             
-            <div className="space-y-3 pt-2 text-xs text-app-text-30/90">
-              <div className="p-2.5 bg-app-bg-60/60 rounded border border-app-accent-olive/10">
-                <strong className="block text-app-accent-charcoal mb-0.5 font-sans">1. Chatbot di Pre-Qualifica</strong>
-                I filtri automatici scremano i curiosi via DM Instagram per farti parlare solo con chi ha vero budget.
+            <div className="space-y-4 pt-2 text-sm font-bold uppercase">
+              <div className="p-4 bg-app-text-primary border-2 border-app-accent-lime">
+                <strong className="block text-app-accent-lime mb-1">01. PRE-QUALIFICA</strong>
+                Scremiamo i curiosi per farti parlare solo con chi ha budget.
               </div>
-              <div className="p-2.5 bg-app-bg-60/60 rounded border border-app-accent-olive/10">
-                <strong className="block text-app-accent-charcoal mb-0.5 font-sans">2. Copia strategica immediato</strong>
-                L'IA suggerisce testi, angoli di vendita e newsletter programmate pronte da rifinire ed inviare.
+              <div className="p-4 bg-app-text-primary border-2 border-app-accent-orange">
+                <strong className="block text-app-accent-orange mb-1">02. COPYWRITING</strong>
+                Suggerisce testi e newsletter pronte da rifinire.
               </div>
             </div>
           </motion.div>
 
         </div>
 
-        {/* Right column: Dynamic Form / Report Review Display */}
         <div className="lg:col-span-8">
           
-          <div className="bg-app-bg-60 border border-app-accent-charcoal/25 rounded-lg p-6 md:p-10 shadow-[0_15px_35px_-10px_rgba(69,67,64,0.1)] transition-all">
+          <div className="bg-app-bg-main border-4 border-app-text-primary rounded-none p-8 md:p-12 shadow-none">
             
             <AnimatePresence mode="wait">
               
@@ -480,13 +469,13 @@ export default function ContattiView({ config }: ContattiProps) {
                         id="sector-tab-wordpress"
                         type="button"
                         onClick={() => setServizio("wordpress")}
-                        className={`text-left p-4 rounded-md border transition-all flex flex-col justify-between h-28 cursor-pointer ${
+                    className={`text-left p-4 rounded-none border-2 transition-all flex flex-col justify-between h-28 cursor-pointer ${
                           servizio === "wordpress"
-                            ? "bg-app-accent-olive text-app-bg-60 border-app-accent-olive shadow-md"
-                            : "bg-app-bg-60 text-app-text-30 border-app-accent-charcoal/30 hover:bg-app-accent-khaki/40"
+                        ? "bg-app-btn-primary-bg text-app-btn-primary-text border-app-btn-primary-bg shadow-none"
+                        : "bg-app-bg-main text-app-text-primary border-app-bg-dark/30 hover:bg-app-accent-secondary/40"
                         }`}
                       >
-                        <Layers size={18} className={servizio === "wordpress" ? "text-app-bg-60" : "text-app-accent-olive"} />
+                    <Layers size={18} className={servizio === "wordpress" ? "text-app-btn-primary-text" : "text-app-text-secondary"} />
                         <div>
                           <p className="font-sans font-bold text-xs font-mono">1. WordPress Site</p>
                           <p className="text-[10px] opacity-80 font-serif italic mt-0.5">Flessibile & Gestibile</p>
@@ -498,13 +487,13 @@ export default function ContattiView({ config }: ContattiProps) {
                         id="sector-tab-custom"
                         type="button"
                         onClick={() => setServizio("custom")}
-                        className={`text-left p-4 rounded-md border transition-all flex flex-col justify-between h-28 cursor-pointer ${
+                    className={`text-left p-4 rounded-none border-2 transition-all flex flex-col justify-between h-28 cursor-pointer ${
                           servizio === "custom"
-                            ? "bg-app-accent-olive text-app-bg-60 border-app-accent-olive shadow-md"
-                            : "bg-app-bg-60 text-app-text-30 border-app-accent-charcoal/30 hover:bg-app-accent-khaki/40"
+                        ? "bg-app-btn-primary-bg text-app-btn-primary-text border-app-btn-primary-bg shadow-none"
+                        : "bg-app-bg-main text-app-text-primary border-app-bg-dark/30 hover:bg-app-accent-secondary/40"
                         }`}
                       >
-                        <Zap size={18} className={servizio === "custom" ? "text-app-bg-60" : "text-app-accent-olive"} />
+                    <Zap size={18} className={servizio === "custom" ? "text-app-btn-primary-text" : "text-app-text-secondary"} />
                         <div>
                           <p className="font-sans font-bold text-xs font-mono">2. Custom Code</p>
                           <p className="text-[10px] opacity-80 font-serif italic mt-0.5">Prestazioni Purissime</p>
@@ -516,13 +505,13 @@ export default function ContattiView({ config }: ContattiProps) {
                         id="sector-tab-social"
                         type="button"
                         onClick={() => setServizio("social")}
-                        className={`text-left p-4 rounded-md border transition-all flex flex-col justify-between h-28 cursor-pointer ${
+                    className={`text-left p-4 rounded-none border-2 transition-all flex flex-col justify-between h-28 cursor-pointer ${
                           servizio === "social"
-                            ? "bg-app-accent-olive text-app-bg-60 border-app-accent-olive shadow-md"
-                            : "bg-app-bg-60 text-app-text-30 border-app-accent-charcoal/30 hover:bg-app-accent-khaki/40"
+                        ? "bg-app-btn-primary-bg text-app-btn-primary-text border-app-btn-primary-bg shadow-none"
+                        : "bg-app-bg-main text-app-text-primary border-app-bg-dark/30 hover:bg-app-accent-secondary/40"
                         }`}
                       >
-                        <Smartphone size={18} className={servizio === "social" ? "text-app-bg-60" : "text-app-accent-olive"} />
+                    <Smartphone size={18} className={servizio === "social" ? "text-app-btn-primary-text" : "text-app-text-secondary"} />
                         <div>
                           <p className="font-sans font-bold text-xs font-mono">3. Social & Lead Gen</p>
                           <p className="text-[10px] opacity-80 font-serif italic mt-0.5">Automazioni che Vendono</p>
@@ -533,7 +522,7 @@ export default function ContattiView({ config }: ContattiProps) {
                   </div>
 
                   {/* SECTOR SPECIFIC SECTION (AnimatePresence for organic feel) - Color-harmony alternate box */}
-                  <div className="bg-app-accent-khaki/30 p-6 rounded-md border border-app-accent-charcoal/20">
+                  <div className="bg-app-accent-purple/10 p-6 rounded-none border-2 border-app-text-primary">
                     <AnimatePresence mode="wait">
                       
                       {/* WORDPRESS CONFIGURATION SCHEME */}
@@ -564,10 +553,10 @@ export default function ContattiView({ config }: ContattiProps) {
                                   key={opt.id}
                                   type="button"
                                   onClick={() => setSelectedWpOption(opt.id)}
-                                  className={`w-full text-left p-3.5 rounded border transition-all cursor-pointer text-xs ${
+                                  className={`w-full text-left p-3.5 rounded-none border-2 transition-all cursor-pointer text-xs font-bold uppercase ${
                                     selectedWpOption === opt.id
-                                      ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-sm"
-                                      : "bg-app-bg-60/70 text-app-text-30 border-app-accent-charcoal/25 hover:bg-app-bg-60"
+                                      ? "bg-app-text-primary text-white border-app-text-primary shadow-none"
+                                      : "bg-white text-app-text-primary border-app-text-primary/20 hover:bg-app-accent-lime/20"
                                   }`}
                                 >
                                   <div className="flex items-center justify-between font-bold mb-1">
@@ -621,10 +610,10 @@ export default function ContattiView({ config }: ContattiProps) {
                                   key={opt.id}
                                   type="button"
                                   onClick={() => setSelectedCustomOption(opt.id)}
-                                  className={`w-full text-left p-3.5 rounded border transition-all cursor-pointer text-xs ${
+                                  className={`w-full text-left p-3.5 rounded-none border-2 transition-all cursor-pointer text-xs font-bold uppercase ${
                                     selectedCustomOption === opt.id
-                                      ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-sm"
-                                      : "bg-app-bg-60/70 text-app-text-30 border-app-accent-charcoal/25 hover:bg-app-bg-60"
+                                      ? "bg-app-text-primary text-white border-app-text-primary shadow-none"
+                                      : "bg-white text-app-text-primary border-app-text-primary/20 hover:bg-app-accent-lime/20"
                                   }`}
                                 >
                                   <div className="flex items-center justify-between font-bold mb-0.5">
@@ -674,10 +663,10 @@ export default function ContattiView({ config }: ContattiProps) {
                                   key={opt.id}
                                   type="button"
                                   onClick={() => setSelectedSocialOption(opt.id)}
-                                  className={`w-full text-left p-3.5 rounded border transition-all cursor-pointer text-xs ${
+                                  className={`w-full text-left p-3.5 rounded-none border-2 transition-all cursor-pointer text-xs font-bold uppercase ${
                                     selectedSocialOption === opt.id
-                                      ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-sm"
-                                      : "bg-app-bg-60/70 text-app-text-30 border-app-accent-charcoal/25 hover:bg-app-bg-60"
+                                      ? "bg-app-text-primary text-white border-app-text-primary shadow-none"
+                                      : "bg-white text-app-text-primary border-app-text-primary/20 hover:bg-app-accent-lime/20"
                                   }`}
                                 >
                                   <div className="flex items-center justify-between font-bold mb-0.5">
@@ -749,19 +738,19 @@ export default function ContattiView({ config }: ContattiProps) {
                     />
                   </div>
 
-                  {/* Submit Button to show Report Preview screen */}
-                  <div className="pt-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-app-accent-charcoal/10">
-                    <p className="font-mono text-[9px] text-app-text-30/60 leading-relaxed max-w-sm">
-                      * Cliccando sul bottone genererai un report che potrai spedirmi con un clic sia alla mia mail (mariateresarogani@gmail.com) che direttamente al mio numero WhatsApp (379 1038253).
+                  {/* Submit Button */}
+                  <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-8 border-t-4 border-app-text-primary">
+                    <p className="font-mono text-[10px] text-app-text-primary font-bold uppercase leading-tight max-w-sm">
+                      * Genererai un report da spedire via mail o WhatsApp direttamente a Maria Teresa.
                     </p>
                     
                     <button
                       id="generate-report-btn"
                       type="submit"
-                      className="w-full sm:w-auto font-sans font-semibold text-xs uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4.5 rounded-md shadow-[0_12px_24px_-10px_rgba(117,109,82,0.45)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                      className="w-full sm:w-auto font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-orange text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all flex items-center justify-center gap-3 cursor-pointer"
                     >
-                      Genera Report Profilazione
-                      <Send size={14} />
+                      GENERA REPORT
+                      <Send size={18} strokeWidth={3} />
                     </button>
                   </div>
 
@@ -769,95 +758,68 @@ export default function ContattiView({ config }: ContattiProps) {
                 
               ) : (
                 
-                // Show Dynamic Review Screen (The generated Report card ready for delivery)
+                // Show Dynamic Review Screen
                 <motion.div
                   key="form-report"
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   className="space-y-8"
                 >
-                  <div className="text-center py-4 space-y-2">
-                    <div className="w-12 h-12 rounded-full bg-app-accent-olive/10 text-app-accent-olive flex items-center justify-center mx-auto mb-2">
-                      <CheckCircle2 size={26} />
+                  <div className="text-center py-4 space-y-4">
+                    <div className="w-16 h-16 rounded-none bg-app-accent-green text-app-text-primary border-4 border-app-text-primary flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle2 size={32} strokeWidth={3} />
                     </div>
-                    <h3 className="font-sans text-xl font-bold text-app-accent-charcoal tracking-tight">Report Generato con Successo!</h3>
-                    <p className="font-sans text-xs text-app-text-30/95 max-w-md mx-auto leading-relaxed">
-                      Scegli ora come preferisci farmi pervenire la richiesta. Entrambe le vie sono attive ed istantanee!
+                    <h3 className="font-sans text-3xl font-black text-app-text-primary uppercase tracking-tighter">Report Pronto!</h3>
+                    <p className="font-sans text-lg text-app-text-primary font-bold uppercase leading-tight max-w-md mx-auto">
+                      Scegli come inviare la richiesta. Entrambe le vie sono attive.
                     </p>
                   </div>
 
-                  {/* Rich Monospaced Box presenting the formatted answer structure */}
-                  <div className="bg-app-text-30 border border-app-accent-charcoal text-emerald-400 p-6 rounded-md shadow-inner overflow-x-auto font-mono text-xs whitespace-pre-wrap leading-loose max-h-80 custom-scrollbar">
+                  <div className="bg-app-text-primary border-4 border-app-text-primary text-app-accent-lime p-8 rounded-none font-mono text-sm whitespace-pre-wrap leading-tight max-h-80 overflow-y-auto border-2">
                     {generatedReport}
                   </div>
 
-                  {/* DOUBLE DELIVERY ACTIONS (Email to mariateresarogani@gmail.com, WhatsApp to 3791038253) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     
-                    {/* Method 1: SEND VIA WHATSAPP */}
                     <button
                       id="deliver-whatsapp-btn"
                       onClick={sendWhatsApp}
-                      className="flex items-center justify-center gap-3 bg-[#0F9D58] hover:bg-[#0b7441] text-app-bg-60 py-4.5 px-6 rounded-md font-sans font-semibold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5 cursor-pointer"
+                      className="flex items-center justify-center gap-3 bg-[#0F9D58] hover:bg-white hover:text-[#0F9D58] text-white py-5 px-8 rounded-none font-sans font-black text-sm uppercase tracking-tighter transition-all border-4 border-app-text-primary cursor-pointer"
                     >
-                      <Smartphone size={18} />
-                      Invia report su WhatsApp (379 1038253)
+                      <Smartphone size={20} strokeWidth={3} />
+                      VIA WHATSAPP
                     </button>
 
-                    {/* Method 2: SEND VIA EMAIL */}
                     <button
                       id="deliver-email-btn"
                       onClick={sendEmail}
                       disabled={isSending || sendSuccess === true}
-                      className={`flex items-center justify-center gap-3 py-4.5 px-6 rounded-md font-sans font-semibold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5 cursor-pointer ${
+                      className={`flex items-center justify-center gap-3 py-5 px-8 rounded-none font-sans font-black text-sm uppercase tracking-tighter transition-all border-4 border-app-text-primary cursor-pointer ${
                         sendSuccess === true
-                          ? "bg-emerald-600 text-white cursor-default"
-                          : "bg-app-accent-olive hover:bg-app-accent-charcoal text-app-bg-60"
+                          ? "bg-app-accent-green text-app-text-primary cursor-default"
+                          : "bg-app-accent-purple text-white hover:bg-white hover:text-app-accent-purple"
                       } ${isSending ? "opacity-70" : ""}`}
                     >
                       {isSending ? (
-                        <div className="w-4 h-4 border-2 border-app-bg-60 border-t-transparent rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin" />
                       ) : sendSuccess === true ? (
-                        <CheckCircle2 size={18} />
+                        <CheckCircle2 size={20} strokeWidth={3} />
                       ) : (
-                        <Mail size={18} />
+                        <Mail size={20} strokeWidth={3} />
                       )}
-                    {sendSuccess === true ? "Inviato con Successo!" : isSending ? "Invio in corso..." : "Invia messaggio"}
+                    {sendSuccess === true ? "INVIATO!" : isSending ? "INVIO..." : "VIA EMAIL"}
                     </button>
 
                   </div>
 
-                  {/* Feedback Messages */}
-                  <AnimatePresence>
-                    {sendSuccess === true && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-emerald-100 border border-emerald-200 text-emerald-800 p-4 rounded-md text-center text-sm font-sans font-semibold"
-                      >
-                        Grazie, il report è stato inviato! Riceverai un riscontro il prima possibile.
-                      </motion.div>
-                    )}
-                    {sendSuccess === false && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-red-100 border border-red-200 text-red-800 p-4 rounded-md text-center text-sm font-sans"
-                      >
-                        Si è verificato un problema nell'invio, ma non preoccuparti: copia il report qui sotto e inviamelo manualmente via mail.
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Action row to revert / compile other data */}
-                  <div className="pt-4 flex justify-center border-t border-app-accent-charcoal/10">
+                  <div className="pt-8 flex justify-center border-t-4 border-app-text-primary">
                     <button
                       id="modify-report-btn"
                       onClick={() => setFormSent(false)}
-                      className="font-mono text-[10px] uppercase font-bold tracking-widest text-app-accent-olive hover:text-app-accent-charcoal flex items-center gap-2 cursor-pointer py-2"
+                      className="font-mono text-xs uppercase font-black tracking-widest text-app-text-primary hover:text-app-accent-orange flex items-center gap-2 cursor-pointer py-2 transition-colors"
                     >
-                      ← Torna indietro e modifica i dati
+                      ← MODIFICA DATI
                     </button>
                   </div>
 

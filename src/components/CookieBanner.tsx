@@ -40,55 +40,47 @@ export default function CookieBanner({ onNavigate }: CookieBannerProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-40 bg-[#E2DDD3] border border-[#756D52]/30 text-[#2D2B28] p-5 rounded-lg shadow-[0_10px_25px_rgba(45,43,40,0.15)] space-y-4"
+          className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-40 bg-app-bg-main border-4 border-app-text-primary text-app-text-primary p-6 rounded-none shadow-none space-y-6"
         >
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#756D52]/10 text-[#756D52] flex items-center justify-center shrink-0 mt-0.5">
-              <Cookie size={16} />
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center shrink-0">
+              <Cookie size={20} strokeWidth={3} />
             </div>
-            <div className="space-y-1">
-              <h5 className="font-sans font-bold text-[#454340] text-sm">Consenso Informato ed Etico</h5>
-              <p className="font-sans text-xs text-[#2D2B28]/95 leading-relaxed">
-                Uso solo cookie tecnici minimali ed anonimi per ottimizzare la stabilità del sito e raccogliere le tue risposte strategiche nel modulo di contatto, in piena sintonia con l'<strong>Umanesimo Digitale</strong>.
+            <div className="space-y-2">
+              <h5 className="font-sans font-black text-app-text-primary text-lg uppercase tracking-tighter leading-none">Cookie Policy</h5>
+              <p className="font-sans text-xs font-bold leading-tight uppercase">
+                Uso solo cookie tecnici minimali ed anonimi per ottimizzare la stabilità del sito e raccogliere le tue risposte strategiche.
               </p>
             </div>
-            <button
-              id="cookie-dismiss-btn"
-              onClick={handleDecline}
-              className="text-[#2D2B28]/60 hover:text-[#2D2B28] shrink-0 p-1 focus:outline-none cursor-pointer"
-              aria-label="Chiudi"
-            >
-              <X size={16} />
-            </button>
           </div>
 
-          <div className="flex items-center justify-between gap-4 pt-1">
+          <div className="flex flex-col gap-3 pt-2">
+            <div className="flex gap-2">
+              <button
+                id="cookie-accept-btn"
+                onClick={handleAccept}
+                className="flex-1 font-sans font-black text-xs uppercase tracking-tighter bg-app-accent-green border-2 border-app-text-primary px-4 py-3 rounded-none text-app-text-primary hover:bg-white transition-all cursor-pointer"
+              >
+                Accetta Tutto
+              </button>
+              <button
+                id="cookie-decline-btn"
+                onClick={handleDecline}
+                className="flex-1 font-sans font-black text-xs uppercase tracking-tighter bg-app-accent-purple border-2 border-app-text-primary px-4 py-3 rounded-none text-white hover:bg-white hover:text-app-text-primary transition-all cursor-pointer"
+              >
+                Rifiuta
+              </button>
+            </div>
             <button
               id="cookie-read-policy"
               onClick={() => {
                 onNavigate("/cookie");
                 setShow(false);
               }}
-              className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#756D52] hover:text-[#454340] transition-colors cursor-pointer"
+              className="font-sans text-[10px] font-black uppercase tracking-widest text-app-text-primary hover:text-app-accent-orange transition-colors cursor-pointer text-center underline"
             >
-              Leggi la Policy
+              Leggi la Policy Completa
             </button>
-            <div className="flex gap-2">
-              <button
-                id="cookie-decline-btn"
-                onClick={handleDecline}
-                className="font-sans font-semibold text-[10px] uppercase tracking-wider border border-[#756D52] px-3 py-1.5 rounded text-[#756D52] hover:bg-[#756D52]/15 transition-colors cursor-pointer"
-              >
-                Rifiuta
-              </button>
-              <button
-                id="cookie-accept-btn"
-                onClick={handleAccept}
-                className="font-sans font-semibold text-[10px] uppercase tracking-wider bg-[#756D52] px-4 py-1.5 rounded text-[#E2DDD3] hover:bg-[#454340] transition-colors cursor-pointer"
-              >
-                Accetta
-              </button>
-            </div>
           </div>
         </motion.div>
       )}
