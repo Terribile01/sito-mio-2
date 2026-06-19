@@ -68,6 +68,10 @@ export interface AssetsManifest {
   web_wordpress_illustration: AssetInfo;
   web_custom_illustration: AssetInfo;
   social_lead_illustration: AssetInfo;
+  home_hero_image: AssetInfo;
+  chi_sono_hero_image: AssetInfo;
+  servizi_hero_image: AssetInfo;
+  social_hero_image: AssetInfo;
 }
 
 export interface ServiceOption {

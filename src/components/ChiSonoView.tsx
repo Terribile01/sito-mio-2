@@ -19,34 +19,59 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-app-accent-khaki/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl space-y-6">
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image on the left for other pages (Desktop) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group order-2 lg:order-1"
             >
-              <GraduationCap size={16} className="text-app-accent-khaki" />
-              {heroData.subtitle}
-            </motion.p>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
-            >
-              {heroData.title}
-            </motion.h1>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/10">
+                <img
+                  src={config.assets_manifest.chi_sono_hero_image.path}
+                  alt={config.assets_manifest.chi_sono_hero_image.alt}
+                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                />
+                {/* Gradient Fading Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-60/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-60/20 via-transparent to-transparent" />
+              </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-lg text-app-text-30 leading-relaxed max-w-2xl"
-            >
-              Unisco il rigore accademico del design tradizionale alle performance atomiche dei sistemi digitali personalizzati. Zero compromessi sulla stabilità e sull'estetica.
-            </motion.p>
+              {/* Decorative technical accent elements */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-l-2 border-b-2 border-app-accent-olive/30 rounded-bl-3xl pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-app-accent-khaki/30 rounded-tr-xl pointer-events-none" />
+            </motion.div>
+
+            <div className="max-w-3xl space-y-6 order-1 lg:order-2">
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
+              >
+                <GraduationCap size={16} className="text-app-accent-khaki" />
+                {heroData.subtitle}
+              </motion.p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
+              >
+                {heroData.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-sans text-lg text-app-text-30 leading-relaxed max-w-2xl"
+              >
+                Unisco il rigore accademico del design tradizionale alle performance atomiche dei sistemi digitali personalizzati. Zero compromessi sulla stabilità e sull'estetica.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>

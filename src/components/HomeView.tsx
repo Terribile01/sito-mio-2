@@ -22,63 +22,88 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-app-accent-khaki/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl">
-            {/* Tagline / Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase mb-4 flex items-center gap-2"
-            >
-              <Cpu size={16} className="text-app-accent-khaki" />
-              {heroData.subtitle}
-            </motion.p>
-
-            {/* Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-[1.1] mb-6"
-            >
-              {heroData.title}
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-lg text-app-text-30 leading-relaxed mb-10 max-w-2xl"
-            >
-              {heroData.description}
-            </motion.p>
-
-            {/* CTA list */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 items-start"
-            >
-              <button
-                id="hero-primary-cta"
-                onClick={() => onNavigate(heroData.cta_primary.action_path)}
-                className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4 rounded-md shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-3xl">
+              {/* Tagline / Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase mb-4 flex items-center gap-2"
               >
-                {heroData.cta_primary.label}
-                <ArrowRight size={16} />
-              </button>
-              
-              {heroData.cta_secondary && (
+                <Cpu size={16} className="text-app-accent-khaki" />
+                {heroData.subtitle}
+              </motion.p>
+
+              {/* Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-[1.1] mb-6"
+              >
+                {heroData.title}
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-sans text-lg text-app-text-30 leading-relaxed mb-10 max-w-2xl"
+              >
+                {heroData.description}
+              </motion.p>
+
+              {/* CTA list */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 items-start"
+              >
                 <button
-                  id="hero-secondary-cta"
-                  onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
-                  className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider border border-app-accent-olive text-app-accent-olive px-8 py-4 rounded-md hover:bg-app-accent-olive/10 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  id="hero-primary-cta"
+                  onClick={() => onNavigate(heroData.cta_primary.action_path)}
+                  className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider bg-app-accent-olive text-app-bg-60 px-8 py-4 rounded-md shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)] hover:bg-app-accent-charcoal hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
                 >
-                  {heroData.cta_secondary.label}
+                  {heroData.cta_primary.label}
+                  <ArrowRight size={16} />
                 </button>
-              )}
+
+                {heroData.cta_secondary && (
+                  <button
+                    id="hero-secondary-cta"
+                    onClick={() => onNavigate(heroData.cta_secondary!.action_path)}
+                    className="w-full sm:w-auto font-sans font-semibold text-sm uppercase tracking-wider border border-app-accent-olive text-app-accent-olive px-8 py-4 rounded-md hover:bg-app-accent-olive/10 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {heroData.cta_secondary.label}
+                  </button>
+                )}
+              </motion.div>
+            </div>
+
+            {/* Hero Image with fading effect */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/10">
+                <img
+                  src={config.assets_manifest.home_hero_image.path}
+                  alt={config.assets_manifest.home_hero_image.alt}
+                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                />
+                {/* Gradient Fading Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-60/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-app-bg-60/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Decorative technical accent elements to match image style */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-app-accent-olive/30 rounded-br-3xl pointer-events-none" />
+              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-app-accent-khaki/30 rounded-tl-xl pointer-events-none" />
             </motion.div>
           </div>
         </div>
