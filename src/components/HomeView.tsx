@@ -41,7 +41,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase break-words"
+                className="font-sans text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase break-words"
               >
                 {renderSplitTitle(heroData.title, "#FFFFFF", "#9B5CFF")}
               </motion.h1>
@@ -183,7 +183,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                 </span>
               </div>
 
-              <h2 className="font-sans text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+              <h2 className="font-sans text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
                 {renderSplitTitle(components.bloccopnn1.title, "#FFFFFF", "#00F5FF")}
               </h2>
 
@@ -236,7 +236,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <span className="font-mono text-xs font-bold text-app-accent-secondary tracking-widest uppercase">
                 {socialData.subtitle}
               </span>
-              <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+              <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
                 {renderSplitTitle(socialData.title, "#FFFFFF", "#00F5FF")}
               </h2>
               <p className="font-sans text-lg text-white/70 leading-relaxed">
@@ -292,7 +292,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
               <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
                 AI Applicata
               </span>
-              <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+              <h2 className="font-sans text-3xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
                 {renderSplitTitle("L'AI libera il tuo tempo", "#FFFFFF", "#AAFF00")}
               </h2>
             </div>
@@ -350,7 +350,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             <span className="font-mono text-xs font-bold text-app-accent-primary tracking-widest uppercase block">
               I Pilastri Tecnologici
             </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle(serviziData.option_wordpress.title + " & " + "Custom Code", "#FFFFFF", "#9B5CFF")}
             </h2>
           </motion.div>
@@ -414,7 +414,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
             <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:20px_20px]" />
 
             <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-              <h3 className="font-sans text-4xl sm:text-6xl font-black tracking-tighter text-app-bg-main uppercase leading-[0.9]">
+              <h3 className="font-sans text-3xl sm:text-6xl font-black tracking-tighter text-app-bg-main uppercase leading-[0.9]">
                 Basta subire <br/> la tecnologia. <br/> Usala.
               </h3>
               <div className="pt-6 flex justify-center">

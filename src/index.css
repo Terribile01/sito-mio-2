@@ -54,16 +54,18 @@
   }
 
   .smart-text {
-    @apply break-words leading-relaxed max-w-prose;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+    @apply leading-relaxed max-w-prose;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    overflow-wrap: normal;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    overflow-wrap: normal;
   }
 }
 

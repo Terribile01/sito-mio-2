@@ -121,7 +121,7 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
             </span>
           </div>
 
-          <h1 className="font-sans text-4xl sm:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
+          <h1 className="font-sans text-3xl sm:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
             {post.title}
           </h1>
 
@@ -196,7 +196,7 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
           className="bg-app-accent-purple text-white border-4 border-app-text-primary p-12 rounded-none relative overflow-hidden text-center"
         >
           <div className="relative z-10 space-y-8">
-            <h2 className="font-sans text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-[0.9]">Abbatti le <br/> barriere</h2>
+            <h2 className="font-sans text-3xl sm:text-5xl font-black uppercase tracking-tighter leading-[0.9]">Abbatti le <br/> barriere</h2>
             <p className="font-sans text-lg font-bold uppercase leading-tight max-w-xl mx-auto">
               Ogni grande progetto inizia con un passo. Parliamo della tua visione.
             </p>
