@@ -213,7 +213,7 @@ export default function ContattiView({ config }: ContattiProps) {
               {heroData.subtitle}
             </span>
             
-            <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase">
+            <h1 className="font-sans text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase">
               {renderSplitTitle("Progetta il tuo Successo senza ansia", "#FFFFFF", "#9B5CFF")}
             </h1>
 
@@ -233,7 +233,7 @@ export default function ContattiView({ config }: ContattiProps) {
                 <span className="font-mono text-xs uppercase font-black text-app-accent-secondary tracking-widest bg-app-accent-secondary/10 px-3 py-1 border border-app-accent-secondary/30 rounded-full">
                   Risposta 24h
                 </span>
-                <h2 className="font-sans text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+                <h2 className="font-sans text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
                   {renderSplitTitle("Contatto Veloce", "#FFFFFF", "#00F5FF")}
                 </h2>
                 <p className="font-sans text-lg text-white/70 font-bold leading-tight">
