@@ -33,9 +33,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
     <div id="servizi-view" className="space-y-0 pb-0">
       
       {/* Services Hero Header */}
-      <section id="servizi-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-app-bg-60">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-app-accent-khaki/8 rounded-full blur-[130px] pointer-events-none" />
-        
+      <section id="servizi-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-app-bg-main border-b-4 border-app-text-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image on the left for other pages (Desktop) */}
@@ -45,20 +43,16 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative group order-2 lg:order-1"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/10">
+              <div className="relative rounded-none overflow-hidden shadow-none border-4 border-app-text-primary">
                 <img
                   src={config.assets_manifest.servizi_hero_image.path}
                   alt={config.assets_manifest.servizi_hero_image.alt}
-                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 {/* Gradient Fading Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-60/40 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-60/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-bg-main via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-l from-app-bg-main/40 via-transparent to-transparent opacity-40" />
               </div>
-
-              {/* Decorative technical accent elements */}
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-l-2 border-b-2 border-app-accent-olive/30 rounded-bl-3xl pointer-events-none" />
-              <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-app-accent-khaki/30 rounded-tr-xl pointer-events-none" />
             </motion.div>
 
             <div className="max-w-3xl space-y-6 order-1 lg:order-2">
@@ -66,9 +60,9 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase flex items-center gap-2"
+                className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase flex items-center gap-2"
               >
-                <Zap size={16} className="text-app-accent-khaki" />
+                <Zap size={16} className="text-app-accent-purple" />
                 {heroData.subtitle}
               </motion.p>
 
@@ -76,16 +70,16 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight"
+                className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase"
               >
-                Infrastrutture Web che Lavorano al Tuo Posto
+                Infrastrutture Web <br/> Automatiche
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-base sm:text-lg text-app-text-30 leading-relaxed max-w-2xl"
+                className="font-sans text-lg md:text-xl text-app-text-primary font-bold leading-tight max-w-2xl"
               >
                 {heroData.description}
               </motion.p>
@@ -94,8 +88,8 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
         </div>
       </section>
 
-      {/* THREE PILLARS SELECTION SWITCHER - Deeply customized (#D2C9B9 / #E2DDD3 alternating tones) */}
-      <section id="scelte-web" className="bg-app-accent-khaki/20 py-16 border-t border-app-accent-charcoal/10">
+      {/* THREE PILLARS SELECTION SWITCHER */}
+      <section id="scelte-web" className="bg-app-bg-main py-20 border-b-4 border-app-text-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <motion.div
@@ -103,111 +97,103 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-2xl mx-auto mb-12"
+            className="max-w-2xl mb-12"
           >
-            <span className="font-mono text-xs font-bold text-app-accent-olive tracking-wider uppercase block">
-              I Tre Sistemi d'Intervento
+            <span className="font-mono text-xs font-bold text-app-text-primary tracking-widest uppercase block bg-app-accent-orange px-3 py-1 w-fit border-2 border-app-text-primary">
+              Sistemi d'Intervento
             </span>
-            <h2 className="font-sans text-3xl font-bold text-app-accent-charcoal mt-1.5 tracking-tight">
-              Esplora le Specifiche nel Dettaglio
+            <h2 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary mt-6 tracking-tighter uppercase leading-[0.9]">
+              Specifiche <br/> Dettaglio
             </h2>
-            <p className="font-sans text-xs text-app-text-30/90 mt-2">
-              Seleziona la tecnologia o l'automazione per approfondire i nostri percorsi d'ingegnerizzazione digitale.
-            </p>
           </motion.div>
 
           {/* Elegant system tab buttons */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary mb-16">
             
             {/* WordPress Tab */}
             <button
               id="tab-btn-wp"
               onClick={() => setActiveTab("wordpress")}
-              className={`flex flex-col p-5 rounded-lg border text-left cursor-pointer transition-all ${
+              className={`flex flex-col p-8 text-left cursor-pointer transition-all border-app-text-primary md:border-r-4 border-b-4 md:border-b-0 ${
                 activeTab === "wordpress"
-                  ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-md"
-                  : "bg-app-bg-60/80 text-app-text-30 border-app-accent-charcoal/20 hover:bg-app-bg-60"
+                  ? "bg-app-accent-purple text-white"
+                  : "bg-app-bg-main text-app-text-primary hover:bg-app-accent-purple/10"
               }`}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <Layers size={18} className={activeTab === "wordpress" ? "text-app-accent-khaki-2" : "text-app-accent-olive"} />
-                <span className="font-mono text-xs font-bold tracking-wider uppercase">1. WordPress Site</span>
+              <div className="flex items-center gap-3 mb-4">
+                <Layers size={24} strokeWidth={3} className={activeTab === "wordpress" ? "text-app-accent-lime" : "text-app-accent-purple"} />
+                <span className="font-mono text-xs font-black tracking-widest uppercase">1. WordPress</span>
               </div>
-              <p className="font-sans text-sm font-bold">Flessibile & Gestibile</p>
-              <p className="text-[10px] opacity-80 mt-1 font-serif italic">Scenari d'ingresso ed ottimizzazione</p>
+              <p className="font-sans text-xl font-black uppercase tracking-tighter">Flessibile</p>
             </button>
 
             {/* Custom Code Tab */}
             <button
               id="tab-btn-custom"
               onClick={() => setActiveTab("custom")}
-              className={`flex flex-col p-5 rounded-lg border text-left cursor-pointer transition-all ${
+              className={`flex flex-col p-8 text-left cursor-pointer transition-all border-app-text-primary md:border-r-4 border-b-4 md:border-b-0 ${
                 activeTab === "custom"
-                  ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-md"
-                  : "bg-app-bg-60/80 text-app-text-30 border-app-accent-charcoal/20 hover:bg-app-bg-60"
+                  ? "bg-app-accent-green text-app-text-primary"
+                  : "bg-app-bg-main text-app-text-primary hover:bg-app-accent-green/10"
               }`}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <Code size={18} className={activeTab === "custom" ? "text-app-accent-khaki-2" : "text-app-accent-olive"} />
-                <span className="font-mono text-xs font-bold tracking-wider uppercase">2. Custom Code</span>
+              <div className="flex items-center gap-3 mb-4">
+                <Code size={24} strokeWidth={3} className={activeTab === "custom" ? "text-app-text-primary" : "text-app-accent-green"} />
+                <span className="font-mono text-xs font-black tracking-widest uppercase">2. Custom Code</span>
               </div>
-              <p className="font-sans text-sm font-bold">Prestazioni Purissime</p>
-              <p className="text-[10px] opacity-80 mt-1 font-serif italic">Velocità estrema e design unico</p>
+              <p className="font-sans text-xl font-black uppercase tracking-tighter">Prestazioni</p>
             </button>
 
             {/* Social & Lead Gen Tab */}
             <button
               id="tab-btn-social"
               onClick={() => setActiveTab("social")}
-              className={`flex flex-col p-5 rounded-lg border text-left cursor-pointer transition-all ${
+              className={`flex flex-col p-8 text-left cursor-pointer transition-all ${
                 activeTab === "social"
-                  ? "bg-app-text-30 text-app-bg-60 border-app-text-30 shadow-md"
-                  : "bg-app-bg-60/80 text-app-text-30 border-app-accent-charcoal/20 hover:bg-app-bg-60"
+                  ? "bg-app-accent-orange text-app-text-primary"
+                  : "bg-app-bg-main text-app-text-primary hover:bg-app-accent-orange/10"
               }`}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <Smartphone size={18} className={activeTab === "social" ? "text-app-accent-khaki-2" : "text-app-accent-olive"} />
-                <span className="font-mono text-xs font-bold tracking-wider uppercase">3. Social & Lead Gen</span>
+              <div className="flex items-center gap-3 mb-4">
+                <Smartphone size={24} strokeWidth={3} className={activeTab === "social" ? "text-app-text-primary" : "text-app-accent-orange"} />
+                <span className="font-mono text-xs font-black tracking-widest uppercase">3. Lead Gen</span>
               </div>
-              <p className="font-sans text-sm font-bold">Automazioni che Vendono</p>
-              <p className="text-[10px] opacity-80 mt-1 font-serif italic">Transformare i social in uffici attivi</p>
+              <p className="font-sans text-xl font-black uppercase tracking-tighter">Automazioni</p>
             </button>
 
           </div>
 
-          {/* ACTIVE CONTENT SHEET - Beautiful stagger animate */}
-          <div className="mx-auto max-w-5xl bg-app-bg-60 border border-app-accent-charcoal/20 rounded-xl p-6 md:p-8 shadow-[0_15px_30px_rgba(45,43,40,0.06)]">
+          {/* ACTIVE CONTENT SHEET */}
+          <div className="mx-auto max-w-5xl bg-app-bg-main border-4 border-app-text-primary rounded-none p-8 md:p-12">
             <AnimatePresence mode="wait">
               
               {/* WORDPRESS DEEPENING SHEET */}
               {activeTab === "wordpress" && (
                 <motion.div
                   key="wp-pane"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="space-y-8"
                 >
-                  <div className="border-b border-app-accent-charcoal/15 pb-4">
-                    <span className="font-mono text-[10px] font-bold text-app-accent-olive tracking-widest uppercase">Macro-Aree di Problema & Soluzione</span>
-                    <h3 className="font-sans text-2xl font-bold text-app-accent-charcoal">Configurazione Flessiva WordPress</h3>
-                    <p className="font-sans text-xs text-app-text-30/90 mt-1">
-                      Identifichiamo l'esatto collo di bottiglia del tuo sito web. L'approccio trasforma WordPress in un motore autonomo privo di debiti tecnici irrisolvibili.
+                  <div className="border-b-4 border-app-text-primary pb-6">
+                    <h3 className="font-sans text-3xl font-black text-app-text-primary uppercase tracking-tighter">WordPress Flessibile</h3>
+                    <p className="font-sans text-lg text-app-text-primary font-bold mt-2 leading-tight">
+                      Identifichiamo l'esatto collo di bottiglia del tuo sito. Trasformiamo WordPress in un motore autonomo privo di debiti tecnici.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {service_options.wordpress.map((opt) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+                    {service_options.wordpress.map((opt, idx) => (
                       <div 
                         key={opt.id} 
-                        className="p-5 rounded-lg border border-app-accent-charcoal/15 bg-app-accent-khaki/10 space-y-3 hover:bg-app-accent-khaki/20 transition-all"
+                        className={`p-8 bg-app-bg-main space-y-4 border-app-text-primary ${idx % 2 === 0 ? 'md:border-r-4' : ''} ${idx < service_options.wordpress.length - 2 ? 'border-b-4' : 'md:border-b-0 border-b-4 last:border-b-0'}`}
                       >
-                        <h4 className="font-sans font-bold text-sm text-app-accent-charcoal flex items-center gap-2">
-                          <CheckCircle size={15} className="text-app-accent-olive shrink-0" />
+                        <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter flex items-center gap-3">
+                          <CheckCircle size={20} strokeWidth={3} className="text-app-accent-purple shrink-0" />
                           {opt.name}
                         </h4>
-                        <div className="space-y-1 text-xs text-app-text-30/95 leading-relaxed">
+                        <div className="space-y-2 text-sm text-app-text-primary font-bold leading-tight">
                           <p>⚠️ <strong>Focus:</strong> {opt.focus}</p>
                           <p>🎯 <strong>Obiettivo:</strong> {opt.objective}</p>
                         </div>
@@ -215,13 +201,12 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     ))}
                   </div>
 
-                  <div className="pt-6 border-t border-app-accent-charcoal/10 text-center">
+                  <div className="pt-8 border-t-4 border-app-text-primary text-center">
                     <button
                       onClick={() => onNavigate("/contatti")}
-                      className="font-sans font-bold text-xs uppercase tracking-wider bg-app-accent-olive hover:bg-app-text-30 text-app-bg-60 px-8 py-4 rounded-md transition-all inline-flex items-center gap-2 cursor-pointer shadow"
+                      className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-purple text-white px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-app-text-primary transition-all cursor-pointer"
                     >
-                      Trova il tuo scenario nel questionario
-                      <ArrowRight size={14} />
+                      Trova il tuo scenario
                     </button>
                   </div>
                 </motion.div>
@@ -231,48 +216,39 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               {activeTab === "custom" && (
                 <motion.div
                   key="custom-pane"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="space-y-8"
                 >
-                  <div className="border-b border-app-accent-charcoal/15 pb-4">
-                    <span className="font-mono text-[10px] font-bold text-app-accent-olive tracking-widest uppercase">Prestazioni Purissime al 100%</span>
-                    <h3 className="font-sans text-2xl font-bold text-app-accent-charcoal">Sviluppo in Codice Puro Custom-Engineered</h3>
-                    <p className="font-sans text-xs text-app-text-30/90 mt-1">
-                      Privilegia la velocità estrema, la sicurezza blindata dei file statici e un design unico non vincolato da template precostruiti.
+                  <div className="border-b-4 border-app-text-primary pb-6">
+                    <h3 className="font-sans text-3xl font-black text-app-text-primary uppercase tracking-tighter">Custom Code Engine</h3>
+                    <p className="font-sans text-lg text-app-text-primary font-bold mt-2 leading-tight">
+                      Privilegia la velocità estrema, la sicurezza blindata e un design unico non vincolato da template.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {service_options.custom.map((opt) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+                    {service_options.custom.map((opt, idx) => (
                       <div 
                         key={opt.id} 
-                        className="p-5 rounded-lg border border-app-accent-charcoal/15 bg-app-accent-khaki/10 space-y-2 hover:bg-app-accent-khaki/20 transition-all flex flex-col justify-between"
+                        className={`p-8 bg-app-bg-main space-y-4 border-app-text-primary ${idx % 3 !== 2 ? 'lg:border-r-4' : ''} ${idx < service_options.custom.length - (service_options.custom.length % 3 || 3) ? 'border-b-4' : ''} border-b-4 lg:border-b-0 last:border-b-0`}
                       >
-                        <div>
-                          <h4 className="font-sans font-bold text-sm text-app-accent-charcoal flex items-center gap-2 mb-1">
-                            <Zap size={15} className="text-app-accent-olive shrink-0" />
-                            {opt.title}
-                          </h4>
-                          <p className="text-xs text-app-text-30/95 leading-relaxed">{opt.detail}</p>
-                        </div>
+                        <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter flex items-center gap-3 mb-1">
+                          <Zap size={20} strokeWidth={3} className="text-app-accent-green shrink-0" />
+                          {opt.title}
+                        </h4>
+                        <p className="text-sm text-app-text-primary font-bold leading-tight">{opt.detail}</p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-4 px-4 bg-app-accent-khaki/10 rounded p-4 text-xs text-app-text-30/90 text-center max-w-2xl mx-auto italic">
-                    "Ideale per chi subisce una forte concorrenza territoriale su Google e desidera caricamenti istantanei per massimizzare la SEO organica."
-                  </div>
-
-                  <div className="pt-6 border-t border-app-accent-charcoal/10 text-center">
+                  <div className="pt-8 border-t-4 border-app-text-primary text-center">
                     <button
                       onClick={() => onNavigate("/contatti")}
-                      className="font-sans font-bold text-xs uppercase tracking-wider bg-app-accent-olive hover:bg-app-text-30 text-app-bg-60 px-8 py-4 rounded-md transition-all inline-flex items-center gap-2 cursor-pointer shadow"
+                      className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-green text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer"
                     >
-                      Inizia Progetto in Codice Puro
-                      <ArrowRight size={14} />
+                      Inizia Progetto Custom
                     </button>
                   </div>
                 </motion.div>
@@ -282,44 +258,39 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               {activeTab === "social" && (
                 <motion.div
                   key="social-pane"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="space-y-8"
                 >
-                  <div className="border-b border-app-accent-charcoal/15 pb-4">
-                    <span className="font-mono text-[10px] font-bold text-app-accent-olive tracking-widest uppercase">Automazioni che Convertono i Lead</span>
-                    <h3 className="font-sans text-2xl font-bold text-app-accent-charcoal">Sistemi ed Integrazioni Social & Lead Gen</h3>
-                    <p className="font-sans text-xs text-app-text-30/90 mt-1">
-                      Spiana la strada che porta il potenziale cliente del tuo profilo social direttamente sulla chat WhatsApp o casella mail, tagliando via i curiosi.
+                  <div className="border-b-4 border-app-text-primary pb-6">
+                    <h3 className="font-sans text-3xl font-black text-app-text-primary uppercase tracking-tighter">Social Lead Gen</h3>
+                    <p className="font-sans text-lg text-app-text-primary font-bold mt-2 leading-tight">
+                      Spiana la strada che porta il cliente social direttamente sulla tua chat o mail, tagliando via i curiosi.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {service_options.social.map((opt) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
+                    {service_options.social.map((opt, idx) => (
                       <div 
                         key={opt.id} 
-                        className="p-5 rounded-lg border border-app-accent-charcoal/15 bg-app-accent-khaki/10 space-y-2 hover:bg-app-accent-khaki/20 transition-all flex flex-col justify-between"
+                        className={`p-8 bg-app-bg-main space-y-4 border-app-text-primary ${idx % 3 !== 2 ? 'lg:border-r-4' : ''} border-b-4 lg:border-b-0 last:border-b-0`}
                       >
-                        <div>
-                          <h4 className="font-sans font-bold text-sm text-app-accent-charcoal flex items-center gap-2 mb-1">
-                            <CheckCircle size={15} className="text-app-accent-olive shrink-0" />
-                            {opt.title}
-                          </h4>
-                          <p className="text-xs text-app-text-30/95 leading-relaxed">{opt.detail}</p>
-                        </div>
+                        <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter flex items-center gap-3 mb-1">
+                          <CheckCircle size={20} strokeWidth={3} className="text-app-accent-orange shrink-0" />
+                          {opt.title}
+                        </h4>
+                        <p className="text-sm text-app-text-primary font-bold leading-tight">{opt.detail}</p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-6 border-t border-app-accent-charcoal/10 text-center">
+                  <div className="pt-8 border-t-4 border-app-text-primary text-center">
                     <button
                       onClick={() => onNavigate("/contatti")}
-                      className="font-sans font-bold text-xs uppercase tracking-wider bg-app-accent-olive hover:bg-app-text-30 text-app-bg-60 px-8 py-4 rounded-md transition-all inline-flex items-center gap-2 cursor-pointer shadow"
+                      className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-orange text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer"
                     >
-                      Configura il tuo Funnel di Vendita
-                      <ArrowRight size={14} />
+                      Configura Funnel
                     </button>
                   </div>
                 </motion.div>
@@ -331,8 +302,8 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
         </div>
       </section>
 
-      {/* AI INTEGRATIONS VALUE SHEETS (How AI accelerates development and optimization) */}
-      <section className="bg-app-text-30 text-app-bg-60 py-20 border-y border-app-accent-charcoal">
+      {/* AI INTEGRATIONS VALUE SHEETS */}
+      <section className="bg-app-accent-purple text-white py-24 border-b-4 border-app-text-primary w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <motion.div
@@ -340,92 +311,86 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+            className="max-w-3xl mb-20 space-y-4"
           >
-            <span className="font-mono text-xs font-bold text-app-accent-khaki-2 tracking-widest uppercase block">
-              Ingegnerizzazione del Lavoro
+            <span className="font-mono text-xs font-black text-app-accent-lime tracking-widest uppercase block bg-app-text-primary px-3 py-1 w-fit">
+              IA Sinergia
             </span>
-            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-app-bg-60 tracking-tight">
-              Sinergia Generativa: Come l'IA Potenzia ogni Progetto Web
+            <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+              IA Potenzia <br/> ogni Progetto
             </h2>
-            <p className="font-sans text-sm text-app-bg-60/70 leading-relaxed">
-              Grazie agli strumenti di IA ottimizziamo tempi di sviluppo, scrittura di copy strategici e interconnessioni di dati, garantendoti risultati professionali in metà tempo.
+            <p className="font-sans text-xl text-white font-bold leading-tight">
+              Ottimizziamo tempi di sviluppo, copy strategici e interconnessioni, garantendoti risultati professionali in metà tempo.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
             
             {/* Card 1: Copywriting accelerato */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -6 }}
-              className="bg-app-text-30 border border-app-accent-charcoal p-8 rounded-lg space-y-4 shadow-sm hover:border-app-accent-khaki-2/40 transition-all duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-8 space-y-6 border-app-text-primary md:border-r-4 border-b-4 md:border-b-0"
             >
-              <div className="w-10 h-10 rounded-full bg-app-accent-khaki-2/10 text-app-accent-khaki-2 flex items-center justify-center">
-                <BookOpen size={18} />
+              <div className="w-14 h-14 rounded-none bg-app-accent-lime text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
+                <BookOpen size={28} strokeWidth={3} />
               </div>
-              <h3 className="font-sans font-bold text-app-bg-60 text-lg">Copywriting e Testi Persuasivi</h3>
-              <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed">
-                Niente paura di spendere settimane ad aspettare i testi. Tramite modelli linguistici avanzati guidati dal mio stampo di Comunicazione Visiva, generiamo testi impeccabili orientati alla conversione del tuo potenziale cliente.
+              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">Copywriting</h3>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Generiamo testi impeccabili orientati alla conversione, guidati dal mio stampo di Comunicazione Visiva.
               </p>
             </motion.div>
 
             {/* Card 2: Layout & Asset Mockups */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -6 }}
-              className="bg-app-text-30 border border-app-accent-charcoal p-8 rounded-lg space-y-4 shadow-sm hover:border-app-accent-khaki-2/40 transition-all duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-8 space-y-6 border-app-text-primary md:border-r-4 border-b-4 md:border-b-0"
             >
-              <div className="w-10 h-10 rounded-full bg-app-accent-khaki-2/10 text-app-accent-khaki-2 flex items-center justify-center">
-                <Layout size={18} />
+              <div className="w-14 h-14 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
+                <Layout size={28} strokeWidth={3} />
               </div>
-              <h3 className="font-sans font-bold text-app-bg-60 text-lg">Asset Grafici Generati Ad-Hoc</h3>
-              <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed">
-                Niente fotografie stock finte o spersonalizzate. Utilizziamo potenti generatori di immagini stabili per progettare icone vettoriali, sfondi custom coordinati e copertine professionali che rispecchiano i tuoi reali valori di brand locale.
+              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">Asset Grafici</h3>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Utilizziamo generatori di immagini stabili per progettare icone e sfondi custom che rispecchiano i tuoi valori.
               </p>
             </motion.div>
 
             {/* Card 3: SEO Semantica Automatica */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -6 }}
-              className="bg-app-text-30 border border-app-accent-charcoal p-8 rounded-lg space-y-4 shadow-sm hover:border-app-accent-khaki-2/40 transition-all duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-8 space-y-6"
             >
-              <div className="w-10 h-10 rounded-full bg-app-accent-khaki-2/10 text-app-accent-khaki-2 flex items-center justify-center">
-                <Database size={18} />
+              <div className="w-14 h-14 rounded-none bg-app-accent-green text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
+                <Database size={28} strokeWidth={3} />
               </div>
-              <h3 className="font-sans font-bold text-app-bg-60 text-lg">Strutturazione e SEO Semantica</h3>
-              <p className="font-sans text-xs text-app-bg-60/80 leading-relaxed">
-                Tutte le pagine web vengono indicizzate scansionando le intenzioni di ricerca reali dei tuoi clienti su Google. Gli algoritmi di IA strutturano tag ordinati, titoli ad alta pertinenza d'acquisto e schemi di dati semantici perfetti.
+              <h3 className="font-sans font-black text-2xl text-app-text-primary uppercase tracking-tighter">SEO Semantica</h3>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Gli algoritmi di IA strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.
               </p>
             </motion.div>
 
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-16 flex justify-center">
             <button
               id="cta-servizi-ai-learn"
               onClick={() => onNavigate("/contatti")}
-              className="font-sans font-bold text-xs uppercase tracking-wider bg-app-bg-60 text-app-text-30 hover:bg-app-accent-khaki-2 hover:text-app-text-30 px-6 py-3.5 rounded transition-all duration-300 cursor-pointer shadow-md"
+              className="font-sans font-black text-sm uppercase tracking-tighter bg-app-accent-lime text-app-text-primary px-10 py-5 rounded-none border-4 border-app-text-primary hover:bg-white transition-all cursor-pointer"
             >
-              Analizza la tua idea di business gratis
+              Analizza la tua idea
             </button>
           </div>
 
         </div>
       </section>
 
-      {/* Trust factors or Process - Standard Bone Accent */}
-      <section className="bg-app-bg-60 py-20 border-b border-app-accent-charcoal/10">
+      {/* Trust factors or Process */}
+      <section className="bg-app-bg-main py-24 border-b-4 border-app-text-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <motion.div
@@ -433,60 +398,57 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-xl mx-auto mb-16"
+            className="text-center max-w-xl mx-auto mb-20"
           >
-            <h3 className="font-sans text-2xl sm:text-3xl font-bold text-app-accent-charcoal tracking-tight">
-              La Garanzia del Mio Approccio
+            <h3 className="font-sans text-4xl sm:text-5xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">
+              Garanzia <br/> Approccio
             </h3>
-            <p className="font-sans text-sm text-app-text-30/90 mt-2">Zero sorprese, massima trasparenza.</p>
+            <p className="font-sans text-lg text-app-text-primary font-bold mt-4 uppercase">Zero sorprese, massima trasparenza.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center space-y-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-10 text-center space-y-4 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0"
             >
-              <div className="w-12 h-12 rounded-full bg-app-accent-olive/10 text-app-accent-olive flex items-center justify-center mx-auto">
-                <ShieldCheck size={24} />
+              <div className="w-16 h-16 rounded-none bg-app-accent-purple text-white border-2 border-app-text-primary flex items-center justify-center mx-auto">
+                <ShieldCheck size={32} strokeWidth={3} />
               </div>
-              <h4 className="font-sans font-bold text-app-accent-charcoal">Compliance Totale</h4>
-              <p className="font-sans text-xs text-app-text-30/85 leading-relaxed max-w-xs mx-auto">
-                Tutti i siti web includono policy legali native (Privacy e Cookie) graficamente allineate, senza widget esterni invasivi che rompono il design.
+              <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter">Compliance</h4>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Include policy legali native graficamente allineate, senza widget esterni invasivi.
               </p>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center space-y-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-10 text-center space-y-4 border-app-text-primary sm:border-r-4 border-b-4 sm:border-b-0"
             >
-              <div className="w-12 h-12 rounded-full bg-app-accent-olive/10 text-app-accent-olive flex items-center justify-center mx-auto">
-                <Zap size={24} />
+              <div className="w-16 h-16 rounded-none bg-app-accent-green text-app-text-primary border-2 border-app-text-primary flex items-center justify-center mx-auto">
+                <Zap size={32} strokeWidth={3} />
               </div>
-              <h4 className="font-sans font-bold text-app-accent-charcoal">Prestazioni Elevate</h4>
-              <p className="font-sans text-xs text-app-text-30/85 leading-relaxed max-w-xs mx-auto">
-                Design super-leggero. I punteggi di caricamento velocizzano il posizionamento SEO sui motori di ricerca.
+              <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter">Prestazioni</h4>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Design super-leggero. I punteggi di caricamento velocizzano il posizionamento SEO.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center space-y-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-app-bg-main p-10 text-center space-y-4"
             >
-              <div className="w-12 h-12 rounded-full bg-app-accent-olive/10 text-app-accent-olive flex items-center justify-center mx-auto">
-                <RotateCcw size={24} />
+              <div className="w-16 h-16 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center mx-auto">
+                <RotateCcw size={32} strokeWidth={3} />
               </div>
-              <h4 className="font-sans font-bold text-app-accent-charcoal">Aggiornamenti Semplici</h4>
-              <p className="font-sans text-xs text-app-text-30/85 leading-relaxed max-w-xs mx-auto">
-                Database dei testi organizzato. Se vuoi modificare un testo principale, lo facciamo in un solo punto, aggiornato all'istante ovunque.
+              <h4 className="font-sans font-black text-xl text-app-text-primary uppercase tracking-tighter">Aggiornamenti</h4>
+              <p className="font-sans text-sm text-app-text-primary font-bold leading-tight">
+                Database testi organizzato. Modifichi un testo principale in un solo punto, ovunque.
               </p>
             </motion.div>
           </div>

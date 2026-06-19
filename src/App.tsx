@@ -32,12 +32,23 @@ export default function App() {
     const root = document.documentElement;
     const { palette } = config.theme;
 
-    root.style.setProperty("--bg-60", palette.background_60);
-    root.style.setProperty("--text-30", palette.text_and_structure_30);
-    root.style.setProperty("--accent-khaki", palette.accents_10.khaki_beige);
-    root.style.setProperty("--accent-khaki-2", palette.accents_10.khaki_beige_2);
-    root.style.setProperty("--accent-olive", palette.accents_10.olive_wood);
-    root.style.setProperty("--accent-charcoal", palette.accents_10.charcoal_brown);
+    root.style.setProperty("--text-primary", palette.text_primary);
+    root.style.setProperty("--text-secondary", palette.text_secondary);
+    root.style.setProperty("--text-tertiary", palette.text_tertiary);
+    root.style.setProperty("--bg-main", palette.bg_main);
+    root.style.setProperty("--bg-dark", palette.bg_dark);
+    root.style.setProperty("--btn-primary-bg", palette.btn_primary_bg);
+    root.style.setProperty("--btn-primary-text", palette.btn_primary_text);
+    root.style.setProperty("--btn-secondary-bg", palette.btn_secondary_bg);
+    root.style.setProperty("--btn-secondary-text", palette.btn_secondary_text);
+    root.style.setProperty("--btn-tertiary-bg", palette.btn_tertiary_bg);
+    root.style.setProperty("--btn-tertiary-text", palette.btn_tertiary_text);
+    root.style.setProperty("--accent-primary", palette.accent_primary);
+    root.style.setProperty("--accent-secondary", palette.accent_secondary);
+    root.style.setProperty("--hover-primary", palette.hover_primary);
+    root.style.setProperty("--hover-secondary", palette.hover_secondary);
+    root.style.setProperty("--border-main", palette.border_main);
+    root.style.setProperty("--border-accent", palette.border_accent);
   }, []);
 
   // Hash Routing Setup for maximum reliability in iFrames & previews
@@ -121,7 +132,7 @@ export default function App() {
   return (
     <div
       id="root-app-layout"
-      className="min-h-screen bg-app-bg-60 text-app-text-30 flex flex-col selection:bg-app-accent-olive selection:text-app-bg-60"
+      className="min-h-screen bg-app-bg-main text-app-text-primary flex flex-col selection:bg-app-accent-primary selection:text-app-bg-main"
     >
       {/* SEO Element updating titles dynamically based on active route */}
       {!currentPath.startsWith("/blog/") && <SEO metadata={activeSitemap.seo} />}

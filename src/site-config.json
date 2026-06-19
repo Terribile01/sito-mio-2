@@ -1,32 +1,40 @@
 {
   "theme": {
     "palette": {
-      "rules": "60-30-10",
-      "background_60": "#E2DDD3",
-      "text_and_structure_30": "#2D2B28",
-      "accents_10": {
-        "khaki_beige": "#9C9478",
-        "khaki_beige_2": "#A69978",
-        "olive_wood": "#756D52",
-        "charcoal_brown": "#454340"
-      }
+      "text_primary": "#10100B",
+      "text_secondary": "#692BA4",
+      "text_tertiary": "#B1BCB7",
+      "bg_main": "#B1BCB7",
+      "bg_dark": "#10100B",
+      "btn_primary_bg": "#2CD44D",
+      "btn_primary_text": "#10100B",
+      "btn_secondary_bg": "#A5FE02",
+      "btn_secondary_text": "#10100B",
+      "btn_tertiary_bg": "#FF6238",
+      "btn_tertiary_text": "#10100B",
+      "accent_primary": "#2CD44D",
+      "accent_secondary": "#A5FE02",
+      "hover_primary": "#692BA4",
+      "hover_secondary": "#FF6238",
+      "border_main": "#B1BCB7",
+      "border_accent": "#692BA4"
     },
     "navbar": {
-      "background": "bg-[#E2DDD3]/70",
-      "blur": "backdrop-blur-md",
-      "border": "border-[#9C9478]/15"
+      "background": "bg-app-bg-main/80",
+      "blur": "backdrop-blur-xl",
+      "border": "border-app-border-accent/20"
     },
     "cta": {
       "primary": {
-        "bg": "bg-[#756D52]",
-        "text": "text-[#E2DDD3]",
-        "hover": "hover:bg-[#454340]",
-        "shadow": "shadow-[0_10px_20px_-10px_rgba(117,109,82,0.3)]"
+        "bg": "bg-app-btn-primary-bg",
+        "text": "text-app-btn-primary-text",
+        "hover": "hover:bg-app-hover-primary hover:text-white",
+        "shadow": "shadow-none"
       },
       "secondary": {
-        "border": "border-[#756D52]",
-        "text": "text-[#756D52]",
-        "hover_bg": "hover:bg-[#756D52]/10"
+        "border": "border-app-btn-secondary-bg",
+        "text": "text-app-btn-secondary-text",
+        "hover_bg": "hover:bg-app-hover-secondary"
       }
     }
   },

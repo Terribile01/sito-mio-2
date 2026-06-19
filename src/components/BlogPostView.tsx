@@ -100,44 +100,44 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
       />
 
       {/* Header Section */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 pt-32 pb-12">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12 pt-40 pb-12">
         <button
           onClick={() => onNavigate("/blog")}
-          className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-app-accent-olive hover:text-app-accent-charcoal transition-colors mb-8 cursor-pointer group"
+          className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-app-text-primary hover:text-app-accent-purple transition-all mb-12 cursor-pointer group bg-app-accent-lime px-4 py-2 border-2 border-app-text-primary"
         >
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          Torna al Blog
+          <ArrowLeft size={18} strokeWidth={3} className="group-hover:-translate-x-2 transition-transform" />
+          Indietro
         </button>
 
-        <div className="space-y-6">
-          <div className="flex items-center gap-4 text-xs font-mono text-app-accent-olive uppercase tracking-widest font-bold">
-            <span className="flex items-center gap-1.5">
-              <Calendar size={14} />
+        <div className="space-y-8">
+          <div className="flex items-center gap-4 text-[10px] font-mono text-app-text-primary uppercase tracking-widest font-black">
+            <span className="flex items-center gap-2 bg-app-accent-orange px-3 py-1 border-2 border-app-text-primary">
+              <Calendar size={14} strokeWidth={3} />
               {new Date(post.date).toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric' })}
             </span>
-            <span className="flex items-center gap-1.5">
-              <Tag size={14} />
+            <span className="flex items-center gap-2 bg-app-accent-green px-3 py-1 border-2 border-app-text-primary">
+              <Tag size={14} strokeWidth={3} />
               {post.category}
             </span>
           </div>
 
-          <h1 className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-app-accent-charcoal leading-tight">
+          <h1 className="font-sans text-4xl sm:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
             {post.title}
           </h1>
 
-          <p className="font-sans text-lg text-app-text-30/90 leading-relaxed italic border-l-4 border-app-accent-khaki pl-6">
+          <p className="font-sans text-xl text-app-text-primary font-bold leading-tight uppercase border-l-8 border-app-accent-purple pl-8">
             {post.excerpt}
           </p>
         </div>
       </div>
 
       {/* Hero Image */}
-      <div className="max-w-5xl mx-auto px-6 lg:px-12 mb-16">
-        <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-app-accent-charcoal/5">
+      <div className="max-w-5xl mx-auto px-6 lg:px-12 mb-20">
+        <div className="aspect-video w-full rounded-none overflow-hidden shadow-none border-4 border-app-text-primary">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
             width="1200"
           />
         </div>
@@ -150,9 +150,9 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
           <ReactMarkdown>{post.content}</ReactMarkdown>
 
           {/* Tags */}
-          <div className="mt-12 pt-8 border-t border-app-accent-charcoal/10 flex flex-wrap gap-2">
+          <div className="mt-16 pt-8 border-t-4 border-app-text-primary flex flex-wrap gap-3">
             {post.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-app-accent-khaki/10 text-app-accent-charcoal text-[10px] font-bold uppercase tracking-wider rounded-md">
+              <span key={tag} className="px-4 py-1 bg-app-text-primary text-white text-[10px] font-black uppercase tracking-widest border-2 border-app-text-primary">
                 #{tag}
               </span>
             ))}
@@ -160,23 +160,26 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
         </div>
 
         {/* Sidebar / Sharing */}
-        <div className="lg:col-span-3 lg:sticky lg:top-32 space-y-8">
-          <div className="bg-app-accent-khaki/20 p-6 rounded-xl border border-app-accent-charcoal/5">
-            <h4 className="font-sans font-bold text-sm text-app-accent-charcoal mb-4 flex items-center gap-2">
-              <Share2 size={16} />
+        <div className="lg:col-span-3 lg:sticky lg:top-40 space-y-8">
+          <div className="bg-white border-4 border-app-text-primary p-8 rounded-none">
+            <h4 className="font-sans font-black text-sm text-app-text-primary mb-6 flex items-center gap-3 uppercase tracking-widest">
+              <Share2 size={20} strokeWidth={3} />
               Condividi
             </h4>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {shareLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 p-2 rounded-lg text-xs font-semibold text-app-accent-charcoal transition-all bg-app-bg-60/50 ${link.color} hover:text-white`}
+                  className={`flex items-center justify-between gap-3 p-4 border-2 border-app-text-primary text-xs font-black text-app-text-primary transition-all bg-app-bg-main hover:bg-app-accent-lime ${link.color} hover:text-app-text-primary uppercase tracking-tighter`}
                 >
-                  {link.icon}
-                  {link.name}
+                  <span className="flex items-center gap-3">
+                    {link.icon}
+                    {link.name}
+                  </span>
+                  <ArrowRight size={14} strokeWidth={3} />
                 </a>
               ))}
             </div>
@@ -185,25 +188,24 @@ export default function BlogPostView({ slug, onNavigate }: BlogPostViewProps) {
       </div>
 
       {/* Bottom CTA */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 mt-20">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12 mt-24">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-app-text-30 text-app-bg-60 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden text-center"
+          className="bg-app-accent-purple text-white border-4 border-app-text-primary p-12 rounded-none relative overflow-hidden text-center"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-app-accent-olive/10 rounded-full blur-3xl -mr-32 -mt-32" />
-          <div className="relative z-10 space-y-6">
-            <h2 className="font-sans text-2xl md:text-3xl font-bold">Vuoi abbattere le tue barriere tecnologiche?</h2>
-            <p className="font-sans text-app-bg-60/80 max-w-xl mx-auto">
-              Ogni grande progetto digitale inizia con un piccolo passo. Parliamo della tua visione e trasformiamola in realtà.
+          <div className="relative z-10 space-y-8">
+            <h2 className="font-sans text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-[0.9]">Abbatti le <br/> barriere</h2>
+            <p className="font-sans text-lg font-bold uppercase leading-tight max-w-xl mx-auto">
+              Ogni grande progetto inizia con un passo. Parliamo della tua visione.
             </p>
             <button
               onClick={() => onNavigate("/contatti")}
-              className="inline-flex items-center gap-2 bg-app-accent-olive text-app-bg-60 px-8 py-4 rounded-full font-sans font-bold uppercase tracking-widest text-sm hover:bg-app-accent-khaki-2 transition-all shadow-lg hover:-translate-y-1 cursor-pointer"
+              className="inline-flex items-center gap-3 bg-app-accent-lime text-app-text-primary px-10 py-5 rounded-none font-sans font-black uppercase tracking-tighter text-sm hover:bg-white transition-all border-4 border-app-text-primary cursor-pointer"
             >
               Inizia il Dialogo
-              <ArrowRight size={18} />
+              <ArrowRight size={20} strokeWidth={3} />
             </button>
           </div>
         </motion.div>

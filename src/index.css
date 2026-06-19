@@ -5,10 +5,28 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-app-bg-60: var(--bg-60);
-  --color-app-text-30: var(--text-30);
-  --color-app-accent-khaki: var(--accent-khaki);
-  --color-app-accent-khaki-2: var(--accent-khaki-2);
-  --color-app-accent-olive: var(--accent-olive);
-  --color-app-accent-charcoal: var(--accent-charcoal);
+  --color-app-text-primary: var(--text-primary);
+  --color-app-text-secondary: var(--text-secondary);
+  --color-app-text-tertiary: var(--text-tertiary);
+  --color-app-bg-main: var(--bg-main);
+  --color-app-bg-dark: var(--bg-dark);
+  --color-app-btn-primary-bg: var(--btn-primary-bg);
+  --color-app-btn-primary-text: var(--btn-primary-text);
+  --color-app-btn-secondary-bg: var(--btn-secondary-bg);
+  --color-app-btn-secondary-text: var(--btn-secondary-text);
+  --color-app-btn-tertiary-bg: var(--btn-tertiary-bg);
+  --color-app-btn-tertiary-text: var(--btn-tertiary-text);
+  --color-app-accent-primary: var(--accent-primary);
+  --color-app-accent-secondary: var(--accent-secondary);
+  --color-app-hover-primary: var(--hover-primary);
+  --color-app-hover-secondary: var(--hover-secondary);
+  --color-app-border-main: var(--border-main);
+  --color-app-border-accent: var(--border-accent);
+
+  /* Legacy Aliases for Compatibility */
+  --color-app-bg-60: var(--bg-main);
+  --color-app-text-30: var(--text-primary);
+  --color-app-accent-olive: var(--accent-primary);
+  --color-app-accent-khaki: var(--text-secondary);
+  --color-app-accent-charcoal: var(--bg-dark);
 }

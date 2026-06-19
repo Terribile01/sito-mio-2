@@ -89,47 +89,47 @@ export default function AIAssistant() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="mb-4 w-80 sm:w-96 bg-app-bg-60 border border-app-accent-charcoal/20 rounded-xl shadow-2xl overflow-hidden flex flex-col h-[500px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="mb-4 w-80 sm:w-96 bg-app-bg-main border-4 border-app-text-primary rounded-none shadow-none overflow-hidden flex flex-col h-[500px]"
           >
             {/* Header */}
-            <div className="bg-app-accent-olive p-4 text-app-bg-60 flex justify-between items-center">
+            <div className="bg-app-accent-purple p-4 text-white border-b-4 border-app-text-primary flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <Sparkles size={18} />
-                <span className="font-sans font-bold text-sm">Assistente IA Strategico</span>
+                <Sparkles size={18} strokeWidth={3} />
+                <span className="font-sans font-black text-xs uppercase tracking-tighter">IA Strategico</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="hover:bg-app-bg-60/10 p-1 rounded transition-colors">
-                <X size={18} />
+              <button onClick={() => setIsOpen(false)} className="hover:bg-white hover:text-app-accent-purple p-1 transition-colors cursor-pointer">
+                <X size={20} strokeWidth={3} />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-app-bg-60/50">
+            <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-white/30">
               {messages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[85%] p-3 rounded-lg text-xs leading-relaxed ${
+                    className={`max-w-[85%] p-3 rounded-none text-xs font-bold border-2 border-app-text-primary leading-tight uppercase ${
                       msg.role === "user"
-                        ? "bg-app-accent-olive text-app-bg-60 rounded-br-none"
+                        ? "bg-app-accent-lime text-app-text-primary"
                         : msg.role === "system"
-                        ? "bg-amber-50 text-amber-800 border border-amber-200"
-                        : "bg-app-accent-khaki/20 text-app-text-30 rounded-bl-none border border-app-accent-khaki/10"
+                        ? "bg-app-accent-orange text-app-text-primary"
+                        : "bg-white text-app-text-primary"
                     }`}
                   >
                     <div className="flex items-start gap-2">
-                      {msg.role === "system" && <AlertCircle size={14} className="shrink-0 mt-0.5" />}
+                      {msg.role === "system" && <AlertCircle size={14} strokeWidth={3} className="shrink-0 mt-0.5" />}
                       <span>{msg.text}</span>
                     </div>
 
                     {msg.role === "system" && isOffline && (
                       <button
                         onClick={sendOfflineEmail}
-                        className="mt-3 w-full bg-amber-600 text-white py-2 rounded font-bold flex items-center justify-center gap-2 hover:bg-amber-700 transition-colors"
+                        className="mt-3 w-full bg-app-text-primary text-white py-2 rounded-none font-black text-[10px] uppercase flex items-center justify-center gap-2 hover:bg-white hover:text-app-text-primary transition-all border-2 border-app-text-primary cursor-pointer"
                       >
-                        <Mail size={14} />
-                        Invia via Email
+                        <Mail size={14} strokeWidth={3} />
+                        Invia Email
                       </button>
                     )}
                   </div>
@@ -137,11 +137,11 @@ export default function AIAssistant() {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-app-accent-khaki/20 p-3 rounded-lg rounded-bl-none border border-app-accent-khaki/10">
+                  <div className="bg-white p-3 rounded-none border-2 border-app-text-primary">
                     <div className="flex gap-1">
-                      <div className="w-1.5 h-1.5 bg-app-accent-olive rounded-full animate-bounce" />
-                      <div className="w-1.5 h-1.5 bg-app-accent-olive rounded-full animate-bounce [animation-delay:0.2s]" />
-                      <div className="w-1.5 h-1.5 bg-app-accent-olive rounded-full animate-bounce [animation-delay:0.4s]" />
+                      <div className="w-2 h-2 bg-app-text-primary rounded-none animate-bounce" />
+                      <div className="w-2 h-2 bg-app-text-primary rounded-none animate-bounce [animation-delay:0.2s]" />
+                      <div className="w-2 h-2 bg-app-text-primary rounded-none animate-bounce [animation-delay:0.4s]" />
                     </div>
                   </div>
                 </div>
@@ -149,23 +149,23 @@ export default function AIAssistant() {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-app-accent-charcoal/10 bg-app-bg-60">
+            <div className="p-4 border-t-4 border-app-text-primary bg-app-bg-main">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Chiedimi della strategia web..."
+                  placeholder="CHIEDI..."
                   disabled={isLoading}
-                  className="flex-grow bg-app-bg-60 border border-app-accent-charcoal/20 rounded px-3 py-2 text-xs text-app-text-30 outline-none focus:border-app-accent-olive transition-colors disabled:opacity-50"
+                  className="flex-grow bg-white border-2 border-app-text-primary rounded-none px-3 py-2 text-xs font-bold text-app-text-primary outline-none focus:bg-app-accent-lime/20 transition-colors disabled:opacity-50 uppercase"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isLoading || !input.trim()}
-                  className="bg-app-accent-olive text-app-bg-60 p-2 rounded hover:bg-app-accent-charcoal disabled:opacity-50 transition-colors"
+                  className="bg-app-accent-green text-app-text-primary p-2 rounded-none border-2 border-app-text-primary hover:bg-white disabled:opacity-50 transition-colors cursor-pointer"
                 >
-                  <Send size={16} />
+                  <Send size={18} strokeWidth={3} />
                 </button>
               </div>
             </div>
@@ -175,9 +175,9 @@ export default function AIAssistant() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-app-accent-olive text-app-bg-60 p-4 rounded-full shadow-lg hover:bg-app-accent-charcoal transition-all duration-300 transform hover:scale-105 flex items-center justify-center group"
+        className="bg-app-accent-purple text-white p-4 rounded-none border-4 border-app-text-primary shadow-none hover:bg-app-accent-lime hover:text-app-text-primary transition-all duration-200 flex items-center justify-center group cursor-pointer"
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />}
+        {isOpen ? <X size={28} strokeWidth={3} /> : <MessageCircle size={28} strokeWidth={3} />}
       </button>
     </div>
   );

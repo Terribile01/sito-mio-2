@@ -37,35 +37,30 @@ export default function BlogListView({ onNavigate }: BlogListViewProps) {
   return (
     <div id="blog-list-view" className="min-h-screen pb-20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-gradient-to-b from-app-accent-khaki/40 to-app-bg-60 w-full">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-app-accent-olive/10 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-app-bg-main border-b-4 border-app-text-primary w-full text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto space-y-6">
-            <span className="font-mono text-xs md:text-sm font-semibold text-app-accent-olive tracking-widest uppercase">
-              Umanesimo Digitale & Strategia
+            <span className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase bg-app-accent-green px-3 py-1 border-2 border-app-text-primary">
+              Blog & Strategia
             </span>
-            <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-app-accent-charcoal leading-tight">
-              Il Blog di <span className="text-app-accent-olive italic font-serif">FacilissimoWeb</span>
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
+              Umanesimo <br/> <span className="text-app-accent-purple">Digitale</span>
             </h1>
-            <p className="font-sans text-base md:text-lg text-app-text-30/95 leading-relaxed max-w-2xl mx-auto">
-              Riflessioni, guide e strategie per abbattere le barriere tecnologiche e far crescere il tuo business in modo umano e sostenibile.
-            </p>
           </div>
         </div>
       </section>
 
       {/* Filter Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-12 mb-8">
-        <div className="flex flex-wrap items-center gap-3 justify-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-12 mb-12">
+        <div className="flex flex-wrap items-center gap-2 justify-center">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategoryClick(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-6 py-3 border-4 font-sans font-black text-xs uppercase tracking-tighter transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? "bg-app-accent-olive text-app-bg-60 shadow-md"
-                  : "bg-app-accent-khaki/20 text-app-accent-charcoal hover:bg-app-accent-khaki/40"
+                  ? "bg-app-accent-purple text-white border-app-text-primary"
+                  : "bg-white text-app-text-primary border-app-text-primary hover:bg-app-accent-lime"
               }`}
             >
               {cat}
@@ -77,14 +72,14 @@ export default function BlogListView({ onNavigate }: BlogListViewProps) {
       {/* Posts Grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-app-text-primary bg-app-text-primary">
             {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white/50 backdrop-blur-sm border border-app-accent-charcoal/10 rounded-xl overflow-hidden hover:shadow-xl transition-all flex flex-col h-full"
+                className="group bg-app-bg-main border-app-text-primary md:border-r-4 border-b-4 last:border-r-0 flex flex-col h-full"
               >
                 <div
                   className="aspect-video w-full overflow-hidden cursor-pointer"
@@ -98,36 +93,36 @@ export default function BlogListView({ onNavigate }: BlogListViewProps) {
                   />
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow space-y-4">
-                  <div className="flex items-center gap-4 text-[10px] font-mono text-app-accent-olive uppercase tracking-widest font-bold">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={12} />
+                <div className="p-8 flex flex-col flex-grow space-y-6">
+                  <div className="flex items-center gap-4 text-[10px] font-mono text-app-text-primary uppercase tracking-widest font-black">
+                    <span className="flex items-center gap-1.5 bg-app-accent-orange px-2 py-0.5 border border-app-text-primary">
+                      <Calendar size={12} strokeWidth={3} />
                       {new Date(post.date).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Tag size={12} />
+                    <span className="flex items-center gap-1.5 bg-app-accent-lime px-2 py-0.5 border border-app-text-primary">
+                      <Tag size={12} strokeWidth={3} />
                       {post.category}
                     </span>
                   </div>
 
                   <h3
-                    className="font-sans text-xl font-bold text-app-accent-charcoal group-hover:text-app-accent-olive transition-colors cursor-pointer leading-tight"
+                    className="font-sans text-2xl font-black text-app-text-primary group-hover:text-app-accent-purple transition-colors cursor-pointer leading-[0.9] uppercase tracking-tighter"
                     onClick={() => onNavigate(`/blog/${post.slug}`)}
                   >
                     {post.title}
                   </h3>
 
-                  <p className="font-sans text-sm text-app-text-30/80 leading-relaxed line-clamp-3">
+                  <p className="font-sans text-sm text-app-text-primary font-bold leading-tight line-clamp-3">
                     {post.excerpt}
                   </p>
 
-                  <div className="mt-auto pt-4">
+                  <div className="mt-auto pt-6">
                     <button
                       onClick={() => onNavigate(`/blog/${post.slug}`)}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-app-accent-olive hover:text-app-accent-charcoal transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-tighter text-app-text-primary hover:text-app-accent-purple transition-colors cursor-pointer group/btn"
                     >
                       Leggi Articolo
-                      <ChevronRight size={14} />
+                      <ChevronRight size={18} strokeWidth={3} className="group-hover/btn:translate-x-2 transition-transform" />
                     </button>
                   </div>
                 </div>
