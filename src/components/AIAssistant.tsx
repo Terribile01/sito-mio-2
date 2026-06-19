@@ -15,7 +15,7 @@ export default function AIAssistant() {
   const [messages, setMessages] = useState<Message[]>(() => {
     const saved = sessionStorage.getItem("chat_messages");
     return saved ? JSON.parse(saved) : [
-      { role: "ai", text: "Ciao! Sono l'assistente IA di FacilissimoWeb. Come posso aiutarti oggi con il tuo progetto digitale?" }
+      { role: "ai", text: "Ciao! Sono l'assistente AI di FacilissimoWeb. Come posso aiutarti oggi con il tuo progetto digitale?" }
     ];
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,7 @@ export default function AIAssistant() {
       setIsOffline(true);
       setMessages((prev) => [...prev, {
         role: "system",
-        text: "L'assistente IA è momentaneamente offline per limiti di traffico. Posso inviare il tuo messaggio direttamente alla mail di Maria Teresa se desideri!"
+        text: "L'assistente AI è momentaneamente offline per limiti di traffico. Posso inviare il tuo messaggio direttamente alla mail di Maria Teresa se desideri!"
       }]);
     } finally {
       setIsLoading(false);
@@ -98,7 +98,7 @@ export default function AIAssistant() {
             <div className="bg-app-accent-purple p-4 text-white border-b-4 border-app-text-primary flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Sparkles size={18} strokeWidth={3} />
-                <span className="font-sans font-black text-xs uppercase tracking-tighter">IA Strategico</span>
+                <span className="font-sans font-black text-xs uppercase tracking-tighter">AI Strategico</span>
               </div>
               <button onClick={() => setIsOpen(false)} className="hover:bg-white hover:text-app-accent-purple p-1 transition-colors cursor-pointer">
                 <X size={20} strokeWidth={3} />

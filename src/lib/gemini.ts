@@ -27,6 +27,6 @@ export async function askGemini(userPrompt: string) {
     return response.text();
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Mi dispiace, si è verificato un errore nella comunicazione con l'assistente IA. Per favore, riprova più tardi.";
+    return "Mi dispiace, si è verificato un errore nella comunicazione con l'assistente AI. Per favore, riprova più tardi.";
   }
 }
