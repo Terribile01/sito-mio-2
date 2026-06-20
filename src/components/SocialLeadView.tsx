@@ -177,8 +177,10 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
                   <p className="font-sans text-sm text-white/60 leading-tight">
                     {card.description}
                   </p>
-                  <div className="pt-2 flex items-center gap-2 text-app-accent-slime text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Scopri di più <ArrowRight size={14} />
+                  <div className="pt-4">
+                    <span className="inline-flex items-center gap-2 bg-app-accent-slime text-app-bg-main px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all group-hover:shadow-[0_0_20px_rgba(171,247,16,0.4)] group-hover:scale-105">
+                      Scopri di più <ArrowRight size={14} />
+                    </span>
                   </div>
                 </div>
               </motion.div>
