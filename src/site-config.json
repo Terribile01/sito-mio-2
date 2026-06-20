@@ -203,7 +203,7 @@
     },
     "hero": {
       "home_hero": {
-        "title": "Abbatto la barriera tecnologica per far fiorire il tuo business",
+        "title": "Abbatto la barriera tecnologica|<br />per far fiorire il tuo business",
         "subtitle": "Umanesimo Digitale & Sistemi Integrati",
         "description": "Rendo semplice, elegante e concreto ciò che fino a ieri sembrava complesso o costoso. Unisco il rigore del design tradizionale a motori web automatizzati ad alte prestazioni.",
         "cta_primary": {
@@ -216,7 +216,7 @@
         }
       },
       "chi_sono_hero": {
-        "title": "Chi compie le scelte estetiche, guida la strategia digitale",
+        "title": "Chi compie le scelte estetiche,|<br />guida la strategia digitale",
         "subtitle": "Il Rigore Accademico della Comunicazione Visiva",
         "description": "Sono diplomata in grafica pubblicitaria e laureata in Comunicazione Visiva Multimediale. Il mio percorso unisce il design tradizionale con la passione tecnologica per darti strumenti concreti, eleganti e funzionali.",
         "cta_primary": {
@@ -225,7 +225,7 @@
         }
       },
       "servizi_hero": {
-        "title": "Sistemi Integrati per la tua Crescita",
+        "title": "Sistemi Integrati|<br />per la tua Crescita",
         "subtitle": "Sviluppo Web Strategico",
         "description": "Ogni progetto è unico. Offro soluzioni su misura divise su due grandi pilastri per garantirti massima flessibilità o prestazioni pure senza compromessi.",
         "cta_primary": {
@@ -234,7 +234,7 @@
         }
       },
       "social_hero": {
-        "title": "I social non sono una vetrina statica, sono un'estensione attiva del tuo ufficio.",
+        "title": "I social non sono|<br />una vetrina statica,|<br />sono un'estensione attiva|<br />del tuo ufficio.",
         "subtitle": "Social & Lead Generation Automatica",
         "description": "Insieme trasformiamo i tuoi canali in macchine di acquisizione attiva. Niente campagne a vuoto, solo contatti profilati ed automazioni intelligenti.",
         "cta_primary": {
@@ -247,7 +247,7 @@
         }
       },
       "contatti_hero": {
-        "title": "Pronto a fare il prossimo passo digitale?",
+        "title": "Progetta il tuo Successo|<br />senza ansia",
         "subtitle": "Inizia il Dialogo con Me",
         "description": "Raccontami il tuo progetto. Niente moduli freddi o risposte automatiche standard, ma un flusso intelligente per profilare il tuo bisogno ed offrirti la soluzione perfetta.",
         "cta_primary": {

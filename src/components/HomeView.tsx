@@ -41,7 +41,7 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[0.9] mb-6 uppercase break-words"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-tight mb-6 uppercase break-words"
               >
                 {renderSplitTitle(heroData.title, "#FFFFFF", "#9B5CFF")}
               </motion.h1>
