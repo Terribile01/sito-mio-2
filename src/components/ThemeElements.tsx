@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import React from "react";
 
 export const GlowCircle = ({ color, size, top, left, delay }: { color: string, size: string, top: string, left: string, delay: number }) => (
   <motion.div
@@ -17,10 +18,27 @@ export const GlowCircle = ({ color, size, top, left, delay }: { color: string, s
 );
 
 export const renderSplitTitle = (title: string, primaryColor: string = "#FFFFFF", secondaryColor: string = "#9B5CFF") => {
-  const words = title.split(" ");
-  return words.map((word, i) => (
-    <span key={i} style={{ color: i % 2 === 0 ? primaryColor : secondaryColor }} className="mr-[0.2em]">
-      {word}
-    </span>
-  ));
+  if (!title) return null;
+
+  // Split by '|' to define color groups.
+  // If no '|' is present, the whole title will be in the primary color.
+  const parts = title.split("|");
+
+  return parts.map((part, index) => {
+    const color = index % 2 === 0 ? primaryColor : secondaryColor;
+
+    // Split by '<br />' for manual line breaks
+    const lines = part.split("<br />");
+
+    return (
+      <span key={index} style={{ color }}>
+        {lines.map((line, lineIndex) => (
+          <React.Fragment key={lineIndex}>
+            {line}
+            {lineIndex < lines.length - 1 && <br />}
+          </React.Fragment>
+        ))}
+      </span>
+    );
+  });
 };

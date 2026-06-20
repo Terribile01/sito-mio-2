@@ -57,7 +57,7 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase break-words"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-tight uppercase break-words"
               >
                 {renderSplitTitle(heroData.title)}
               </motion.h1>

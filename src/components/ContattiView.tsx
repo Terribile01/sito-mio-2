@@ -213,8 +213,8 @@ export default function ContattiView({ config }: ContattiProps) {
               {heroData.subtitle}
             </span>
             
-            <h1 className="font-sans text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase">
-              {renderSplitTitle("Progetta il tuo Successo senza ansia", "#FFFFFF", "#9B5CFF")}
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-tight uppercase">
+              {renderSplitTitle(heroData.title, "#FFFFFF", "#9B5CFF")}
             </h1>
 
             <p className="font-sans text-lg md:text-xl text-white/80 leading-tight max-w-2xl font-bold">
