@@ -2,6 +2,7 @@ import { SiteConfig } from "../types";
 import { ArrowRight, Workflow, ShieldAlert, Cpu, Laptop, Users2, CodeXml, HeartHandshake, Smartphone, Zap } from "lucide-react";
 import { motion } from "motion/react";
 import { GlowCircle, renderSplitTitle } from "./ThemeElements";
+import Hero3DBackground from "./Hero3DBackground";
 
 interface HomeViewProps {
   config: SiteConfig;
@@ -24,6 +25,9 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
 
       {/* Hero Section */}
       <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden w-full z-10">
+        {/* 3D Background Animation */}
+        <Hero3DBackground />
+
         <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-2xl">
