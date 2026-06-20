@@ -43,7 +43,7 @@ export default function BlogListView({ onNavigate }: BlogListViewProps) {
             <span className="font-mono text-xs md:text-sm font-bold text-app-text-primary tracking-widest uppercase bg-app-accent-green px-3 py-1 border-2 border-app-text-primary">
               Blog & Strategia
             </span>
-            <h1 className="font-sans text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-app-text-primary leading-[0.9] uppercase">
               Umanesimo <br/> <span className="text-app-accent-purple">Digitale</span>
             </h1>
           </div>

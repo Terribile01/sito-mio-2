@@ -10,7 +10,7 @@ export default function CookieView() {
           <div className="w-16 h-16 rounded-none bg-app-accent-orange text-app-text-primary border-2 border-app-text-primary flex items-center justify-center">
             <Cookie size={32} strokeWidth={3} />
           </div>
-          <h1 className="font-sans text-3xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">Cookie <br/> Policy</h1>
+          <h1 className="font-sans text-4xl sm:text-6xl font-black text-app-text-primary tracking-tighter uppercase leading-[0.9]">Cookie <br/> Policy</h1>
           <p className="font-mono text-xs text-app-text-primary font-bold uppercase tracking-widest bg-app-accent-lime px-3 py-1 w-fit border-2 border-app-text-primary">
             Aggiornamento: 26 Maggio 2026
           </p>

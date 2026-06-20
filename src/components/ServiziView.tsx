@@ -104,7 +104,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <span className="font-mono text-xs font-bold text-app-accent-secondary tracking-widest uppercase block mb-4">
               Sistemi d'Intervento
             </span>
-            <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Specifiche Dettaglio")}
             </h2>
           </motion.div>
@@ -191,11 +191,11 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     {service_options.wordpress.map((opt) => (
                       <div 
                         key={opt.id} 
-                        className="p-8 glass-morphism rounded-3xl space-y-4"
+                        className="p-6 md:p-8 glass-morphism rounded-3xl space-y-4"
                       >
-                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-center gap-3">
-                          <CheckCircle size={20} className="text-app-accent-primary shrink-0" />
-                          {opt.name}
+                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3">
+                          <CheckCircle size={20} className="text-app-accent-primary shrink-0 mt-1" />
+                          <span className="break-words min-w-0">{opt.name}</span>
                         </h4>
                         <div className="space-y-2 text-sm text-white/60 leading-tight">
                           <p>⚠️ <strong>Focus:</strong> {opt.focus}</p>
@@ -238,11 +238,11 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     {service_options.custom.map((opt) => (
                       <div 
                         key={opt.id} 
-                        className="p-8 glass-morphism rounded-3xl space-y-4"
+                        className="p-6 md:p-8 glass-morphism rounded-3xl space-y-4"
                       >
-                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-center gap-3 mb-1">
-                          <Zap size={20} className="text-app-tertiary shrink-0" />
-                          {opt.title}
+                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3 mb-1">
+                          <Zap size={20} className="text-app-tertiary shrink-0 mt-1" />
+                          <span className="break-words min-w-0">{opt.title}</span>
                         </h4>
                         <p className="text-sm text-white/60 leading-tight">{opt.detail}</p>
                       </div>
@@ -282,11 +282,11 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                     {service_options.social.map((opt) => (
                       <div 
                         key={opt.id} 
-                        className="p-8 glass-morphism rounded-3xl space-y-4"
+                        className="p-6 md:p-8 glass-morphism rounded-3xl space-y-4"
                       >
-                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-center gap-3 mb-1">
-                          <CheckCircle size={20} className="text-app-accent-secondary shrink-0" />
-                          {opt.title}
+                        <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3 mb-1">
+                          <CheckCircle size={20} className="text-app-accent-secondary shrink-0 mt-1" />
+                          <span className="break-words min-w-0">{opt.title}</span>
                         </h4>
                         <p className="text-sm text-white/60 leading-tight">{opt.detail}</p>
                       </div>
@@ -324,7 +324,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
               AI Sinergia
             </span>
-            <h2 className="font-sans text-3xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+            <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
               {renderSplitTitle("AI Potenzia ogni Progetto", "#FFFFFF", "#AAFF00")}
             </h2>
             <p className="font-sans text-xl text-white/80 leading-tight">
@@ -344,7 +344,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-14 h-14 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center">
                 <BookOpen size={28} />
               </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter">Copywriting</h3>
+              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">Copywriting</h3>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Generiamo testi impeccabili orientati alla conversione, guidati dal mio stampo di Comunicazione Visiva.
               </p>
@@ -361,7 +361,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-14 h-14 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center">
                 <Layout size={28} />
               </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter">Asset Grafici</h3>
+              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">Asset Grafici</h3>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Utilizziamo generatori di immagini stabili per progettare icone e sfondi custom che rispecchiano i tuoi valori.
               </p>
@@ -378,7 +378,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-14 h-14 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center">
                 <Database size={28} />
               </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter">SEO Semantica</h3>
+              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">SEO Semantica</h3>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Gli algoritmi di AI strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.
               </p>
@@ -410,7 +410,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center max-w-xl mx-auto mb-20"
           >
-            <h3 className="font-sans text-3xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h3 className="font-sans text-4xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Garanzia Approccio")}
             </h3>
             <p className="font-sans text-lg text-white/50 mt-4 uppercase">Zero sorprese, massima trasparenza.</p>
@@ -426,7 +426,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center mx-auto">
                 <ShieldCheck size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Compliance</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Compliance</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Include policy legali native graficamente allineate, senza widget esterni invasivi.
               </p>
@@ -442,7 +442,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center mx-auto">
                 <Zap size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Prestazioni</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Prestazioni</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Design super-leggero. I punteggi di caricamento velocizzano il posizionamento SEO.
               </p>
@@ -458,7 +458,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center mx-auto">
                 <RotateCcw size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter">Aggiornamenti</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Aggiornamenti</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Database testi organizzato. Modifichi un testo principale in un solo punto, ovunque.
               </p>
