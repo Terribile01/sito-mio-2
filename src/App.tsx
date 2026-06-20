@@ -45,6 +45,7 @@ export default function App() {
     root.style.setProperty("--btn-tertiary-text", palette.btn_tertiary_text);
     root.style.setProperty("--accent-primary", palette.accent_primary);
     root.style.setProperty("--accent-secondary", palette.accent_secondary);
+    root.style.setProperty("--accent-slime", palette.accent_slime);
     root.style.setProperty("--hover-primary", palette.hover_primary);
     root.style.setProperty("--hover-secondary", palette.hover_secondary);
     root.style.setProperty("--border-main", palette.border_main);

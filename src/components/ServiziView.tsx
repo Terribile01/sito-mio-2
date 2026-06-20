@@ -1,4 +1,4 @@
-import { SiteConfig } from "../types";
+import { SiteConfig, ManifestoCard } from "../types";
 import { 
   Code, 
   Smartphone,
@@ -9,11 +9,12 @@ import {
   BookOpen,
   Layout,
   Database,
-  Layers
+  Layers,
+  ArrowRight
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { GlowCircle, renderSplitTitle } from "./ThemeElements";
+import { GlowCircle, renderSplitTitle, CardPopup } from "./ThemeElements";
 
 interface ServiziViewProps {
   config: SiteConfig;
@@ -23,9 +24,30 @@ interface ServiziViewProps {
 export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
   const { components, service_options } = config;
   const heroData = components.hero.servizi_hero;
+  const serviziCards = components.servizi_cards;
   
   // Tab state: "wordpress" | "custom" | "social"
   const [activeTab, setActiveTab] = useState<"wordpress" | "custom" | "social">("wordpress");
+  const [selectedCard, setSelectedCard] = useState<ManifestoCard | null>(null);
+
+  const getIcon = (iconName: string, color: string = "currentColor") => {
+    switch (iconName) {
+      case "BookOpen": return <BookOpen size={28} color={color} />;
+      case "Layout": return <Layout size={28} color={color} />;
+      case "Database": return <Database size={28} color={color} />;
+      default: return <Zap size={28} color={color} />;
+    }
+  };
+
+  const handleCtaClick = () => {
+    onNavigate("/contatti");
+    setTimeout(() => {
+      const element = document.getElementById("contatti-form-container");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   return (
     <div id="servizi-view" className="relative space-y-0 pb-0 bg-app-bg-main overflow-hidden">
@@ -334,55 +356,30 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            {/* Card 1: Copywriting accelerato */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass-morphism p-8 space-y-6 rounded-[40px]"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center">
-                <BookOpen size={28} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">Copywriting</h3>
-              <p className="font-sans text-sm text-white/60 leading-tight">
-                Generiamo testi impeccabili orientati alla conversione, guidati dal mio stampo di Comunicazione Visiva.
-              </p>
-            </motion.div>
-
-            {/* Card 2: Layout & Asset Mockups */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="glass-morphism p-8 space-y-6 rounded-[40px]"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center">
-                <Layout size={28} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">Asset Grafici</h3>
-              <p className="font-sans text-sm text-white/60 leading-tight">
-                Utilizziamo generatori di immagini stabili per progettare icone e sfondi custom che rispecchiano i tuoi valori.
-              </p>
-            </motion.div>
-
-            {/* Card 3: SEO Semantica Automatica */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="glass-morphism p-8 space-y-6 rounded-[40px]"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center">
-                <Database size={28} />
-              </div>
-              <h3 className="font-sans font-black text-2xl text-white uppercase tracking-tighter break-words">SEO Semantica</h3>
-              <p className="font-sans text-sm text-white/60 leading-tight">
-                Gli algoritmi di AI strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.
-              </p>
-            </motion.div>
+            {serviziCards.map((card, idx) => (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                onClick={() => setSelectedCard(card)}
+                className="glass-morphism p-8 space-y-6 rounded-[40px] border-white/10 hover:border-app-accent-slime/40 transition-all cursor-pointer group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-app-accent-slime/20 text-app-accent-slime flex items-center justify-center shadow-[0_0_15px_rgba(171,247,16,0.3)] group-hover:scale-110 transition-transform">
+                  {getIcon(card.icon, "#ABF710")}
+                </div>
+                <h3 className="font-sans font-black text-2xl text-app-accent-slime uppercase tracking-tighter break-words">
+                  {card.title}
+                </h3>
+                <p className="font-sans text-sm text-white/60 leading-tight">
+                  {card.description}
+                </p>
+                <div className="pt-2 flex items-center gap-2 text-app-accent-slime text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  Scopri di più <ArrowRight size={14} />
+                </div>
+              </motion.div>
+            ))}
 
           </div>
 
@@ -467,6 +464,15 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
 
         </div>
       </section>
+
+      {/* Popup Modal */}
+      <CardPopup
+        isOpen={!!selectedCard}
+        onClose={() => setSelectedCard(null)}
+        title={selectedCard?.title || ""}
+        faqs={selectedCard?.faqs || []}
+        onCtaClick={handleCtaClick}
+      />
 
     </div>
   );

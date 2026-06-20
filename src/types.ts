@@ -27,6 +27,7 @@ export interface ThemePalette {
   btn_tertiary_text: string;
   accent_primary: string;
   accent_secondary: string;
+  accent_slime: string;
   hover_primary: string;
   hover_secondary: string;
   border_main: string;
@@ -89,6 +90,19 @@ export interface ServiceOption {
   focus?: string;
   objective?: string;
   detail?: string;
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface ManifestoCard {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  faqs: FAQ[];
 }
 
 export interface HeroSectionDetail {
@@ -167,14 +181,12 @@ export interface ComponentsConfig {
     social_hero: HeroSectionDetail;
     contatti_hero: HeroSectionDetail;
   };
+  manifesto_cards: ManifestoCard[];
+  servizi_cards: ManifestoCard[];
+  social_cards: ManifestoCard[];
   sezione_strategie_social: SezioneStrategieSocial;
   sezione_servizi_dettaglio: SezioneServiziDettaglio;
   bloccopnn1: BloccoPNN1;
-  service_options: {
-    wordpress: ServiceOption[];
-    custom: ServiceOption[];
-    social: ServiceOption[];
-  };
   comune_footer: ComuneFooter;
 }
 

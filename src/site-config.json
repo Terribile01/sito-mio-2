@@ -14,6 +14,7 @@
       "btn_tertiary_text": "#080808",
       "accent_primary": "#9B5CFF",
       "accent_secondary": "#00F5FF",
+      "accent_slime": "#ABF710",
       "hover_primary": "#00F5FF",
       "hover_secondary": "#AAFF00",
       "border_main": "#141414",
@@ -256,6 +257,114 @@
         }
       }
     },
+    "manifesto_cards": [
+      {
+        "id": "barriere",
+        "title": "Abbatto Barriere",
+        "description": "Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile dai soliti tecnicismi.",
+        "icon": "ShieldAlert",
+        "faqs": [
+          {
+            "question": "Come rendi semplici i concetti tecnici?",
+            "answer": "Traduco il linguaggio ostile del web in soluzioni chiare, così non dovrai mai sentirti esclusa dai tuoi stessi strumenti."
+          },
+          {
+            "question": "Perché punti sull’accessibilità?",
+            "answer": "Perché credo che la tecnologia debba unire, non dividere. Elimino ogni ostacolo tecnico tra te e i tuoi obiettivi."
+          },
+          {
+            "question": "Devo avere competenze tecniche per lavorare con te?",
+            "answer": "No, me ne occupo io. Tu porti la visione, io la rendo fruibile e semplice."
+          }
+        ]
+      },
+      {
+        "id": "umanesimo",
+        "title": "Umanesimo Digitale",
+        "description": "Le persone guidano il progresso. Costruisco infrastrutture per liberare il tuo tempo prezioso.",
+        "icon": "HeartHandshake",
+        "faqs": [
+          {
+            "question": "Cosa intendo quando dico che \"le persone guidano il progresso\"?",
+            "answer": "Significa che la tecnologia che sviluppo per te non è mai fine a se stessa, ma è progettata per assecondare i tuoi ritmi e le tue necessità umane, mantenendoti sempre al centro delle decisioni."
+          },
+          {
+            "question": "In che modo le mie infrastrutture liberano il tuo tempo prezioso?",
+            "answer": "Progetto sistemi e flussi di lavoro digitali che automatizzano le attività ripetitive, così puoi smettere di lottare con la tecnica e dedicarti finalmente a ciò che ami della tua attività."
+          },
+          {
+            "question": "Perché un approccio \"umanistico\" è un vantaggio concreto per te?",
+            "answer": "Perché un sito che rispetta il tempo e l'attenzione di chi lo usa crea fiducia immediata. Costruisco strumenti che non sovraccaricano, ma semplificano la vita a te e ai tuoi clienti."
+          }
+        ]
+      },
+      {
+        "id": "rigore",
+        "title": "Rigore Visivo",
+        "description": "Applico una rigorosa eleganza estetica. Ogni scelta segue un preciso scopo di conversione.",
+        "icon": "Workflow",
+        "faqs": [
+          {
+            "question": "Cosa significa per me \"rigorosa eleganza estetica\"?",
+            "answer": "Significa che non lascio nulla al caso. Ogni elemento grafico è pulito, essenziale e professionale, pensato per dare al tuo brand un'immagine autorevole che non passa mai di moda."
+          },
+          {
+            "question": "In che modo l'estetica può aiutare la conversione?",
+            "answer": "Il design per me non è solo decoro, ma strategia. Uso il rigore visivo per guidare lo sguardo dell'utente esattamente dove serve, trasformando la bellezza in un percorso fluido che porta all'azione."
+          },
+          {
+            "question": "Perché ogni mia scelta ha uno scopo preciso?",
+            "answer": "Perché la forma deve sempre seguire la funzione. Ogni colore, font o spazio bianco che seleziono è giustificato da un obiettivo di business, eliminando le distrazioni che allontanano i tuoi clienti dal risultato."
+          }
+        ]
+      }
+    ],
+    "servizi_cards": [
+      {
+        "id": "copywriting",
+        "title": "Copywriting",
+        "description": "Generiamo testi impeccabili orientati alla conversione, guidati dal mio stampo di Comunicazione Visiva.",
+        "icon": "BookOpen",
+        "faqs": []
+      },
+      {
+        "id": "asset_grafici",
+        "title": "Asset Grafici",
+        "description": "Utilizziamo generatori di immagini stabili per progettare icone e sfondi custom che rispecchiano i tuoi valori.",
+        "icon": "Layout",
+        "faqs": []
+      },
+      {
+        "id": "seo_semantica",
+        "title": "SEO Semantica",
+        "description": "Gli algoritmi di AI strutturano tag ordinati e schemi di dati semantici perfetti per l'indicizzazione Google.",
+        "icon": "Database",
+        "faqs": []
+      }
+    ],
+    "social_cards": [
+      {
+        "id": "campagne_vuoto",
+        "title": "Oltre le 'Campagne a Vuoto'",
+        "description": "La maggior parte del mercato spinge verso promozioni inconcludenti. Per me, la campagna è solo l'anello finale di una comunicazione strategica già attiva, funzionale e interamente misurabile.",
+        "icon": "Users",
+        "faqs": []
+      },
+      {
+        "id": "dialogo_intelligente",
+        "title": "Dialogo Intelligente",
+        "description": "Se il tuo profilo Instagram o Facebook non converte, non è colpa dell'algoritmo ma della mancanza di un 'ponte'. Sviluppo automazioni con l'ausilio di AI per dialogare istantaneamente con i follower.",
+        "icon": "MessageSquareCode",
+        "faqs": []
+      },
+      {
+        "id": "lead_profilati",
+        "title": "Lead Profilati & Vendite Finalizzate",
+        "description": "Il sistema guida l'utente dalla semplice curiosità alla formulazione della richiesta specifica. Non riceverai semplici 'like', ma contatti caldi e pronti all'acquisto, filtrati mentre ti occupi del tuo business.",
+        "icon": "Zap",
+        "faqs": []
+      }
+    ],
     "sezione_strategie_social": {
       "title": "Il Sistema che Vende",
       "subtitle": "La Strategia di Lead Generation Automatica",
