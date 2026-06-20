@@ -233,7 +233,7 @@ export default function ContattiView({ config }: ContattiProps) {
                 <span className="font-mono text-xs uppercase font-black text-app-accent-secondary tracking-widest bg-app-accent-secondary/10 px-3 py-1 border border-app-accent-secondary/30 rounded-full">
                   Risposta 24h
                 </span>
-                <h2 className="font-sans text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+                <h2 className="font-sans text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
                   {renderSplitTitle("Contatto Veloce", "#FFFFFF", "#00F5FF")}
                 </h2>
                 <p className="font-sans text-lg text-white/70 font-bold leading-tight">

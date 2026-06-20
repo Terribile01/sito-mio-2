@@ -104,7 +104,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <span className="font-mono text-xs font-bold text-app-accent-secondary tracking-widest uppercase block mb-4">
               Sistemi d'Intervento
             </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Specifiche Dettaglio")}
             </h2>
           </motion.div>
@@ -324,7 +324,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
               AI Sinergia
             </span>
-            <h2 className="font-sans text-4xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
+            <h2 className="font-sans text-3xl sm:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
               {renderSplitTitle("AI Potenzia ogni Progetto", "#FFFFFF", "#AAFF00")}
             </h2>
             <p className="font-sans text-xl text-white/80 leading-tight">
@@ -410,7 +410,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center max-w-xl mx-auto mb-20"
           >
-            <h3 className="font-sans text-4xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h3 className="font-sans text-3xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Garanzia Approccio")}
             </h3>
             <p className="font-sans text-lg text-white/50 mt-4 uppercase">Zero sorprese, massima trasparenza.</p>

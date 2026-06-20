@@ -124,7 +124,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             <span className="font-mono text-xs font-bold text-app-accent-secondary tracking-widest uppercase block">
               {socialSection.subtitle}
             </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle(socialSection.title)}
             </h2>
             <p className="font-sans text-lg sm:text-xl text-white/70 leading-tight">
@@ -195,7 +195,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
               <span className="font-mono text-xs font-black text-app-tertiary tracking-widest uppercase block mb-2">
                 AI Real-time
               </span>
-              <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter leading-[0.9] uppercase">
+              <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter leading-[0.9] uppercase">
                 {renderSplitTitle("AI Automazione Lead Gen", "#FFFFFF", "#AAFF00")}
               </h2>
               <p className="font-sans text-lg text-white/70 leading-tight">
@@ -266,7 +266,7 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-6"
           >
-            <h2 className="font-sans text-4xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Campagne A Vuoto", "#FFFFFF", "#9B5CFF")}
             </h2>
             <p className="font-sans text-lg text-white/70 leading-tight">

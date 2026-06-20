@@ -87,7 +87,7 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-7 space-y-8 text-white/80"
           >
-            <h2 className="font-sans text-4xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Storia Accademica Passione Informatica")}
             </h2>
             <div className="space-y-6 text-lg leading-tight">
@@ -192,7 +192,7 @@ export default function ChiSonoView({ config, onNavigate }: ChiSonoProps) {
             <span className="font-mono text-xs font-bold text-app-tertiary tracking-widest uppercase block mb-2">
               Target
             </span>
-            <h2 className="font-sans text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-sans text-3xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
               {renderSplitTitle("Microimprenditoria Locale e Online")}
             </h2>
             <p className="font-sans text-lg md:text-xl text-white/70 leading-tight max-w-3xl">
