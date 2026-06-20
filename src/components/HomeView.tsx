@@ -1,7 +1,8 @@
-import { SiteConfig } from "../types";
+import { useState } from "react";
+import { SiteConfig, ManifestoCard } from "../types";
 import { ArrowRight, Workflow, ShieldAlert, Cpu, Laptop, Users2, CodeXml, HeartHandshake, Smartphone, Zap } from "lucide-react";
 import { motion } from "motion/react";
-import { GlowCircle, renderSplitTitle } from "./ThemeElements";
+import { GlowCircle, renderSplitTitle, CardPopup } from "./ThemeElements";
 import Hero3DBackground from "./Hero3DBackground";
 
 interface HomeViewProps {
@@ -14,6 +15,28 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
   const heroData = components.hero.home_hero;
   const socialData = components.sezione_strategie_social;
   const serviziData = components.sezione_servizi_dettaglio;
+  const manifestoCards = components.manifesto_cards;
+
+  const [selectedCard, setSelectedCard] = useState<ManifestoCard | null>(null);
+
+  const getIcon = (iconName: string, color: string = "currentColor") => {
+    switch (iconName) {
+      case "ShieldAlert": return <ShieldAlert size={28} color={color} />;
+      case "HeartHandshake": return <HeartHandshake size={28} color={color} />;
+      case "Workflow": return <Workflow size={28} color={color} />;
+      default: return <Zap size={28} color={color} />;
+    }
+  };
+
+  const handleCtaClick = () => {
+    onNavigate("/contatti");
+    setTimeout(() => {
+      const element = document.getElementById("contatti-form-container");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   return (
     <div id="home-view" className="relative space-y-0 pb-0 bg-app-bg-main overflow-hidden">
@@ -114,52 +137,30 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-accent-primary/40 transition-colors"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center shadow-[0_0_15px_rgba(155,92,255,0.3)]">
-              <ShieldAlert size={28} />
-            </div>
-            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Abbatto Barriere</h3>
-            <p className="font-sans text-base text-white/70 leading-relaxed">
-              Rendo accessibile ciò che fino ad oggi è stato reso volutamente ostile dai soliti tecnicismi.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-accent-secondary/40 transition-colors"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center shadow-[0_0_15px_rgba(0,245,255,0.3)]">
-              <HeartHandshake size={28} />
-            </div>
-            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Umanesimo Reale</h3>
-            <p className="font-sans text-base text-white/70 leading-relaxed">
-              Le persone guidano il progresso. Costruisco infrastrutture per liberare il tuo tempo prezioso.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="glass-morphism p-8 rounded-3xl space-y-6 hover:border-app-tertiary/40 transition-colors md:col-span-2 lg:col-span-1"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center shadow-[0_0_15px_rgba(170,255,0,0.3)]">
-              <Workflow size={28} />
-            </div>
-            <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">Rigore Visivo</h3>
-            <p className="font-sans text-base text-white/70 leading-relaxed">
-              Applico una rigorosa eleganza estetica. Ogni scelta segue un preciso scopo di conversione.
-            </p>
-          </motion.div>
+          {manifestoCards.map((card, idx) => (
+            <motion.div
+              key={card.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              onClick={() => setSelectedCard(card)}
+              className="glass-morphism p-8 rounded-3xl space-y-6 border-white/10 hover:border-app-accent-slime/40 transition-all cursor-pointer group"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-app-accent-slime/20 text-app-accent-slime flex items-center justify-center shadow-[0_0_15px_rgba(171,247,16,0.3)] group-hover:scale-110 transition-transform">
+                {getIcon(card.icon, "#ABF710")}
+              </div>
+              <h3 className="font-sans text-2xl font-black text-app-accent-slime tracking-tighter uppercase">
+                {card.title}
+              </h3>
+              <p className="font-sans text-base text-white/70 leading-relaxed">
+                {card.description}
+              </p>
+              <div className="pt-2 flex items-center gap-2 text-app-accent-slime text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                Scopri di più <ArrowRight size={14} />
+              </div>
+            </motion.div>
+          ))}
 
         </div>
       </div>
@@ -433,6 +434,15 @@ export default function HomeView({ config, onNavigate }: HomeViewProps) {
           </div>
         </div>
       </section>
+
+      {/* Popup Modal */}
+      <CardPopup
+        isOpen={!!selectedCard}
+        onClose={() => setSelectedCard(null)}
+        title={selectedCard?.title || ""}
+        faqs={selectedCard?.faqs || []}
+        onCtaClick={handleCtaClick}
+      />
 
     </div>
   );

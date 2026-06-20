@@ -1,4 +1,4 @@
-import { SiteConfig } from "../types";
+import { SiteConfig, ManifestoCard } from "../types";
 import { 
   MessageSquareCode, 
   Users, 
@@ -7,9 +7,11 @@ import {
   Sparkles, 
   Smartphone, 
   Zap, 
+  ArrowRight
 } from "lucide-react";
+import { useState } from "react";
 import { motion } from "motion/react";
-import { GlowCircle, renderSplitTitle } from "./ThemeElements";
+import { GlowCircle, renderSplitTitle, CardPopup } from "./ThemeElements";
 
 interface SocialLeadViewProps {
   config: SiteConfig;
@@ -20,6 +22,28 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
   const { components } = config;
   const heroData = components.hero.social_hero;
   const socialSection = components.sezione_strategie_social;
+  const socialCards = components.social_cards;
+
+  const [selectedCard, setSelectedCard] = useState<ManifestoCard | null>(null);
+
+  const getIcon = (iconName: string, color: string = "currentColor") => {
+    switch (iconName) {
+      case "Users": return <Users size={28} color={color} />;
+      case "MessageSquareCode": return <MessageSquareCode size={28} color={color} />;
+      case "Zap": return <Zap size={28} color={color} />;
+      default: return <Zap size={28} color={color} />;
+    }
+  };
+
+  const handleCtaClick = () => {
+    onNavigate("/contatti");
+    setTimeout(() => {
+      const element = document.getElementById("contatti-form-container");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   return (
     <div id="social-lead-view" className="relative space-y-0 pb-0 bg-app-bg-main overflow-hidden">
@@ -133,25 +157,29 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {socialSection.pillars.map((pillar, idx) => (
+            {socialCards.map((card, idx) => (
               <motion.div
-                key={pillar.index}
+                key={card.id}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-morphism p-8 rounded-3xl space-y-6"
+                onClick={() => setSelectedCard(card)}
+                className="glass-morphism p-8 rounded-3xl space-y-6 border-white/10 hover:border-app-accent-slime/40 transition-all cursor-pointer group"
               >
                 <div className="space-y-4">
-                  <span className="font-mono text-4xl font-black text-app-accent-secondary block">
-                    {pillar.index}
-                  </span>
-                  <h3 className="font-sans text-2xl font-black text-white tracking-tighter uppercase">
-                    {pillar.title}
+                  <div className="w-14 h-14 rounded-2xl bg-app-accent-slime/20 text-app-accent-slime flex items-center justify-center shadow-[0_0_15px_rgba(171,247,16,0.3)] group-hover:scale-110 transition-transform">
+                    {getIcon(card.icon, "#ABF710")}
+                  </div>
+                  <h3 className="font-sans text-2xl font-black text-app-accent-slime tracking-tighter uppercase">
+                    {card.title}
                   </h3>
                   <p className="font-sans text-sm text-white/60 leading-tight">
-                    {pillar.description}
+                    {card.description}
                   </p>
+                  <div className="pt-2 flex items-center gap-2 text-app-accent-slime text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    Scopri di più <ArrowRight size={14} />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -297,6 +325,15 @@ export default function SocialLeadView({ config, onNavigate }: SocialLeadViewPro
 
         </div>
       </section>
+
+      {/* Popup Modal */}
+      <CardPopup
+        isOpen={!!selectedCard}
+        onClose={() => setSelectedCard(null)}
+        title={selectedCard?.title || ""}
+        faqs={selectedCard?.faqs || []}
+        onCtaClick={handleCtaClick}
+      />
 
     </div>
   );
