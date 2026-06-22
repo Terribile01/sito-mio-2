@@ -55,8 +55,8 @@
   }
 
   .smart-text {
-    @apply break-words leading-relaxed max-w-prose;
-    hyphens: auto;
+    @apply break-normal leading-relaxed max-w-prose;
+    hyphens: none;
   }
 }
 
