@@ -94,7 +94,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-tight uppercase break-words"
+                className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-tight uppercase break-normal"
               >
                 {renderSplitTitle(heroData.title)}
               </motion.h1>
@@ -217,7 +217,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                       >
                         <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3">
                           <CheckCircle size={20} className="text-app-accent-primary shrink-0 mt-1" />
-                          <span className="break-words min-w-0">{opt.name}</span>
+                          <span className="break-normal min-w-0">{opt.name}</span>
                         </h4>
                         <div className="space-y-2 text-sm text-white/60 leading-tight">
                           <p>⚠️ <strong>Focus:</strong> {opt.focus}</p>
@@ -264,7 +264,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                       >
                         <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3 mb-1">
                           <Zap size={20} className="text-app-tertiary shrink-0 mt-1" />
-                          <span className="break-words min-w-0">{opt.title}</span>
+                          <span className="break-normal min-w-0">{opt.title}</span>
                         </h4>
                         <p className="text-sm text-white/60 leading-tight">{opt.detail}</p>
                       </div>
@@ -308,7 +308,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                       >
                         <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter flex items-start gap-3 mb-1">
                           <CheckCircle size={20} className="text-app-accent-secondary shrink-0 mt-1" />
-                          <span className="break-words min-w-0">{opt.title}</span>
+                          <span className="break-normal min-w-0">{opt.title}</span>
                         </h4>
                         <p className="text-sm text-white/60 leading-tight">{opt.detail}</p>
                       </div>
@@ -369,7 +369,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
                 <div className="w-14 h-14 rounded-2xl bg-app-accent-slime/20 text-app-accent-slime flex items-center justify-center shadow-[0_0_15px_rgba(171,247,16,0.3)] group-hover:scale-110 transition-transform">
                   {getIcon(card.icon, "#ABF710")}
                 </div>
-                <h3 className="font-sans font-black text-2xl text-app-accent-slime uppercase tracking-tighter break-words">
+                <h3 className="font-sans font-black text-2xl text-app-accent-slime uppercase tracking-tighter break-normal">
                   {card.title}
                 </h3>
                 <p className="font-sans text-sm text-white/60 leading-tight">
@@ -425,7 +425,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-accent-primary/20 text-app-accent-primary flex items-center justify-center mx-auto">
                 <ShieldCheck size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Compliance</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-normal">Compliance</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Include policy legali native graficamente allineate, senza widget esterni invasivi.
               </p>
@@ -441,7 +441,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-tertiary/20 text-app-tertiary flex items-center justify-center mx-auto">
                 <Zap size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Prestazioni</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-normal">Prestazioni</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Design super-leggero. I punteggi di caricamento velocizzano il posizionamento SEO.
               </p>
@@ -457,7 +457,7 @@ export default function ServiziView({ config, onNavigate }: ServiziViewProps) {
               <div className="w-16 h-16 rounded-2xl bg-app-accent-secondary/20 text-app-accent-secondary flex items-center justify-center mx-auto">
                 <RotateCcw size={32} />
               </div>
-              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-words">Aggiornamenti</h4>
+              <h4 className="font-sans font-black text-xl text-white uppercase tracking-tighter break-normal">Aggiornamenti</h4>
               <p className="font-sans text-sm text-white/60 leading-tight">
                 Database testi organizzato. Modifichi un testo principale in un solo punto, ovunque.
               </p>
